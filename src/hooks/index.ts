@@ -1,0 +1,1 @@
+//Armazena hooks personalizados que podem encapsular lógica específica da aplicação.
