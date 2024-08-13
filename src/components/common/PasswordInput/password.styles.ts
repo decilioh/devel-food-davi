@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
+export const PasswordInputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
   display: flex;
   align-items: center;
   border: 2px solid
@@ -15,15 +15,24 @@ export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean 
 `;
 
 
-export const InputField = styled.input`
+export const PasswordField = styled.input`
   border: none;
   outline: none;
   flex: 1;
   padding: 8px;
+  width: 558px;
 `;
 
 export const IconWrapper = styled.div`
   margin-right: 8px;
+  display: flex;
+  align-items: center;
+`;
+
+export const ToggleButton = styled.button`
+  background: none;
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
 `;
@@ -35,4 +44,3 @@ export const ErrorMessage = styled.span`
   display: flex;
   justify-content: space-between;
 `;
-
