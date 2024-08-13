@@ -10,7 +10,7 @@ interface Props{
 
 const Button = ({id, children, type="button", onClick=undefined}: Props) => {
   return (
-    <ButtonApp type={type} onClick={() => onClick}>
+    <ButtonApp type={type} id={id} onClick={onClick} >
         {children}
     </ButtonApp>
   )
