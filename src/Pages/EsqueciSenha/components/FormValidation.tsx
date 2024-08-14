@@ -5,14 +5,14 @@ import { FormDataSchemaValidation, schemaValidation } from '../schema'
 import Input from '../../../components/common/Input';
 import { AiOutlineLock } from 'react-icons/ai';
 import Button from '../../../components/common/Button';
-import { FormEsqueciSenha } from './Form.styles';
 import PasswordInput from '../../../components/common/PasswordInput';
 import { DivSeparacao } from '../EsqueciSenha.styles';
 import { useNavigate } from 'react-router-dom';
+import { FormEsqueciSenha } from './Form.styles';
 
 interface Props {
     valor: React.Dispatch<React.SetStateAction<number>>
-  }
+}
 
 const FormValidation = ({valor}: Props) => {
     const navigate = useNavigate()

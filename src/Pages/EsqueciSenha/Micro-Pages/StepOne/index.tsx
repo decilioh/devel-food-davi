@@ -1,6 +1,6 @@
 
 import ImgLogo from "../../../../assets/images/logoDevelThemeWhite.svg"
-import FormJustEmail from '../../components/FormJustEmail'
+import FormJustEmail from "../../components/FormJustEmail"
 import { ImageLogo } from "../../EsqueciSenha.styles"
 
 interface Props{

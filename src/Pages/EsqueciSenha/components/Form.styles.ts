@@ -17,7 +17,7 @@ export const FormEsqueciSenha = styled.form`
     @media screen and (max-width: 610px) {
        width: 70vw;
     }
-`
+`;
 
 export const FormValidation = styled.form`
     display: flex;

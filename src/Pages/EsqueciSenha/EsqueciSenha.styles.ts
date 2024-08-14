@@ -31,7 +31,6 @@ export const NoticeVerified = styled.span`
   text-align: left;
   margin: 2vh 0;
   width: 500px;
-  color: #BFBABA;
 `
 
 export const DivSeparacao = styled.div`
