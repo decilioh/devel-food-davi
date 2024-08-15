@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const FormEsqueciSenha = styled.form`
+export const FormForgotPassword = styled.form`
     display: flex;
     flex-direction: column;
     width: 20vw;

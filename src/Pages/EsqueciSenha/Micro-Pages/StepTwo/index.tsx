@@ -5,12 +5,12 @@ import { NoticeVerified, TitleOrCodeVerified, VerifiedLogo } from '../../Esqueci
 import { FormValidation } from '../../components/Form.styles'
 
 interface Props {
-    valor: React.Dispatch<React.SetStateAction<number>>
+    value: React.Dispatch<React.SetStateAction<number>>
 }
 
-const StepTwo = ({ valor }: Props) => {
+const StepTwo = ({ value }: Props) => {
     function changeScene() {
-        valor(3)
+        value(3)
     }
 
     return (
@@ -20,7 +20,7 @@ const StepTwo = ({ valor }: Props) => {
                 <TitleOrCodeVerified>Código de validação</TitleOrCodeVerified>
                 <NoticeVerified>Copie ou anote este código, ele será utilizado para você finalizar a recuperação de senha!</NoticeVerified>
                 <TitleOrCodeVerified>AUIhuiaasa56d4as56-AUIhuiaasa56d4as56 56das465fa4d56-5fsd4fgsd65f4sa</TitleOrCodeVerified>
-                <Button id="button-esqueci-senha-2-continuar" type="submit">Continuar</Button>
+                <Button id="button-forgot-password-2-continue" type="submit">Continuar</Button>
             </FormValidation>
         </>
     )

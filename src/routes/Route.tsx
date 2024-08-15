@@ -3,7 +3,7 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 
 import Login from "../Pages/Login"
-import EsqueciSenha from "../Pages/EsqueciSenha"
+import ForgotPassword from "../Pages/EsqueciSenha"
 
 const Router = () => {
   return (
@@ -11,7 +11,7 @@ const Router = () => {
         <Routes>
           <Route path="/" element={<Navigate to="/login"/>}/>
           <Route path="/login" element={<Login/>}/>
-          <Route path="/esqueci-minha-senha" element={<EsqueciSenha/>}/>
+          <Route path="/forgot-my-password" element={<ForgotPassword/>}/>
         </Routes>
     </BrowserRouter>
   )

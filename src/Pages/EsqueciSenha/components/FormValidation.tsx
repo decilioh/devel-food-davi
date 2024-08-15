@@ -6,15 +6,15 @@ import Input from '../../../components/common/Input';
 import { AiOutlineLock } from 'react-icons/ai';
 import Button from '../../../components/common/Button';
 import PasswordInput from '../../../components/common/PasswordInput';
-import { DivSeparacao } from '../EsqueciSenha.styles';
+import { SpacingContents } from '../EsqueciSenha.styles';
 import { useNavigate } from 'react-router-dom';
-import { FormEsqueciSenha } from './Form.styles';
+import { FormForgotPassword } from './Form.styles';
 
 interface Props {
-    valor: React.Dispatch<React.SetStateAction<number>>
+    value: React.Dispatch<React.SetStateAction<number>>
 }
 
-const FormValidation = ({valor}: Props) => {
+const FormValidation = ({value}: Props) => {
     const navigate = useNavigate()
     const {
         register,
@@ -30,9 +30,9 @@ const FormValidation = ({valor}: Props) => {
     };
 
     return (
-        <FormEsqueciSenha onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
-                id='input-login-validacao'
+                id='input-login-validation'
                 icon={AiOutlineLock}
                 placeholder='Código de validação'
                 {...register('validationCode')}
@@ -40,7 +40,7 @@ const FormValidation = ({valor}: Props) => {
                 isTouched={touchedFields.validationCode}
             />
             <PasswordInput
-                id='input-login-senha'
+                id='input-login-password'
                 icon={AiOutlineLock}
                 placeholder="Senha"
                 {...register('password')}
@@ -48,18 +48,18 @@ const FormValidation = ({valor}: Props) => {
                 isTouched={touchedFields.password}
             />
             <PasswordInput
-                id='input-login-confirmar-senha'
+                id='input-login-confirm-password'
                 icon={AiOutlineLock}
                 placeholder="Confirmar senha"
                 {...register('confirmPassword')}
                 error={errors.confirmPassword}
                 isTouched={touchedFields.confirmPassword}
             />
-            <DivSeparacao>
-                <Button id='button-esqueci-senha-3-voltar' onClick={() => valor(2)}>Voltar</Button>
-                <Button id='button-esqueci-senha-3-continuar' type='submit'>Continuar</Button>
-            </DivSeparacao>
-        </FormEsqueciSenha>
+            <SpacingContents>
+                <Button id='button-forgot-password-3-back' onClick={() => value(2)}>Voltar</Button>
+                <Button id='button-forgot-password-3-continue' type='submit'>Continuar</Button>
+            </SpacingContents>
+        </FormForgotPassword>
 
     )
 }
