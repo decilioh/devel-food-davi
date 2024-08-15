@@ -1,5 +1,4 @@
 //Define a configuração das rotas da aplicação
-
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
 
 import Login from "../Pages/Login"
@@ -14,7 +13,7 @@ const Router = () => {
           <Route path="/forgot-my-password" element={<ForgotPassword/>}/>
         </Routes>
     </BrowserRouter>
-  )
-}
+  );
+};
 
-export default Router
+export default Router;
