@@ -9,7 +9,7 @@ import { MainContainer } from "./EsqueciSenha.styles"
 
 
 
-const ForgotPassword = () => {
+const ForgotMyPassword = () => {
   const [value, setValue] = useState<number>(1)
 
   function checkStep(){
@@ -31,4 +31,5 @@ const ForgotPassword = () => {
   )
 }
 
-export default ForgotPassword
+export default ForgotMyPassword
+

@@ -5,7 +5,7 @@ export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean 
   align-items: center;
   border: 2px solid
     ${({ isValid, isTouched }) => {
-      if (!isTouched) return '#ccc'; // Cor inicial cinza
+      if (!isTouched) return '#ccc'; 
       return isValid ? '#00BFFF' : '#FF6347';
     }};
   background-color: white;
