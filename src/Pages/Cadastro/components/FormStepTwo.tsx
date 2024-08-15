@@ -11,10 +11,10 @@ import Select from '../../../components/common/Select';
 import { handlePhoneChange } from '../../../utils';
 
 interface Props{
-    setValor: React.Dispatch<React.SetStateAction<number>>
+    setvalue: React.Dispatch<React.SetStateAction<number>>
 }
 
-const FormStepTwo = ({setValor}: Props) => {
+const FormStepTwo = ({setvalue}: Props) => {
     const {
         register,
         handleSubmit,
@@ -26,34 +26,36 @@ const FormStepTwo = ({setValor}: Props) => {
 
     const onSubmit: SubmitHandler<FormDataSchemaStepTwo> = (data) => {
         console.log(data)
-        setValor(3)
+        setvalue(3)
     };
 
     return (
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
-                id='input-cadastro-nome'
+                id='input-register-name'
                 icon={FaRegUser}
                 placeholder='Nome'
-                {...register('nome')}
-                error={errors.nome}
-                isTouched={touchedFields.nome}
+                {...register('name')}
+                error={errors.name}
+                isTouched={touchedFields.name}
             />
             <Input
-                id='input-cadastro-telefone'
+                id='input-register-telephone'
                 icon={FaPhone}
                 placeholder='Telefone'
-                {...register('telefone')}
-                error={errors.telefone}
-                isTouched={touchedFields.telefone}
+                {...register('telephone')}
+                error={errors.telephone}
+                isTouched={touchedFields.telephone}
                 onChange={(e) => handlePhoneChange(e, setValue)}
             />
             <Select
-                id='select-cadastro-tiposDeComida'
+                id='select-cadastro-typesOfFood
+'
                 icon={IoFastFoodOutline}
-                {...register('tiposDeComida')}
-                error={errors.tiposDeComida}
-                onCustomChange={(selectedValues) => setValue("tiposDeComida", selectedValues)}
+                {...register('typesOfFood')}
+                error={errors.typesOfFood
+}
+                onCustomChange={(selectedValues) => setValue("typesOfFood", selectedValues)}
                 options={[
                     { value: 'brasileiro', label: 'Brasileiro' },
                     { value: 'picante', label: 'Picante' },
@@ -61,7 +63,7 @@ const FormStepTwo = ({setValor}: Props) => {
                     { value: 'japonesa', label: 'Japonesa' },
                   ]}
             />
-            <Button id='button-cadastro' type='submit'>Continuar</Button>
+            <Button id='button-register' type='submit'>Continuar</Button>
         </FormStepOneStyled>
 
     )

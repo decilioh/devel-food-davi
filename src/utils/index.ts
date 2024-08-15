@@ -66,12 +66,13 @@ export const maskPhone = (value: string) => {
 };
 
 export const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, setValue: UseFormSetValue<{
-    nome: string;
-    telefone: string;
-    tiposDeComida: ["brasileiro" | "picante" | "mexicana" | "japonesa", ...("brasileiro" | "picante" | "mexicana" | "japonesa")[]] | string[];
+    name: string;
+    telephone: string;
+    typesOfFood
+: ["brasileiro" | "picante" | "mexicana" | "japonesa", ...("brasileiro" | "picante" | "mexicana" | "japonesa")[]] | string[];
 }>) => {
     const maskedValue = maskPhone(e.target.value);
-    setValue('telefone', maskedValue);
+    setValue('telephone', maskedValue);
 };
 
 
@@ -79,7 +80,7 @@ export const maskCEP = (value: string) => {
     // Remove tudo que não é dígito
     value = value.replace(/\D/g, '');
 
-    // Limita o valor a 8 dígitos
+    // Limita o value a 8 dígitos
     if (value.length > 8) {
       value = value.slice(0, 8);
     }
@@ -91,13 +92,13 @@ export const maskCEP = (value: string) => {
     return value
 }
 export const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>, setValue: UseFormSetValue<{
-    apelidoEndereco: string;
+    nicknameAddress: string;
     cep: string;
-    rua: string;
-    cidade: string;
-    bairro: string;
-    estado: string;
-    numero: string;
+    road: string;
+    city: string;
+    neighborhood: string;
+    state: string;
+    number: string;
 }>) => {
     const maskedValue = maskCEP(e.target.value);
     setValue('cep', maskedValue);

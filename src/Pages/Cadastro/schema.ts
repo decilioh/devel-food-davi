@@ -19,11 +19,11 @@ export const schemaStepOne = z.object({
 export type FormDataSchemaStepOne = z.infer<typeof schemaStepOne>;
 
 export const schemaStepTwo = z.object({
-    nome: z.string().nonempty({ message: "É obrigatório!!" }),
-    telefone: z.string().regex(/^\(?\d{2}\)?\s?\d{4,5}\-?\d{4}$/, {
+    name: z.string().nonempty({ message: "É obrigatório!!" }),
+    telephone: z.string().regex(/^\(?\d{2}\)?\s?\d{4,5}\-?\d{4}$/, {
         message: "Número está invalido"
     }),
-    tiposDeComida: z.union([
+    typesOfFood: z.union([
         z.enum(["brasileiro", "picante", "mexicana", "japonesa"]).array().nonempty({ message: "Selecione pelo menos uma opção" }),
         z.array(z.string()).max(0)
     ])
@@ -33,12 +33,12 @@ export type FormDataSchemaStepTwo = z.infer<typeof schemaStepTwo>;
 
 
 export const schemaStepThree = z.object({
-    apelidoEndereco: z.string().nonempty({ message: "Campo obrigatório" }),
+    nicknameAddress: z.string().nonempty({ message: "Campo obrigatório" }),
     cep: z.string().regex(/^\d{5}-\d{3}$/, { message: "CEP Invalido" }),
-    rua: z.string().nonempty({ message: "Campo obrigatório" }),
-    cidade: z.string().nonempty({ message: "Campo obrigatório" }),
-    bairro: z.string().nonempty({ message: "Campo obrigatório" }),
-    estado: z.string().nonempty({ message: "Campo obrigatório" }),
-    numero: z.string().nonempty({ message: "Campo obrigatório" }),
+    road: z.string().nonempty({ message: "Campo obrigatório" }),
+    city: z.string().nonempty({ message: "Campo obrigatório" }),
+    neighborhood: z.string().nonempty({ message: "Campo obrigatório" }),
+    state: z.string().nonempty({ message: "Campo obrigatório" }),
+    number: z.string().nonempty({ message: "Campo obrigatório" }),
 })
 export type FormDataSchemaStepThree = z.infer<typeof schemaStepThree>;

@@ -8,11 +8,11 @@ import Button from '../../../components/common/Button';
 import { FormEsqueciSenha } from './Form.styles';
 
 interface Props{
-    valor: React.Dispatch<React.SetStateAction<number>>
+    value: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-const FormJustEmail = ({valor}: Props) => {
+const FormJustEmail = ({value}: Props) => {
     const {
         register,
         handleSubmit,
@@ -22,7 +22,7 @@ const FormJustEmail = ({valor}: Props) => {
     })
 
     const onSubmit: SubmitHandler<FormDataSchema> = (data) => {
-        valor(2)
+        value(2)
         console.log(data);
     };
 

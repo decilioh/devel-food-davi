@@ -1,6 +1,6 @@
 import styled from "styled-components"
 
-export const DivPrincipal = styled.div`
+export const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -28,7 +28,7 @@ export const ImageProgress = styled.img`
   }
 `
 
-export const Paragrafo = styled.p`
+export const Paragraph = styled.p`
     font-size: 14px;
     font-family: Roboto;
 `

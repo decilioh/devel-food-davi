@@ -3,32 +3,32 @@ import StepOne from "./Micro-Pages/StepOne"
 import StepTwo from "./Micro-Pages/StepTwo"
 import { useState } from "react"
 import StepThree from "./Micro-Pages/StepThree"
-import { DivPrincipal } from "./EsqueciSenha.styles"
+import { MainContainer } from "./EsqueciSenha.styles"
 
 
 
 
 
-const EsqueciSenha = () => {
+const ForgotMyPassword = () => {
   const [value, setValue] = useState<number>(1)
 
   function checkStep(){
       switch (value) {
         case 1:
-          return <StepOne valor={setValue}/>
+          return <StepOne value={setValue}/>
         case 2: 
-          return <StepTwo valor={setValue} />
+          return <StepTwo value={setValue} />
         case 3: 
-          return <StepThree valor={setValue}/>
+          return <StepThree value={setValue}/>
         default:
           break;
       }
   }
   return (
-    <DivPrincipal>
+    <MainContainer>
       {checkStep()}
-    </DivPrincipal>
+    </MainContainer>
   )
 }
 
-export default EsqueciSenha
+export default ForgotMyPassword

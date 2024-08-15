@@ -5,12 +5,12 @@ import { NoticeVerified, TitleOrCodeVerified, VerifiedLogo } from '../../Esqueci
 import { FormValidation } from '../../components/Form.styles'
 
 interface Props {
-    valor: React.Dispatch<React.SetStateAction<number>>
+    value: React.Dispatch<React.SetStateAction<number>>
 }
 
-const StepTwo = ({ valor }: Props) => {
+const StepTwo = ({ value }: Props) => {
     function changeScene() {
-        valor(3)
+        value(3)
     }
 
     return (

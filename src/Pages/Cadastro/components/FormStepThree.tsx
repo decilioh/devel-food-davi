@@ -9,11 +9,11 @@ import { FaHouse } from "react-icons/fa6";
 import { handleCepChange } from '../../../utils';
 
 interface Props{
-    setValor: React.Dispatch<React.SetStateAction<number>>
+    setvalue: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-const FormStepThree = ({setValor}: Props) => {
+const FormStepThree = ({setvalue}: Props) => {
     const {
         register,
         handleSubmit,
@@ -25,22 +25,22 @@ const FormStepThree = ({setValor}: Props) => {
 
     const onSubmit: SubmitHandler<FormDataSchemaStepThree> = (data) => {
         console.log(data)
-        setValor(4)
+        setvalue(4)
     };
 
     return (
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate>
             <FormDivisionOne>
                 <Input
-                    id='input-cadastro-apelidoEndereco'
+                    id='input-register-nicknameAddress'
                     icon={FaHouse}
                     placeholder='Apelido endereço'
-                    {...register('apelidoEndereco')}
-                    error={errors.apelidoEndereco}
-                    isTouched={touchedFields.apelidoEndereco}
+                    {...register('nicknameAddress')}
+                    error={errors.nicknameAddress}
+                    isTouched={touchedFields.nicknameAddress}
                 />
                 <Input
-                    id='input-cadastro-cep'
+                    id='input-register-cep'
                     icon={FaHouse}
                     placeholder='CEP'
                     {...register('cep')}
@@ -52,48 +52,48 @@ const FormStepThree = ({setValor}: Props) => {
 
             </FormDivisionOne>
             <Input
-                id='input-cadastro-rua'
+                id='input-register-road'
                 icon={FaHouse}
                 placeholder='Rua'
-                {...register('rua')}
-                error={errors.rua}
-                isTouched={touchedFields.rua}
+                {...register('road')}
+                error={errors.road}
+                isTouched={touchedFields.road}
             />
             <Input
-                id='input-cadastro-cidade'
+                id='input-register-city'
                 icon={FaHouse}
                 placeholder='Cidade'
-                {...register('cidade')}
-                error={errors.cidade}
-                isTouched={touchedFields.cidade}
+                {...register('city')}
+                error={errors.city}
+                isTouched={touchedFields.city}
             />
             <Input
-                id='input-cadastro-bairro'
+                id='input-register-neighborhood'
                 icon={FaHouse}
                 placeholder='Bairro'
-                {...register('bairro')}
-                error={errors.bairro}
-                isTouched={touchedFields.bairro}
+                {...register('neighborhood')}
+                error={errors.neighborhood}
+                isTouched={touchedFields.neighborhood}
             />
             <FormDivisionOne>
                 <Input
-                    id='input-cadastro-estado'
+                    id='input-register-state'
                     icon={FaHouse}
                     placeholder='Estado'
-                    {...register('estado')}
-                    error={errors.estado}
-                    isTouched={touchedFields.estado}
+                    {...register('state')}
+                    error={errors.state}
+                    isTouched={touchedFields.state}
                 />
                 <Input
-                    id='input-cadastro-numero'
+                    id='input-register-number'
                     icon={FaHouse}
-                    placeholder='Numero'
-                    {...register('numero')}
-                    error={errors.numero}
-                    isTouched={touchedFields.numero}
+                    placeholder='Número'
+                    {...register('number')}
+                    error={errors.number}
+                    isTouched={touchedFields.number}
                 />
             </FormDivisionOne>
-            <Button id='button-cadastro' type='submit'>Continuar</Button>
+            <Button id='button-register' type='submit'>Continuar</Button>
         </FormStepOneStyled>
 
     )

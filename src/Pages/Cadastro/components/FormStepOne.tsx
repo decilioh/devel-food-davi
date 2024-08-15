@@ -9,10 +9,10 @@ import Input from '../../../components/common/Input';
 import { handleCNPJChange } from '../../../utils';
 
 interface Props{
-    setValor: React.Dispatch<React.SetStateAction<number>>
+    setvalue: React.Dispatch<React.SetStateAction<number>>
 }
 
-const FormStepOne = ({setValor}: Props) => {
+const FormStepOne = ({setvalue}: Props) => {
     const {
         register,
         handleSubmit,
@@ -24,13 +24,13 @@ const FormStepOne = ({setValor}: Props) => {
 
     const onSubmit: SubmitHandler<FormDataSchemaStepOne> = (data) => {
         console.log(data)
-        setValor(2)
+        setvalue(2)
     };
 
     return (
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
-                id='input-cadastro-email'
+                id='input-register-email'
                 icon={AiOutlineMail}
                 placeholder='Email'
                 {...register('email')}
@@ -38,7 +38,7 @@ const FormStepOne = ({setValor}: Props) => {
                 isTouched={touchedFields.email}
             />
             <Input
-                id='input-cadastro-cnpj'
+                id='input-register-cnpj'
                 icon={AiOutlineCreditCard}
                 placeholder='Cnpj'
                 {...register('cnpj')}
@@ -47,7 +47,7 @@ const FormStepOne = ({setValor}: Props) => {
                 onChange={(e) => handleCNPJChange(e, setValue)}
             />
             <PasswordInput
-                id='input-cadastro-senha'
+                id='input-register-password'
                 icon={AiOutlineLock}
                 placeholder="Senha"
                 {...register('password')}
@@ -55,14 +55,14 @@ const FormStepOne = ({setValor}: Props) => {
                 isTouched={touchedFields.password}
             />
             <PasswordInput
-                id='input-cadastro-confirmar-senha'
+                id='input-register-confirm-password'
                 icon={AiOutlineLock}
                 placeholder="Confirmar senha"
                 {...register('confirmPassword')}
                 error={errors.confirmPassword}
                 isTouched={touchedFields.confirmPassword}
             />
-            <Button id='button-cadastro' type='submit'>Continuar</Button>
+            <Button id='button-register' type='submit'>Continuar</Button>
         </FormStepOneStyled>
 
     )

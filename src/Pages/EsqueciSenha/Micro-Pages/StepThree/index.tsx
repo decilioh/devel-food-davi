@@ -6,14 +6,14 @@ import Button from '../../../../components/common/Button'
 import { useNavigate } from 'react-router-dom'
 
 interface Props {
-  valor: React.Dispatch<React.SetStateAction<number>>
+  value: React.Dispatch<React.SetStateAction<number>>
 }
 
-const StepThree = ({ valor }: Props) => {
+const StepThree = ({ value }: Props) => {
   return (
     <>
       <ImageLogo src={ImgLogo} />
-      <FormValidation  valor={valor}/>
+      <FormValidation  value={value}/>
 
     </>
   )

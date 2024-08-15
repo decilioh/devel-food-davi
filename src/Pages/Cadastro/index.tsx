@@ -7,39 +7,39 @@ import FormStepOne from './components/FormStepOne'
 import FormStepTwo from './components/FormStepTwo'
 import { useState } from 'react'
 import FormStepThree from './components/FormStepThree'
-import { DivPrincipal, ImageLogo, ImageProgress } from './Cadastro.styles'
+import { MainContainer, ImageLogo, ImageProgress } from './Cadastro.styles'
 import Finally from "./components/Finally"
 
 
 
 
-const Cadastro = () => {
-  const [valor, setValor] = useState(1)
+const Register = () => {
+  const [value, setvalue] = useState(1)
   const [succesOrError, setSuccesOrError] = useState<boolean>(true)
 
 
   function checkStep() {
-    switch (valor) {
+    switch (value) {
       case 1:
-        return <FormStepOne setValor={setValor} />
+        return <FormStepOne setvalue={setvalue} />
       case 2:
-        return <FormStepTwo setValor={setValor} />
+        return <FormStepTwo setvalue={setvalue} />
       case 3:
-        return <FormStepThree setValor={setValor}/>
+        return <FormStepThree setvalue={setvalue}/>
       case 4:
-        return <Finally setValor={setValor}  sucessOrError={succesOrError}/>
+        return <Finally setvalue={setvalue}  sucessOrError={succesOrError}/>
       default:
         break;
     }
   }
 
   return (
-    <DivPrincipal>
+    <MainContainer>
       <ImageLogo src={ImgLogo} />
-      <ImageProgress src={valor === 1 ? ProgressOne : valor === 2 ? ProgressTwo : valor === 3 ? ProgressThree : ""} />
+      <ImageProgress src={value === 1 ? ProgressOne : value === 2 ? ProgressTwo : value === 3 ? ProgressThree : ""} />
       {checkStep()}
-    </DivPrincipal>
+    </MainContainer>
   )
 }
 
-export default Cadastro
+export default Register

@@ -11,10 +11,10 @@ import { useNavigate } from 'react-router-dom';
 import { FormEsqueciSenha } from './Form.styles';
 
 interface Props {
-    valor: React.Dispatch<React.SetStateAction<number>>
+    value: React.Dispatch<React.SetStateAction<number>>
 }
 
-const FormValidation = ({valor}: Props) => {
+const FormValidation = ({value}: Props) => {
     const navigate = useNavigate()
     const {
         register,
@@ -56,7 +56,7 @@ const FormValidation = ({valor}: Props) => {
                 isTouched={touchedFields.confirmPassword}
             />
             <DivSeparacao>
-                <Button id='button-esqueci-senha-3-voltar' onClick={() => valor(2)}>Voltar</Button>
+                <Button id='button-esqueci-senha-3-voltar' onClick={() => value(2)}>Voltar</Button>
                 <Button id='button-esqueci-senha-3-continuar' type='submit'>Continuar</Button>
             </DivSeparacao>
         </FormEsqueciSenha>

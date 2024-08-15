@@ -2,12 +2,12 @@ import ImagemPrato from "../../assets/images/fotoCapaLogin.png"
 import Form from './components/Form'
 import ImgLogo from "../../assets/images/logoDevelThemeWhite.svg"
 import { Link } from 'react-router-dom'
-import { CardLinks, CardLogin, DivImage, DivLogin, DivPrincipal, ImageLogo, ImagePrato } from "./Login.styles"
+import { CardLinks, CardLogin, DivImage, DivLogin, MainContainer, ImageLogo, ImagePrato } from "./Login.styles"
 
 
 const Login = () => {
   return (
-    <DivPrincipal>
+    <MainContainer>
       <DivImage>
         <ImagePrato src={ImagemPrato} alt="Imagens de comidas" />
       </DivImage>
@@ -21,7 +21,7 @@ const Login = () => {
           </CardLinks>
         </CardLogin>
       </DivLogin>
-    </DivPrincipal>
+    </MainContainer>
   )
 }
 

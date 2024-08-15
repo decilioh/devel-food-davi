@@ -4,14 +4,14 @@ import FormJustEmail from "../../components/FormJustEmail"
 import { ImageLogo } from "../../EsqueciSenha.styles"
 
 interface Props{
-    valor: React.Dispatch<React.SetStateAction<number>>
+    value: React.Dispatch<React.SetStateAction<number>>
 }
 
-const StepOne = ({valor}: Props) => {
+const StepOne = ({value}: Props) => {
     return (
         <>
             <ImageLogo src={ImgLogo} />
-            <FormJustEmail valor={valor}/>
+            <FormJustEmail value={value}/>
         </>
     )
 }

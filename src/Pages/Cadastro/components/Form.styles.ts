@@ -41,7 +41,7 @@ export const FormDivisionOne = styled.div`
         }
     }
 
-    #input-cadastro-cep, #input-cadastro-numero{
+    #input-register-cep, #input-register-number{
         @media screen and (max-width: 1024px) {
             width: 8vw;
         }
