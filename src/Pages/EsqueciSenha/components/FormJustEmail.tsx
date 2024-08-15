@@ -5,7 +5,7 @@ import { FormDataSchema, schemaJustEmail } from '../schema'
 import Input from '../../../components/common/Input';
 import { AiOutlineMail } from 'react-icons/ai';
 import Button from '../../../components/common/Button';
-import { FormEsqueciSenha } from './Form.styles';
+import { FormForgotPassword } from './Form.styles';
 
 interface Props{
     value: React.Dispatch<React.SetStateAction<number>>
@@ -27,7 +27,7 @@ const FormJustEmail = ({value}: Props) => {
     };
 
     return (
-        <FormEsqueciSenha onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
                 id='input-login-email'
                 icon={AiOutlineMail}
@@ -36,8 +36,8 @@ const FormJustEmail = ({value}: Props) => {
                 error={errors.email}
                 isTouched={touchedFields.email}
             />
-            <Button id='button-esqueci-senha-1-continuar' type='submit'>Continuar</Button>
-        </FormEsqueciSenha>
+            <Button id='button-forgot-password-1-continue' type='submit'>Continuar</Button>
+        </FormForgotPassword>
 
     )
 }

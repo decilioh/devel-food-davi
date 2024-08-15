@@ -6,9 +6,9 @@ import Input from '../../../components/common/Input';
 import { AiOutlineLock } from 'react-icons/ai';
 import Button from '../../../components/common/Button';
 import PasswordInput from '../../../components/common/PasswordInput';
-import { DivSeparacao } from '../EsqueciSenha.styles';
+import { SpacingContents } from '../EsqueciSenha.styles';
 import { useNavigate } from 'react-router-dom';
-import { FormEsqueciSenha } from './Form.styles';
+import { FormForgotPassword } from './Form.styles';
 
 interface Props {
     value: React.Dispatch<React.SetStateAction<number>>
@@ -30,9 +30,9 @@ const FormValidation = ({value}: Props) => {
     };
 
     return (
-        <FormEsqueciSenha onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
-                id='input-login-validacao'
+                id='input-login-validation'
                 icon={AiOutlineLock}
                 placeholder='Código de validação'
                 {...register('validationCode')}
@@ -40,7 +40,7 @@ const FormValidation = ({value}: Props) => {
                 isTouched={touchedFields.validationCode}
             />
             <PasswordInput
-                id='input-login-senha'
+                id='input-login-password'
                 icon={AiOutlineLock}
                 placeholder="Senha"
                 {...register('password')}
@@ -48,7 +48,7 @@ const FormValidation = ({value}: Props) => {
                 isTouched={touchedFields.password}
             />
             <PasswordInput
-                id='input-login-confirmar-senha'
+                id='input-login-confirm-password'
                 icon={AiOutlineLock}
                 placeholder="Confirmar senha"
                 {...register('confirmPassword')}
@@ -60,7 +60,6 @@ const FormValidation = ({value}: Props) => {
                 <Button id='button-esqueci-senha-3-continuar' type='submit'>Continuar</Button>
             </DivSeparacao>
         </FormEsqueciSenha>
-
     )
 }
 

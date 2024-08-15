@@ -32,3 +32,4 @@ const ForgotMyPassword = () => {
 }
 
 export default ForgotMyPassword
+

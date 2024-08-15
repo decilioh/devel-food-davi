@@ -33,7 +33,7 @@ export const NoticeVerified = styled.span`
   width: 500px;
 `
 
-export const DivSeparacao = styled.div`
+export const SpacingContents = styled.div`
   width: 20vw;
   display: flex;
   gap: 24px;

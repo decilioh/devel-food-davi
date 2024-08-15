@@ -1,4 +1,3 @@
-import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormDataSchema, schema } from '../schema'
@@ -32,7 +31,7 @@ const Form = () => {
                 isTouched={touchedFields.email}
             />
             <PasswordInput
-                id='input-login-senha'
+                id='input-login-password'
                 icon={AiOutlineLock}
                 placeholder="Senha"
                 {...register('password')}
