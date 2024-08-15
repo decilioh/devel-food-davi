@@ -8,9 +8,9 @@ interface Props{
     id: string
 }
 
-const Button = ({id, children, type="button", onClick=undefined}: Props) => {
+const Button = ({id, children, type="button", onClick=()=>{}}: Props) => {
   return (
-    <ButtonApp type={type} onClick={() => onClick}>
+    <ButtonApp id={id} type={type} onClick={onClick}>
         {children}
     </ButtonApp>
   )
