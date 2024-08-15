@@ -1,27 +1,33 @@
+import React from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormDataSchema, schema } from '../schema'
+import { FormDataSchema, schemaJustEmail } from '../schema'
 import Input from '../../../components/common/Input';
-import { AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
-import PasswordInput from '../../../components/common/PasswordInput';
+import { AiOutlineMail } from 'react-icons/ai';
 import Button from '../../../components/common/Button';
-import { FormLogin } from './Form.styles';
+import { FormForgotPassword } from './Form.styles';
 
-const Form = () => {
+interface Props{
+    value: React.Dispatch<React.SetStateAction<number>>
+}
+
+
+const FormJustEmail = ({value}: Props) => {
     const {
         register,
         handleSubmit,
         formState: { errors, touchedFields }
     } = useForm<FormDataSchema>({
-        resolver: zodResolver(schema)
+        resolver: zodResolver(schemaJustEmail)
     })
 
     const onSubmit: SubmitHandler<FormDataSchema> = (data) => {
+        value(2)
         console.log(data);
     };
 
     return (
-        <FormLogin onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate>
             <Input
                 id='input-login-email'
                 icon={AiOutlineMail}
@@ -30,18 +36,10 @@ const Form = () => {
                 error={errors.email}
                 isTouched={touchedFields.email}
             />
-            <PasswordInput
-                id='input-login-password'
-                icon={AiOutlineLock}
-                placeholder="Senha"
-                {...register('password')}
-                error={errors.password}
-                isTouched={touchedFields.password}
-            />
-            <Button id='botao-login-submit' type='submit'>Logar</Button>
-        </FormLogin>
+            <Button id='button-forgot-password-1-continue' type='submit'>Continuar</Button>
+        </FormForgotPassword>
 
     )
 }
 
-export default Form
+export default FormJustEmail
