@@ -1,9 +1,9 @@
 import { z } from "zod";
-import { cnpjValido } from "../../utils";
+import { validCnpj } from "../../utils";
 
 export const schemaStepOne = z.object({
     email: z.string().email("Insira um email válido"),
-    cnpj: z.string().refine(cnpjValido, {
+    cnpj: z.string().refine(validCnpj, {
         message: "CNPJ inválido",
     }),
     password: z.string()

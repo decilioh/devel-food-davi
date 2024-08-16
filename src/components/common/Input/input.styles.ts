@@ -20,12 +20,14 @@ export const InputField = styled.input`
   outline: none;
   flex: 1;
   padding: 8px;
+  color: #A2A2A2;
 `;
 
 export const IconWrapper = styled.div`
   margin-right: 8px;
   display: flex;
   align-items: center;
+  color: #A2A2A2;
 `;
 
 export const ErrorMessage = styled.span`
