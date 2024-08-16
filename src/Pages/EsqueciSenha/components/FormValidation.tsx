@@ -56,10 +56,10 @@ const FormValidation = ({value}: Props) => {
           isTouched={touchedFields.confirmPassword}
         />
         <SpacingContents>
-          <Button id="button-esqueci-senha-3-voltar" onClick={() => value(2)}>
+          <Button id="button-forget-password-3-back" onClick={() => value(2)}>
             Voltar
           </Button>
-          <Button id="button-esqueci-senha-3-continuar" type="submit">
+          <Button id="button-forget-password-3-continue" type="submit">
             Continuar
           </Button>
         </SpacingContents>

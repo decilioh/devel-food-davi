@@ -21,15 +21,19 @@ export const PasswordField = styled.input`
   flex: 1;
   padding: 8px;
   width: 558px;
+  color: #A2A2A2;
+
 `;
 
 export const IconWrapper = styled.div`
+  color: #A2A2A2;
   margin-right: 8px;
   display: flex;
   align-items: center;
 `;
 
 export const ToggleButton = styled.button`
+  color: #A2A2A2;
   background: none;
   border: none;
   cursor: pointer;
