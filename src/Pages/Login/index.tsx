@@ -17,7 +17,7 @@ const Login = () => {
           <Form />
           <CardLinks>
             <Link to="/forgot-my-password">Esqueci minha senha</Link>
-            <Link to="/cadastrar">Criar conta</Link>
+            <Link to="/register">Criar conta</Link>
           </CardLinks>
         </CardLogin>
       </DivLogin>
