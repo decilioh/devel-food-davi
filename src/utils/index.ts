@@ -1,6 +1,7 @@
 import { UseFormSetValue } from "react-hook-form";
+import { useCepAutoComplete } from "../hooks/cepAutoComplete";
 
-export function cnpjValido(cnpj: string): boolean {
+export function validCnpj(cnpj: string): boolean {
     // Remove caracteres não numéricos
     cnpj = cnpj.replace(/[^\d]+/g, '');
 
@@ -69,7 +70,7 @@ export const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, setVal
     name: string;
     telephone: string;
     typesOfFood
-: ["brasileiro" | "picante" | "mexicana" | "japonesa", ...("brasileiro" | "picante" | "mexicana" | "japonesa")[]] | string[];
+    : ["brasileiro" | "picante" | "mexicana" | "japonesa", ...("brasileiro" | "picante" | "mexicana" | "japonesa")[]] | string[];
 }>) => {
     const maskedValue = maskPhone(e.target.value);
     setValue('telephone', maskedValue);
@@ -82,15 +83,23 @@ export const maskCEP = (value: string) => {
 
     // Limita o value a 8 dígitos
     if (value.length > 8) {
-      value = value.slice(0, 8);
+        value = value.slice(0, 8);
     }
 
     // Adiciona o hífen após o 5º dígito, se houver
     if (value.length > 5) {
-      value = value.replace(/^(\d{5})(\d)/, '$1-$2');
+        value = value.replace(/^(\d{5})(\d)/, '$1-$2');
     }
     return value
 }
+
+interface ICep {
+    bairro: string;
+    localidade: string;
+    uf: string
+    logradouro: string
+}
+
 export const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>, setValue: UseFormSetValue<{
     nicknameAddress: string;
     cep: string;
@@ -102,5 +111,16 @@ export const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>, setValue
 }>) => {
     const maskedValue = maskCEP(e.target.value);
     setValue('cep', maskedValue);
+    const funcao = useCepAutoComplete(maskedValue)
+    if (maskedValue.length === 9) {
+        funcao.then((response: ICep) => {
+            setValue("city", response.localidade)
+            setValue("road", response.logradouro)
+            setValue("state", response.uf)
+            setValue("neighborhood", response.bairro)
+        }).catch(() => {
+            setValue("cep", "Ocorreu um erro!")
+        })
+    }
 };
 

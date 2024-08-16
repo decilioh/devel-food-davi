@@ -59,7 +59,7 @@ const FormValidation = ({value}: Props) => {
                 <Button id='button-esqueci-senha-3-voltar' onClick={() => value(2)}>Voltar</Button>
                 <Button id='button-esqueci-senha-3-continuar' type='submit'>Continuar</Button>
             </DivSeparacao>
-        </FormEsqueciSenha>
+        </FormForgotPassword>
     )
 }
 
