@@ -30,9 +30,9 @@ const FormStepTwo = ({setvalue}: Props) => {
     };
 
     return (
-        <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-two'>
             <Input
-                id='input-register-name'
+                id='input-name'
                 icon={FaRegUser}
                 placeholder='Nome'
                 {...register('name')}
@@ -40,7 +40,7 @@ const FormStepTwo = ({setvalue}: Props) => {
                 isTouched={touchedFields.name}
             />
             <Input
-                id='input-register-telephone'
+                id='input-telephone'
                 icon={FaPhone}
                 placeholder='Telefone'
                 {...register('telephone')}
@@ -49,7 +49,7 @@ const FormStepTwo = ({setvalue}: Props) => {
                 onChange={(e) => handlePhoneChange(e, setValue)}
             />
             <Select
-                id='select-cadastro-typesOfFood
+                id='select-typesOfFood
 '
                 icon={IoFastFoodOutline}
                 {...register('typesOfFood')}

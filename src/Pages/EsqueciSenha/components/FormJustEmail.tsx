@@ -27,16 +27,16 @@ const FormJustEmail = ({value}: Props) => {
     };
 
     return (
-        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate id='form-email'>
             <Input
-                id='input-login-email'
+                id='input-email'
                 icon={AiOutlineMail}
                 placeholder='Email'
                 {...register('email')}
                 error={errors.email}
                 isTouched={touchedFields.email}
             />
-            <Button id='button-forgot-password-1-continue' type='submit'>Continuar</Button>
+            <Button id='button-forgot-password' type='submit'>Continuar</Button>
         </FormForgotPassword>
 
     )

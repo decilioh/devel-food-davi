@@ -30,9 +30,9 @@ const Finally = ({sucessOrError, setvalue}: Props) => {
 
     return (
         <>
-            <ImageFinally src={sucessOrError ? sucess[0] : error[0]}/>
-            <Paragraph>{sucessOrError ? sucess[1] : error[1]}</Paragraph>
-            <Paragraph style={{marginBottom: "5vh"}}>{sucessOrError ? sucess[2] : error[2]}</Paragraph>
+            <ImageFinally src={sucessOrError ? sucess[0] : error[0]} id='id-image-sucess-or-error'/>
+            <Paragraph id='paragraph-1'>{sucessOrError ? sucess[1] : error[1]}</Paragraph>
+            <Paragraph id='paragraph-2' style={{marginBottom: "5vh"}}>{sucessOrError ? sucess[2] : error[2]}</Paragraph>
             <Button id='button-register' onClick={handleContinue}>Continuar</Button>
         </>
     )

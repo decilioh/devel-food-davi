@@ -15,8 +15,8 @@ const StepTwo = ({ value }: Props) => {
 
     return (
         <>
-            <FormValidation onSubmit={changeScene}>
-                <VerifiedLogo src={Verified} />
+            <FormValidation onSubmit={changeScene} id='form'>
+                <VerifiedLogo src={Verified} id="image-logo" />
                 <TitleOrCodeVerified>Código de validação</TitleOrCodeVerified>
                 <NoticeVerified>Copie ou anote este código, ele será utilizado para você finalizar a recuperação de senha!</NoticeVerified>
                 <TitleOrCodeVerified>AUIhuiaasa56d4as56-AUIhuiaasa56d4as56 56das465fa4d56-5fsd4fgsd65f4sa</TitleOrCodeVerified>

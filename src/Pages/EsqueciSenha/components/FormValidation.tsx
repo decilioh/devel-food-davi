@@ -30,9 +30,9 @@ const FormValidation = ({value}: Props) => {
     };
 
     return (
-      <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate>
+      <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate id='form-forgot-password'>
         <Input
-          id="input-login-validation"
+          id="input-validation"
           icon={AiOutlineLock}
           placeholder="Código de validação"
           {...register("validationCode")}
@@ -40,7 +40,7 @@ const FormValidation = ({value}: Props) => {
           isTouched={touchedFields.validationCode}
         />
         <PasswordInput
-          id="input-login-password"
+          id="input-password"
           icon={AiOutlineLock}
           placeholder="Senha"
           {...register("password")}
@@ -48,7 +48,7 @@ const FormValidation = ({value}: Props) => {
           isTouched={touchedFields.password}
         />
         <PasswordInput
-          id="input-login-confirm-password"
+          id="input-confirm-password"
           icon={AiOutlineLock}
           placeholder="Confirmar senha"
           {...register("confirmPassword")}
@@ -56,10 +56,10 @@ const FormValidation = ({value}: Props) => {
           isTouched={touchedFields.confirmPassword}
         />
         <SpacingContents>
-          <Button id="button-forget-password-3-back" onClick={() => value(2)}>
+          <Button id="button-forget-password" onClick={() => value(2)}>
             Voltar
           </Button>
-          <Button id="button-forget-password-3-continue" type="submit">
+          <Button id="button-forget-password-continue" type="submit">
             Continuar
           </Button>
         </SpacingContents>

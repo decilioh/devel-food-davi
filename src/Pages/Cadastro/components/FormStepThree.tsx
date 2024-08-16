@@ -29,10 +29,10 @@ const FormStepThree = ({setvalue}: Props) => {
     };
 
     return (
-        <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-three'>
             <FormDivisionOne>
                 <Input
-                    id='input-register-nicknameAddress'
+                    id='input-nickname-address'
                     icon={FaHouse}
                     placeholder='Apelido endereço'
                     {...register('nicknameAddress')}
@@ -40,7 +40,7 @@ const FormStepThree = ({setvalue}: Props) => {
                     isTouched={touchedFields.nicknameAddress}
                 />
                 <Input
-                    id='input-register-cep'
+                    id='input-cep'
                     icon={FaHouse}
                     placeholder='CEP'
                     {...register('cep')}
@@ -52,7 +52,7 @@ const FormStepThree = ({setvalue}: Props) => {
 
             </FormDivisionOne>
             <Input
-                id='input-register-road'
+                id='input-road'
                 icon={FaHouse}
                 placeholder='Rua'
                 {...register('road')}
@@ -60,7 +60,7 @@ const FormStepThree = ({setvalue}: Props) => {
                 isTouched={touchedFields.road}
             />
             <Input
-                id='input-register-city'
+                id='input-city'
                 icon={FaHouse}
                 placeholder='Cidade'
                 {...register('city')}
@@ -68,7 +68,7 @@ const FormStepThree = ({setvalue}: Props) => {
                 isTouched={touchedFields.city}
             />
             <Input
-                id='input-register-neighborhood'
+                id='input-neighborhood'
                 icon={FaHouse}
                 placeholder='Bairro'
                 {...register('neighborhood')}
@@ -77,7 +77,7 @@ const FormStepThree = ({setvalue}: Props) => {
             />
             <FormDivisionOne>
                 <Input
-                    id='input-register-state'
+                    id='input-state'
                     icon={FaHouse}
                     placeholder='Estado'
                     {...register('state')}
@@ -85,7 +85,7 @@ const FormStepThree = ({setvalue}: Props) => {
                     isTouched={touchedFields.state}
                 />
                 <Input
-                    id='input-register-number'
+                    id='input-number'
                     icon={FaHouse}
                     placeholder='Número'
                     {...register('number')}
