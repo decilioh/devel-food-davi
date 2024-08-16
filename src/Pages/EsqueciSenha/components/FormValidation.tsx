@@ -61,6 +61,7 @@ const FormValidation = ({value}: Props) => {
             </DivSeparacao>
         </FormForgotPassword>
     )
+
 }
 
 export default FormValidation
