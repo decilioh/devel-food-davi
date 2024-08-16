@@ -21,9 +21,9 @@ const Form = () => {
     };
 
     return (
-        <FormLogin onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormLogin onSubmit={handleSubmit(onSubmit)} noValidate id='form-login'>
             <Input
-                id='input-login-email'
+                id='input-email'
                 icon={AiOutlineMail}
                 placeholder='Email'
                 {...register('email')}
@@ -31,14 +31,14 @@ const Form = () => {
                 isTouched={touchedFields.email}
             />
             <PasswordInput
-                id='input-login-password'
+                id='input-password'
                 icon={AiOutlineLock}
                 placeholder="Senha"
                 {...register('password')}
                 error={errors.password}
                 isTouched={touchedFields.password}
             />
-            <Button id='botao-login-submit' type='submit'>Logar</Button>
+            <Button id='botao-submit' type='submit'>Logar</Button>
         </FormLogin>
 
     )

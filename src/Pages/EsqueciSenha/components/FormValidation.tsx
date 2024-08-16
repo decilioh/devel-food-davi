@@ -30,38 +30,41 @@ const FormValidation = ({value}: Props) => {
     };
 
     return (
-        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate>
-            <Input
-                id='input-login-validation'
-                icon={AiOutlineLock}
-                placeholder='Código de validação'
-                {...register('validationCode')}
-                error={errors.validationCode}
-                isTouched={touchedFields.validationCode}
-            />
-            <PasswordInput
-                id='input-login-password'
-                icon={AiOutlineLock}
-                placeholder="Senha"
-                {...register('password')}
-                error={errors.password}
-                isTouched={touchedFields.password}
-            />
-            <PasswordInput
-                id='input-login-confirm-password'
-                icon={AiOutlineLock}
-                placeholder="Confirmar senha"
-                {...register('confirmPassword')}
-                error={errors.confirmPassword}
-                isTouched={touchedFields.confirmPassword}
-            />
-            <DivSeparacao>
-                <Button id='button-esqueci-senha-3-voltar' onClick={() => value(2)}>Voltar</Button>
-                <Button id='button-esqueci-senha-3-continuar' type='submit'>Continuar</Button>
-            </DivSeparacao>
-        </FormForgotPassword>
-    )
-
+      <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate id='form-forgot-password'>
+        <Input
+          id="input-validation"
+          icon={AiOutlineLock}
+          placeholder="Código de validação"
+          {...register("validationCode")}
+          error={errors.validationCode}
+          isTouched={touchedFields.validationCode}
+        />
+        <PasswordInput
+          id="input-password"
+          icon={AiOutlineLock}
+          placeholder="Senha"
+          {...register("password")}
+          error={errors.password}
+          isTouched={touchedFields.password}
+        />
+        <PasswordInput
+          id="input-confirm-password"
+          icon={AiOutlineLock}
+          placeholder="Confirmar senha"
+          {...register("confirmPassword")}
+          error={errors.confirmPassword}
+          isTouched={touchedFields.confirmPassword}
+        />
+        <SpacingContents>
+          <Button id="button-forget-password" onClick={() => value(2)}>
+            Voltar
+          </Button>
+          <Button id="button-forget-password-continue" type="submit">
+            Continuar
+          </Button>
+        </SpacingContents>
+      </FormForgotPassword>
+    );
 }
 
 export default FormValidation

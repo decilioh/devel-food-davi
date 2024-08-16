@@ -12,7 +12,7 @@ interface Props {
 const StepThree = ({ value }: Props) => {
   return (
     <>
-      <ImageLogo src={ImgLogo} />
+      <ImageLogo src={ImgLogo} id="image-logo"/>
       <FormValidation  value={value}/>
 
     </>

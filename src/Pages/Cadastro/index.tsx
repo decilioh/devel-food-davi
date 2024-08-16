@@ -35,7 +35,7 @@ const Register = () => {
 
   return (
     <MainContainer>
-      <ImageLogo src={ImgLogo} />
+      <ImageLogo src={ImgLogo} id="image-logo"/>
       <ImageProgress src={value === 1 ? ProgressOne : value === 2 ? ProgressTwo : value === 3 ? ProgressThree : ""} />
       {checkStep()}
     </MainContainer>

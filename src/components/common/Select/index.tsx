@@ -37,17 +37,18 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, e
   return (
     <div ref={wrapperRef}>
       {error && <ErrorMessage>{error.message} <span>*</span></ErrorMessage>}
-      <SelectWrapper isValid={!error} isTouched={isTouched} onClick={handleToggle}>
+      <SelectWrapper isValid={!error} isTouched={isTouched} onClick={handleToggle} id='select-type-food'>
         <IconWrapper>
           <Icon />
         </IconWrapper>
         <div>{selectedValues.length === 0 ? "Tipos de comida" : selectedValues.join(', ')}</div>
       </SelectWrapper>
       {isOpen && (
-        <Dropdown>
+        <Dropdown id='dropdown-type-food'>
           {options.map((option, index) => (
             <DropdownItem key={index} onClick={() => handleSelect(option.value)}>
               <input
+                id={option.value}
                 type="checkbox"
                 checked={selectedValues.includes(option.value)}
                 readOnly

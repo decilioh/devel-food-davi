@@ -28,9 +28,9 @@ const FormStepOne = ({setvalue}: Props) => {
     };
 
     return (
-        <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate>
+        <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-one'>
             <Input
-                id='input-register-email'
+                id='input-email'
                 icon={AiOutlineMail}
                 placeholder='Email'
                 {...register('email')}
@@ -38,7 +38,7 @@ const FormStepOne = ({setvalue}: Props) => {
                 isTouched={touchedFields.email}
             />
             <Input
-                id='input-register-cnpj'
+                id='input-cnpj'
                 icon={AiOutlineCreditCard}
                 placeholder='Cnpj'
                 {...register('cnpj')}
@@ -47,7 +47,7 @@ const FormStepOne = ({setvalue}: Props) => {
                 onChange={(e) => handleCNPJChange(e, setValue)}
             />
             <PasswordInput
-                id='input-register-password'
+                id='input-password'
                 icon={AiOutlineLock}
                 placeholder="Senha"
                 {...register('password')}
@@ -55,7 +55,7 @@ const FormStepOne = ({setvalue}: Props) => {
                 isTouched={touchedFields.password}
             />
             <PasswordInput
-                id='input-register-confirm-password'
+                id='input-confirm-password'
                 icon={AiOutlineLock}
                 placeholder="Confirmar senha"
                 {...register('confirmPassword')}

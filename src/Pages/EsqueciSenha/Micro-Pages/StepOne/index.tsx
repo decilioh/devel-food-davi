@@ -10,7 +10,7 @@ interface Props{
 const StepOne = ({value}: Props) => {
     return (
         <>
-            <ImageLogo src={ImgLogo} />
+            <ImageLogo src={ImgLogo} id="image-logo"/>
             <FormJustEmail value={value}/>
         </>
     )

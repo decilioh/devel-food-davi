@@ -9,15 +9,15 @@ const Login = () => {
   return (
     <MainContainer>
       <DivImage>
-        <ImagePrato src={ImagemPrato} alt="Imagens de comidas" />
+        <ImagePrato src={ImagemPrato} alt="Imagens de comidas" id="image-prato"/>
       </DivImage>
       <DivLogin>
         <CardLogin>
-          <ImageLogo src={ImgLogo} alt='Logo da Develfood' />
+          <ImageLogo src={ImgLogo} alt='Logo da Develfood' id="image-logo"/>
           <Form />
           <CardLinks>
-            <Link to="/forgot-my-password">Esqueci minha senha</Link>
-            <Link to="/register">Criar conta</Link>
+            <Link to="/esqueci-minha-senha">Esqueci minha senha</Link>
+            <Link to="/cadastrar">Criar conta</Link>
           </CardLinks>
         </CardLogin>
       </DivLogin>
