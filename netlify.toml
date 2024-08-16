@@ -1,4 +1,0 @@
-[[redirect]]
-from = "/*"
-to = "/main.tsx"
-status = 200

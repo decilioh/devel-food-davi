@@ -16,7 +16,7 @@ const Login = () => {
           <ImageLogo src={ImgLogo} alt='Logo da Develfood' />
           <Form />
           <CardLinks>
-            <Link to="/forgot-my-password">Esqueci minha senha</Link>
+            <Link to="/esqueci-minha-senha">Esqueci minha senha</Link>
             <Link to="/cadastrar">Criar conta</Link>
           </CardLinks>
         </CardLogin>
