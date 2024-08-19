@@ -111,8 +111,8 @@ export const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>, setValue
 }>) => {
     const maskedValue = maskCEP(e.target.value);
     setValue('cep', maskedValue);
-    const funcao = useCepAutoComplete(maskedValue)
     if (maskedValue.length === 9) {
+        const funcao = useCepAutoComplete(maskedValue)
         funcao.then((response: ICep) => {
             setValue("city", response.localidade)
             setValue("road", response.logradouro)
