@@ -14,9 +14,11 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: 
     <>
       {error && <ErrorMessage>{error.message} <span>*</span></ErrorMessage>}
       <PasswordInputWrapper isValid={!error} isTouched={isTouched}>
-        <IconWrapper>
-          <Icon />
-        </IconWrapper>
+        {Icon && (
+          <IconWrapper>
+            <Icon />
+          </IconWrapper>
+        )}
         <PasswordField
           ref={ref}
           type={isPasswordVisible ? 'text' : 'password'}
