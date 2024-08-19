@@ -1,11 +1,16 @@
 import ImagemPrato from "../../assets/images/fotoCapaLogin.png"
 import Form from './components/Form'
-import ImgLogo from "../../assets/images/logoDevelThemeWhite.svg"
+import ImgLogoWhite from "../../assets/images/logoDevelThemeWhite.svg"
+import ImgLogoBlack from "../../assets/images/logoDevelThemeBlack.svg"
 import { Link } from 'react-router-dom'
 import { CardLinks, CardLogin, DivImage, DivLogin, MainContainer, ImageLogo, ImagePrato } from "./Login.styles"
+import { useContext } from "react"
+import { ThemeContext } from "../../context/themeContext"
 
 
 const Login = () => {
+  const theme = useContext(ThemeContext)
+
   return (
     <MainContainer>
       <DivImage>
@@ -13,7 +18,7 @@ const Login = () => {
       </DivImage>
       <DivLogin>
         <CardLogin>
-          <ImageLogo src={ImgLogo} alt='Logo da Develfood' id="image-logo"/>
+          <ImageLogo  src={theme?.theme === "light" ? ImgLogoWhite : ImgLogoBlack} alt='Logo da Develfood' id="image-logo"/>
           <Form />
           <CardLinks>
             <Link to="/esqueci-minha-senha">Esqueci minha senha</Link>

@@ -1,14 +1,21 @@
-import ImgLogo from "../../assets/images/logoDevelThemeWhite.svg"
-import ProgressOne from "../../assets/images/progress/progress1light.png"
-import ProgressTwo from "../../assets/images/progress/progress2light.png"
-import ProgressThree from "../../assets/images/progress/progress3light.png"
+import ImgLogoWhite from "../../assets/images/logoDevelThemeWhite.svg"
+import ImgLogoBlack from "../../assets/images/logoDevelThemeBlack.svg"
+
+import ProgressOneWhite from "../../assets/images/progress/progress1light.png"
+import ProgressTwoWhite from "../../assets/images/progress/progress2light.png"
+import ProgressThreeWhite from "../../assets/images/progress/progress3light.png"
+
+import ProgressOneBlack from "../../assets/images/progress/progress1black.png"
+import ProgressTwoBlack from "../../assets/images/progress/progress2black.png"
+import ProgressThreeBlack from "../../assets/images/progress/progress3black.png"
 
 import FormStepOne from './components/FormStepOne'
 import FormStepTwo from './components/FormStepTwo'
-import { useState } from 'react'
+import { useContext, useState } from 'react'
 import FormStepThree from './components/FormStepThree'
 import { MainContainer, ImageLogo, ImageProgress } from './Cadastro.styles'
 import Finally from "./components/Finally"
+import { ThemeContext } from "../../context/themeContext"
 
 
 
@@ -16,6 +23,12 @@ import Finally from "./components/Finally"
 const Register = () => {
   const [value, setvalue] = useState(1)
   const [succesOrError, setSuccesOrError] = useState<boolean>(true)
+  const theme = useContext(ThemeContext)
+
+  const progressWhite = value === 1 ? ProgressOneWhite : value === 2 ? ProgressTwoWhite : value === 3 ? ProgressThreeWhite : ""
+  const progressBlack = value === 1 ? ProgressOneBlack : value === 2 ? ProgressTwoBlack : value === 3 ? ProgressThreeBlack : ""
+
+  
 
 
   function checkStep() {
@@ -35,8 +48,8 @@ const Register = () => {
 
   return (
     <MainContainer>
-      <ImageLogo src={ImgLogo} id="image-logo"/>
-      <ImageProgress src={value === 1 ? ProgressOne : value === 2 ? ProgressTwo : value === 3 ? ProgressThree : ""} />
+      <ImageLogo src={theme?.theme === "light" ? ImgLogoWhite : ImgLogoBlack} id="image-logo" />
+      <ImageProgress src={theme?.theme === "light" ? progressWhite : progressBlack} />
       {checkStep()}
     </MainContainer>
   )
