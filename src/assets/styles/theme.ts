@@ -8,6 +8,7 @@ export const lightTheme = {
   buttonText: "#FFF",
   imageLoginForm: "../../assets/images/logoDevelThemeWhite.svg"
 };
+
 export const darkTheme = {
   body: '#031626',
   primary: '#07D9D9',
@@ -18,5 +19,3 @@ export const darkTheme = {
   buttonText: "#031626",
   imageLoginForm: "../../assets/images/logoDevelThemeBlack.svg" 
 };
-
-
