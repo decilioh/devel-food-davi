@@ -2,7 +2,6 @@ import { Meta, StoryObj } from "@storybook/react"
 import Select from ".";
 import { SelectProps } from "./interface";
 import { AiOutlineLock } from "react-icons/ai";
-import { action } from '@storybook/addon-actions';
 
 export default {
     title: "Components/Select",
