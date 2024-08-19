@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import { SelectProps } from './interface';
 import { Dropdown, DropdownItem, ErrorMessage, IconWrapper, SelectWrapper } from './select.styles';
 
-const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, error, isTouched, options, onCustomChange, ...props }, ref) => {
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, error, isTouched, options, onCustomChange, text="Tipos de Comida",...props }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -41,7 +41,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, e
         <IconWrapper>
           <Icon />
         </IconWrapper>
-        <div>{selectedValues.length === 0 ? "Tipos de comida" : selectedValues.join(', ')}</div>
+        <div>{selectedValues.length === 0 ? text : selectedValues.join(', ')}</div>
       </SelectWrapper>
       {isOpen && (
         <Dropdown id='dropdown-type-food'>

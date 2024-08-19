@@ -1,14 +1,14 @@
 import { ReactNode } from "react"
 import { ButtonApp } from "./button.styles"
 
-interface Props{
+export interface ButtonProps{
     children: ReactNode
     type?: "button" | "submit" | "reset" | undefined
     onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
     id: string
 }
 
-const Button = ({id, children, type="button", onClick=()=>{}}: Props) => {
+const Button = ({id, children, type="button", onClick=()=>{}}: ButtonProps) => {
   return (
     <ButtonApp type={type} id={id} onClick={onClick} >
         {children}

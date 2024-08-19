@@ -4,4 +4,5 @@ export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElemen
     isTouched?: boolean;
     options: { value: string; label: string }[];
     onCustomChange: (selectedValues: string[]) => void; // Custom handler
+    text?: string
 }

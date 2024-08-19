@@ -4,7 +4,7 @@ export const ButtonApp = styled.button`
     width: 20vw;
     height: 60px;
     background: ${({ theme }) => theme.primary};
-    color: ${({theme}) => theme.text};
+    color: ${({theme}) => theme.buttonText};
     border-radius: 17px;
     cursor: pointer;
 
@@ -13,7 +13,6 @@ export const ButtonApp = styled.button`
     font-weight: 500;
     text-align: center;
 
-    color: #FFFFFF;
     margin: 2vh auto;
 
     @media screen and (max-width: 1024px) {
