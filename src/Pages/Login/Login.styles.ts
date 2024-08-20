@@ -35,20 +35,19 @@ export const CardLogin = styled.div`
 export const CardLinks = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 12px;
   align-items: center;
 
   a{
-      font-size: 14px;
+      font-size: 16px;
       text-decoration: none;
       color: ${({ theme }) => theme.primary};
-      font-weight: 600;
       cursor: pointer;
+      font-family: Roboto;
     }
 `
 
 export const ImageLogo = styled.img`
-  margin-top: 5vh;
+  margin-top: 10vh;
   width: auto; // Ajuste conforme necessário
   height: auto;
 `

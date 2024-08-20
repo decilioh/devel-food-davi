@@ -4,7 +4,9 @@ export const FormLogin = styled.form`
     display: flex;
     flex-direction: column;
     width: 20vw;
-    margin: 5vh auto 2vh auto;
+    margin: 5vh auto 8vh auto;
+
+
 
     @media screen and (max-width: 1024px) {
         width: 30vw;

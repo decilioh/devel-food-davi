@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
   display: flex;
   align-items: center;
-  border: 2px solid
+  border: 1px solid
     ${({ isValid, isTouched }) => {
       if (!isTouched) return '#ccc'; 
       return isValid ? '#00BFFF' : '#FF6347';
@@ -33,8 +33,12 @@ export const IconWrapper = styled.div`
 export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.error};
   font-size: 12px;
-  margin-top: -12px;
+  margin-top: -2px;
   display: flex;
-  justify-content: space-between;
 `;
 
+export const ErrorAsterisk = styled.div`
+  color: ${({ theme }) => theme.error};
+  font-size: 12px;
+  text-align: right;
+`
