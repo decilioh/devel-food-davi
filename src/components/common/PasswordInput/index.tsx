@@ -11,7 +11,7 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: 
   };
 
   return (
-    <>
+    <div>
       {error && <ErrorAsterisk>*</ErrorAsterisk>}
       <PasswordInputWrapper isValid={!error} isTouched={isTouched}>
         {Icon && (
@@ -29,7 +29,7 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: 
         </ToggleButton>
       </PasswordInputWrapper>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
-    </>
+    </div>
   );
 });
 

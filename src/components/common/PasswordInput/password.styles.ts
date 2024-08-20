@@ -44,12 +44,14 @@ export const ToggleButton = styled.button`
 export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.error};
   font-size: 12px;
-  margin-top: -2px;
-  display: flex;
+  position: absolute;
+  transform: translateY(-2vh);
 `;
 
 export const ErrorAsterisk = styled.div`
   color: ${({ theme }) => theme.error};
   font-size: 12px;
-  text-align: right;
+  position: absolute;
+  transform: translateY(-2vh) translateX(20vw);
+  
 `
