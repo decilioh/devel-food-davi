@@ -8,9 +8,10 @@ export const ButtonApp = styled.button`
     border-radius: 17px;
     border: none;
     cursor: pointer;
-
+    
     /* Text button */
-    font-size: 42px;
+    font-size: 36px;
+    font-family: Roboto Condensed;
     font-weight: 500;
     text-align: center;
 
