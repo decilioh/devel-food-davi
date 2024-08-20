@@ -16,6 +16,10 @@ export const FormStepOneStyled = styled.form`
     @media screen and (max-width: 610px) {
        width: 77vw;
     }
+
+    #button-register{
+        margin-top: 5vh;
+    }
 `;
 
 export const FormDivisionOne = styled.div`
