@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { SelectProps } from './interface';
-import { Dropdown, DropdownItem, ErrorMessage, IconWrapper, SelectWrapper } from './select.styles';
+import { Dropdown, DropdownItem, ErrorAsterisk, ErrorMessage, IconWrapper, SelectWrapper } from './select.styles';
 
-const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, error, isTouched, options, onCustomChange, text="Tipos de Comida",...props }, ref) => {
+const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, error, isTouched, options, onCustomChange, text = "Tipos de comida", ...props }, ref) => {
   const [isOpen, setIsOpen] = useState(false);
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
   const wrapperRef = useRef<HTMLDivElement>(null);
@@ -36,7 +36,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, e
 
   return (
     <div ref={wrapperRef}>
-      {error && <ErrorMessage>{error.message} <span>*</span></ErrorMessage>}
+      {error && <ErrorAsterisk>*</ErrorAsterisk>}
       <SelectWrapper isValid={!error} isTouched={isTouched} onClick={handleToggle} id='select-type-food'>
         <IconWrapper>
           <Icon />
@@ -59,6 +59,8 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, e
           ))}
         </Dropdown>
       )}
+      {error && <ErrorMessage>{error.message}</ErrorMessage>}
+
     </div>
   );
 });

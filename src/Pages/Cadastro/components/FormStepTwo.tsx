@@ -59,7 +59,7 @@ const FormStepTwo = ({setvalue}: Props) => {
 }
                 onCustomChange={(selectedValues) => setValue("typesOfFood", selectedValues)}
                 options={[
-                    { value: 'brasileiro', label: 'Brasileiro' },
+                    { value: 'brasileira', label: 'Brasileira' },
                     { value: 'picante', label: 'Picante' },
                     { value: 'mexicana', label: 'Mexicana' },
                     { value: 'japonesa', label: 'Japonesa' },

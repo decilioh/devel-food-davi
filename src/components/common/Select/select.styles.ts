@@ -13,10 +13,9 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
   padding: 8px 12px;
   height: 38px; 
   cursor: pointer;
-  color: #A2A2A2;
-  
-  font-family: inherit;
-  font-size: 14px;
+  color: #757575;
+  font-family: Roboto;
+  font-size: 13px;
 
   &:focus {
     outline: none;
@@ -30,6 +29,7 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
 
   svg{
     color: #A2A2A2;
+    margin-right: 12px;
   }
 `;
 
@@ -46,10 +46,13 @@ export const Dropdown = styled.div`
 `;
 
 export const DropdownItem = styled.div`
-  padding: 8px 12px;
+  padding: 4px 12px;
   display: flex;
   align-items: center;
   cursor: pointer;
+  font-family: roboto condensed;
+  font-size: 16px;
+  color: #A2A2A2;
   
   
   
@@ -94,7 +97,15 @@ export const IconWrapper = styled.div`
 export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.error};
   font-size: 12px;
-  margin-top: -12px;
+  margin-top: 2px;
   display: flex;
   justify-content: space-between;
 `;
+
+export const ErrorAsterisk = styled.div`
+  color: ${({ theme }) => theme.error};
+  font-size: 12px;
+  text-align: right;
+  margin-top: -12px;
+  
+`

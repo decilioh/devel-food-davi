@@ -35,7 +35,7 @@ const FormStepThree = ({ setvalue }: Props) => {
                     <Input
                         id='input-nickname-address'
                         icon={FaHouse}
-                        placeholder='Apelido endereço'
+                        placeholder='Apelido do endereço'
                         {...register('nicknameAddress')}
                         error={errors.nicknameAddress}
                         isTouched={touchedFields.nicknameAddress}
