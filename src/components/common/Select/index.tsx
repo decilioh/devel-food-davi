@@ -49,6 +49,7 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, e
             <DropdownItem key={index} onClick={() => handleSelect(option.value)}>
               <input
                 id={option.value}
+                className='checkmark'
                 type="checkbox"
                 checked={selectedValues.includes(option.value)}
                 readOnly

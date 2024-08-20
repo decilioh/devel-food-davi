@@ -51,13 +51,38 @@ export const DropdownItem = styled.div`
   align-items: center;
   cursor: pointer;
   
+  
+  
   &:hover {
     background-color: #f1f1f1;
   }
 
-  input {
+  input[type="checkbox"] {
+    appearance: none;
+    -webkit-appearance: none;
+    background-color: #eee;
+    border: 1px solid #ccc;
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
     margin-right: 8px;
+    cursor: pointer;
+    
+    &:checked {
+      background-color: red;
+      border-color: none;
+    }
+
+    &:checked::before {
+      content: 'v'; /* código unicode para um check */
+      display: block;
+      text-align: center;
+      color: white;
+      font-size: 12px;
+    }
   }
+
+
 `;
 
 export const IconWrapper = styled.div`
