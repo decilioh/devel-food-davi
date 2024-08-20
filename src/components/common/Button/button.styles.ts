@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const ButtonApp = styled.button`
     width: 20vw;
-    height: 60px;
+    height: 77px;
     background: ${({ theme }) => theme.primary};
     color: ${({theme}) => theme.buttonText};
     border-radius: 17px;
