@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
   display: flex;
   align-items: center;
-  border: 2px solid
+  border: 1px solid
     ${({ isValid, isTouched }) => {
       if (!isTouched) return '#ccc';
       return isValid ? '#00BFFF' : '#FF6347';
@@ -13,10 +13,10 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
   padding: 8px 12px;
   height: 38px; 
   cursor: pointer;
+  color: #A2A2A2;
   
   font-family: inherit;
   font-size: 14px;
-  color: #333;
 
   &:focus {
     outline: none;
@@ -26,6 +26,10 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
 
   &:hover {
     border-color: #999;
+  }
+
+  svg{
+    color: #A2A2A2;
   }
 `;
 

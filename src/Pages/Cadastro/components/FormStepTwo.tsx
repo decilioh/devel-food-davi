@@ -2,8 +2,10 @@ import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormDataSchemaStepTwo, schemaStepTwo } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormStepOneStyled } from './Form.styles';
-import { IoFastFoodOutline } from "react-icons/io5";
-import { FaRegUser, FaPhone  } from "react-icons/fa";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { MdAccessibility } from "react-icons/md";
+import { MdFastfood } from "react-icons/md";
+
 
 import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
@@ -33,7 +35,7 @@ const FormStepTwo = ({setvalue}: Props) => {
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-two'>
             <Input
                 id='input-name'
-                icon={FaRegUser}
+                icon={MdAccessibility}
                 placeholder='Nome'
                 {...register('name')}
                 error={errors.name}
@@ -41,7 +43,7 @@ const FormStepTwo = ({setvalue}: Props) => {
             />
             <Input
                 id='input-telephone'
-                icon={FaPhone}
+                icon={BsFillTelephoneFill }
                 placeholder='Telefone'
                 {...register('telephone')}
                 error={errors.telephone}
@@ -51,7 +53,7 @@ const FormStepTwo = ({setvalue}: Props) => {
             <Select
                 id='select-typesOfFood
 '
-                icon={IoFastFoodOutline}
+                icon={MdFastfood}
                 {...register('typesOfFood')}
                 error={errors.typesOfFood
 }
