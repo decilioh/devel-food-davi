@@ -24,7 +24,7 @@ export const schemaStepTwo = z.object({
         message: "Input - Inválido"
     }),
     typesOfFood: z.union([
-        z.enum(["brasileiro", "picante", "mexicana", "japonesa"]).array().nonempty({ message: "Selecione pelo menos uma opção" }),
+        z.enum(["brasileira", "picante", "mexicana", "japonesa"]).array().nonempty({ message: "Selecione pelo menos uma opção" }),
         z.array(z.string()).max(0)
     ])
 })
@@ -39,6 +39,5 @@ export const schemaStepThree = z.object({
     city: z.string().nonempty({ message: "Campo obrigatório" }),
     neighborhood: z.string().nonempty({ message: "Campo obrigatório" }),
     state: z.string().nonempty({ message: "Campo obrigatório" }),
-    number: z.string().nonempty({ message: "Campo obrigatório" }),
-})
+    number: z.string().regex(/^\d+$/, { message: "Apenas números são permitidos" }).nonempty({ message: "Campo obrigatório" }),})
 export type FormDataSchemaStepThree = z.infer<typeof schemaStepThree>;
