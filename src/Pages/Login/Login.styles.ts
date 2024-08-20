@@ -3,8 +3,46 @@ import styled from "styled-components"
 export const MainContainer = styled.div`
   display: flex;
   width: 100%;
-  height: 100vh;
-  
+  height: 100vh; 
+  overflow: hidden; 
+
+`
+
+export const DivImage = styled.div`
+  width: 60%;
+    
+  @media screen and (max-width: 1024px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 780px) {
+    width: 40%;
+  }
+  @media screen and (max-width: 610px) {
+       display: none;
+  }
+`
+
+
+export const ImagePrato = styled.img`
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+`
+
+export const DivLogin = styled.div`
+  height: 100%;
+  width: 40%;
+  display: flex;
+
+  @media screen and (max-width: 1024px) {
+    width: 50%;
+  }
+  @media screen and (max-width: 780px) {
+        width: 60%;
+  }
+  @media screen and (max-width: 610px) {
+       width: 100%;
+  }
 `
 
 export const CardLogin = styled.div`
@@ -32,6 +70,13 @@ export const CardLogin = styled.div`
   
 `
 
+
+export const ImageLogo = styled.img`
+  margin-top: 10vh;
+  width: auto; // Ajuste conforme necessário
+  height: auto;
+`
+
 export const CardLinks = styled.div`
   display: flex;
   flex-direction: column;
@@ -46,46 +91,5 @@ export const CardLinks = styled.div`
     }
 `
 
-export const ImageLogo = styled.img`
-  margin-top: 10vh;
-  width: auto; // Ajuste conforme necessário
-  height: auto;
-`
 
-export const ImagePrato = styled.img`
-  width: 100%;
-  height: 100%;
-  background: no-repeat center;
-  background-size: cover;   
 
-`
-export const DivImage = styled.div`
-  width: 50%;
-  height: 100vh;
-
-  @media screen and (max-width: 1024px) {
-    width: 40%;
-  }
-  @media screen and (max-width: 780px) {
-        width: 30%;
-  }
-  @media screen and (max-width: 610px) {
-       display: none;
-  }
-`
-
-export const DivLogin = styled.div`
-  height: 100%;
-  width: 50%;
-  display: flex;
-
-  @media screen and (max-width: 1024px) {
-    width: 60%;
-  }
-  @media screen and (max-width: 780px) {
-        width: 70%;
-  }
-  @media screen and (max-width: 610px) {
-       width: 100%;
-  }
-`
