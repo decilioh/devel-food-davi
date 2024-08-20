@@ -31,4 +31,6 @@ export const ImageProgress = styled.img`
 export const Paragraph = styled.p`
     font-size: 14px;
     font-family: Roboto;
+    text-align: center;
+    width: 428px;
 `
