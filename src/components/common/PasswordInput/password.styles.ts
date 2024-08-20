@@ -51,7 +51,7 @@ export const ErrorMessage = styled.span`
 export const ErrorAsterisk = styled.div`
   color: ${({ theme }) => theme.error};
   font-size: 12px;
-  position: absolute;
-  transform: translateY(-2vh) translateX(20vw);
+  text-align: right;
+  margin-top: -12px;
   
 `

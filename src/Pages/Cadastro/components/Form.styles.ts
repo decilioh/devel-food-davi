@@ -4,6 +4,7 @@ export const FormStepOneStyled = styled.form`
     display: flex;
     flex-direction: column;
     margin: 5vh auto 2vh auto;
+    width: 25vw;
 
     @media screen and (max-width: 1024px) {
         width: 30vw;
@@ -24,37 +25,32 @@ export const FormStepOneStyled = styled.form`
 
 export const FormDivisionOne = styled.div`
     display: flex;
-    gap: 4px;
+    gap: 8px;
+    width: 100%;
+    flex-wrap: no-wrap;
 
-
-    @media screen and (max-width: 1024px) {
+    .esquerda{
+        width: 60%;
         input{
-            width: 9vw;
+            width: 60%;
         }
     }
-
-    @media screen and (max-width: 780px) {
+    .direita{
         input{
-            width: 14vw;
+            width: 40%;
         }
+        width: 40%;
     }
-
-    @media screen and (max-width: 610px) {
+    .esquerda2{
+        width: 70%;
         input{
-            width: 34vw;
+            width: 70%;
         }
     }
-
-    #input-register-cep, #input-register-number{
-        @media screen and (max-width: 1024px) {
-            width: 8vw;
+    .direita2{
+        input{
+            width: 30%;
         }
-
-        @media screen and (max-width: 780px) {
-            width: 9vw;
-        }
-        @media screen and (max-width: 610px) {
-            width: 12vw;
-        }
+        width: 30%;
     }
-`
+`;
