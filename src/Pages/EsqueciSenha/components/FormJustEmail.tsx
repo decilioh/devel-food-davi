@@ -27,7 +27,7 @@ const FormJustEmail = ({value}: Props) => {
     };
 
     return (
-        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate id='form-email'>
+        <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate id='form-email' style={{width: "25vw"}}>
             <Input
                 id='input-email'
                 icon={AiOutlineMail}

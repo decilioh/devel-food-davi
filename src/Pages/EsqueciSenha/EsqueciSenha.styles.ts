@@ -7,6 +7,7 @@ export const MainContainer = styled.div`
   justify-content: center;
   background-color: white;
   height: 100vh;
+  overflow-y: hidden;
 `
 
 export const ImageLogo = styled.img`
