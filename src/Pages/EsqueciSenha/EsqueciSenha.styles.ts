@@ -40,6 +40,8 @@ export const SpacingContents = styled.div`
   display: flex;
   gap: 24px;
   button{
-    font-size: 32px
+    font-size: 28px;
+    height: 50px;
+    border-radius: 5px;
   }
 `
