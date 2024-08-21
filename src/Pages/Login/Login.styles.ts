@@ -5,7 +5,7 @@ export const MainContainer = styled.div`
   width: 100%;
   height: 100vh; 
   overflow: hidden; 
-
+  background-color: #F2F2F2;
 `
 
 export const DivImage = styled.div`

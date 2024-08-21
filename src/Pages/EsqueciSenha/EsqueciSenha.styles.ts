@@ -5,7 +5,8 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 20vh;
+  height: 100vh;
+  overflow-y: hidden;
 `
 
 export const ImageLogo = styled.img`
@@ -31,6 +32,7 @@ export const NoticeVerified = styled.span`
   text-align: left;
   margin: 2vh 0;
   width: 500px;
+  color: #A2A2A2;
 `
 
 export const SpacingContents = styled.div`
@@ -38,6 +40,8 @@ export const SpacingContents = styled.div`
   display: flex;
   gap: 24px;
   button{
-    font-size: 18px
+    font-size: 28px;
+    height: 50px;
+    border-radius: 5px;
   }
-`
+` 

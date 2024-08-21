@@ -15,7 +15,7 @@ export const darkTheme = {
   secondary: "#01A5A5",
   success: "#00D982",
   error: "#C90000",
-  text: "#000000",
+  text: "#FFF",
   buttonText: "#031626",
   imageLoginForm: "../../assets/images/logoDevelThemeBlack.svg" 
 };

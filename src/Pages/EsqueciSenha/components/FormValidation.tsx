@@ -42,7 +42,7 @@ const FormValidation = ({value}: Props) => {
         <PasswordInput
           id="input-password"
           icon={AiOutlineLock}
-          placeholder="Senha"
+          placeholder="Nova senha"
           {...register("password")}
           error={errors.password}
           isTouched={touchedFields.password}
@@ -59,8 +59,8 @@ const FormValidation = ({value}: Props) => {
           <Button id="button-forget-password" onClick={() => value(2)}>
             Voltar
           </Button>
-          <Button id="button-forget-password-continue" type="submit">
-            Continuar
+          <Button id="button-forget-password-conclude" type="submit">
+            Concluir
           </Button>
         </SpacingContents>
       </FormForgotPassword>
