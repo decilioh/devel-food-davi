@@ -37,6 +37,7 @@ export const Dropdown = styled.div`
   position: absolute;
   background-color: white;
   border: 1px solid #ccc;
+  height: 17vh;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   width: 24.8vw;
