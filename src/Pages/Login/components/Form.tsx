@@ -25,7 +25,7 @@ const Form = () => {
             <Input
                 id='input-email'
                 icon={AiOutlineMail}
-                placeholder='Email'
+                placeholder='E-mail'
                 {...register('email')}
                 error={errors.email}
                 isTouched={touchedFields.email}
