@@ -32,6 +32,7 @@ export const NoticeVerified = styled.span`
   text-align: left;
   margin: 2vh 0;
   width: 500px;
+  color: #A2A2A2;
 `
 
 export const SpacingContents = styled.div`
@@ -39,6 +40,6 @@ export const SpacingContents = styled.div`
   display: flex;
   gap: 24px;
   button{
-    font-size: 18px
+    font-size: 32px
   }
 `
