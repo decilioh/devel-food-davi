@@ -1,7 +1,7 @@
 import { useState, forwardRef } from 'react';
 import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { PasswordInputProps } from './interface';
-import { ErrorMessage, IconWrapper, PasswordField, PasswordInputWrapper, ToggleButton } from './password.styles';
+import { ErrorAsterisk, ErrorMessage, IconWrapper, PasswordField, PasswordInputWrapper, ToggleButton } from './password.styles';
 
 const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: Icon, error, isTouched, ...props }, ref) => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
@@ -11,8 +11,8 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: 
   };
 
   return (
-    <>
-      {error && <ErrorMessage>{error.message} <span>*</span></ErrorMessage>}
+    <div>
+      {error && <ErrorAsterisk>*</ErrorAsterisk>}
       <PasswordInputWrapper isValid={!error} isTouched={isTouched}>
         {Icon && (
           <IconWrapper>
@@ -25,10 +25,11 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: 
           {...props}
         />
         <ToggleButton type="button" onClick={togglePasswordVisibility}>
-          {isPasswordVisible ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+          {isPasswordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
         </ToggleButton>
       </PasswordInputWrapper>
-    </>
+      {error && <ErrorMessage>{error.message}</ErrorMessage>}
+    </div>
   );
 });
 

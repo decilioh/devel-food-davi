@@ -3,10 +3,14 @@ import { FormDataSchemaStepOne, schemaStepOne } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormStepOneStyled } from './Form.styles';
 import PasswordInput from '../../../components/common/PasswordInput';
-import { AiOutlineCreditCard, AiOutlineLock, AiOutlineMail } from 'react-icons/ai';
+import { AiOutlineMail } from 'react-icons/ai';
+import { IoMdCard } from "react-icons/io";
+
 import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
 import { handleCNPJChange } from '../../../utils';
+import { TfiUnlock } from "react-icons/tfi";
+
 
 interface Props{
     setvalue: React.Dispatch<React.SetStateAction<number>>
@@ -39,7 +43,7 @@ const FormStepOne = ({setvalue}: Props) => {
             />
             <Input
                 id='input-cnpj'
-                icon={AiOutlineCreditCard}
+                icon={IoMdCard}
                 placeholder='Cnpj'
                 {...register('cnpj')}
                 error={errors.cnpj}
@@ -48,7 +52,7 @@ const FormStepOne = ({setvalue}: Props) => {
             />
             <PasswordInput
                 id='input-password'
-                icon={AiOutlineLock}
+                icon={TfiUnlock}
                 placeholder="Senha"
                 {...register('password')}
                 error={errors.password}
@@ -56,7 +60,7 @@ const FormStepOne = ({setvalue}: Props) => {
             />
             <PasswordInput
                 id='input-confirm-password'
-                icon={AiOutlineLock}
+                icon={TfiUnlock}
                 placeholder="Confirmar senha"
                 {...register('confirmPassword')}
                 error={errors.confirmPassword}

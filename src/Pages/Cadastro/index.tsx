@@ -40,7 +40,9 @@ const Register = () => {
       case 3:
         return <FormStepThree setvalue={setvalue}/>
       case 4:
-        return <Finally setvalue={setvalue}  sucessOrError={succesOrError}/>
+        return <Finally setvalue={setvalue}  value={value}/>
+      case 5:
+        return <Finally setvalue={setvalue}  value={value}/>
       default:
         break;
     }
