@@ -42,7 +42,7 @@ const FormValidation = ({value}: Props) => {
         <PasswordInput
           id="input-password"
           icon={AiOutlineLock}
-          placeholder="Senha"
+          placeholder="Nova senha"
           {...register("password")}
           error={errors.password}
           isTouched={touchedFields.password}
