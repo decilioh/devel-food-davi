@@ -44,4 +44,4 @@ export const SpacingContents = styled.div`
     height: 50px;
     border-radius: 5px;
   }
-`
+` 
