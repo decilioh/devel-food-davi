@@ -63,6 +63,10 @@ const FormStepTwo = ({setvalue}: Props) => {
                     { value: 'picante', label: 'Picante' },
                     { value: 'mexicana', label: 'Mexicana' },
                     { value: 'japonesa', label: 'Japonesa' },
+                    { value: 'americana', label: 'Americana' },
+                    { value: 'irlandesa', label: 'Irlandesa' },
+                    { value: 'italiana', label: 'Italiana' },
+                    { value: 'arabe', label: 'Árabe' },
                   ]}
             />
             <Button id='button-register' type='submit'>Continuar</Button>
