@@ -5,7 +5,7 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 5vh;
+  margin-top: 2vh;
 `
 export const ImageLogo = styled.img`
   width: auto; // Ajuste conforme necessário
@@ -31,4 +31,6 @@ export const ImageProgress = styled.img`
 export const Paragraph = styled.p`
     font-size: 14px;
     font-family: Roboto;
+    text-align: center;
+    width: 428px;
 `

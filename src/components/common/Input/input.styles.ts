@@ -11,7 +11,7 @@ export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean 
   background-color: white;
   border-radius: 5px;
   padding: 8px;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 `;
 
 
@@ -33,12 +33,14 @@ export const IconWrapper = styled.div`
 export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.error};
   font-size: 12px;
-  margin-top: -2px;
+  margin-top: -6px;
   display: flex;
+  justify-content: space-between;
 `;
 
 export const ErrorAsterisk = styled.div`
   color: ${({ theme }) => theme.error};
   font-size: 12px;
   text-align: right;
+  margin-top: -12px;
 `

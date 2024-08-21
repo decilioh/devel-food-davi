@@ -11,7 +11,7 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: 
   };
 
   return (
-    <>
+    <div>
       {error && <ErrorAsterisk>*</ErrorAsterisk>}
       <PasswordInputWrapper isValid={!error} isTouched={isTouched}>
         {Icon && (
@@ -25,11 +25,11 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: 
           {...props}
         />
         <ToggleButton type="button" onClick={togglePasswordVisibility}>
-          {isPasswordVisible ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}
+          {isPasswordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
         </ToggleButton>
       </PasswordInputWrapper>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
-    </>
+    </div>
   );
 });
 

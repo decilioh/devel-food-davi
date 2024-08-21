@@ -7,32 +7,31 @@ import { useNavigate } from 'react-router-dom'
 import styled from 'styled-components'
 
 interface Props{
-    sucessOrError: boolean
+    value: number
     setvalue: React.Dispatch<React.SetStateAction<number>>
 }
 
 export const ImageFinally = styled.img`
-    width: auto;
+    width: 97px;
 `
 
-const Finally = ({sucessOrError, setvalue}: Props) => {
+const Finally = ({value, setvalue}: Props) => {
     const navigate = useNavigate()
     const sucess = [Sucesso, "Cadastro finalizado!", "Parabéns! Agora você pode aproveitar nossas ofertas e serviços e economizar com super cupons Develfood."]
     const error = [Error, "Algo deu errado!", "Um erro ocorreu, contate o administrador do site ou tente novamente!"]
 
     const handleContinue = () => {
-        if(sucessOrError){
-            navigate("/login")
-            return
+        if(value == 5){
+            return navigate("/login")
         }
-        setvalue(1)
+        setvalue(5)
     }
 
     return (
         <>
-            <ImageFinally src={sucessOrError ? sucess[0] : error[0]} id='id-image-sucess-or-error'/>
-            <Paragraph id='paragraph-1'>{sucessOrError ? sucess[1] : error[1]}</Paragraph>
-            <Paragraph id='paragraph-2' style={{marginBottom: "5vh"}}>{sucessOrError ? sucess[2] : error[2]}</Paragraph>
+            <ImageFinally src={value == 4 ? sucess[0] : error[0]} id='id-image-sucess-or-error'/>
+            <Paragraph id='paragraph-1'>{value == 4 ? sucess[1] : error[1]}</Paragraph>
+            <Paragraph id='paragraph-2' style={{marginBottom: "5vh"}}>{value == 4 ? sucess[2] : error[2]}</Paragraph>
             <Button id='button-register' onClick={handleContinue}>Continuar</Button>
         </>
     )
