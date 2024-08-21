@@ -5,9 +5,9 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
   align-items: center;
   border: 1px solid
     ${({ isValid, isTouched }) => {
-      if (!isTouched) return '#ccc';
-      return isValid ? '#00BFFF' : '#FF6347';
-    }};
+    if (!isTouched) return '#ccc';
+    return isValid ? '#00BFFF' : '#FF6347';
+  }};
   background-color: white;
   border-radius: 4px;
   padding: 8px 12px;
@@ -39,10 +39,35 @@ export const Dropdown = styled.div`
   border: 1px solid #ccc;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
-  width: 20vw;
+  width: 24.8vw;
   max-height: 200px;
   overflow-y: auto;
   z-index: 1000; 
+  
+  @media screen and (max-width: 1024px) {
+        width: 30vw;
+    }
+
+    @media screen and (max-width: 780px) {
+        width: 40vw;
+    }
+
+    @media screen and (max-width: 610px) {
+       width: 77vw;
+    }
+
+  &::-webkit-scrollbar {
+        width: 5px;
+        height: 2px;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color:#3F3D3D;
+        border-radius: 4px;
+        height: 2px;
+    }
+    &::-webkit-scrollbar-track {
+        background-color: #F1F1F1;
+    }
 `;
 
 export const DropdownItem = styled.div`
