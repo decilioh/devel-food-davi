@@ -5,13 +5,14 @@ export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean 
   align-items: center;
   border: 1px solid
     ${({ isValid, isTouched }) => {
-      if (!isTouched) return '#ccc'; 
-      return isValid ? '#00BFFF' : '#FF6347';
-    }};
+    if (!isTouched) return '#ccc';
+    return isValid ? '#00BFFF' : '#FF6347';
+  }};
   background-color: white;
   border-radius: 5px;
-  padding: 8px;
   margin-bottom: 8px;
+  height: 56px;
+  padding: 0 8px;
 `;
 
 
@@ -21,13 +22,18 @@ export const InputField = styled.input`
   flex: 1;
   padding: 8px;
   color: #A2A2A2;
+    &::placeholder{
+      color: #A2A2A2;
+    }
 `;
 
 export const IconWrapper = styled.div`
   margin-right: 8px;
+  margin-left:10px;
   display: flex;
   align-items: center;
   color: #A2A2A2;
+  font-size: 26.47px;
 `;
 
 export const ErrorMessage = styled.span`

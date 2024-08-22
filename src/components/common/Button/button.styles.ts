@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 export const ButtonApp = styled.button`
-    width: 20vw;
+    max-width: 450px;
+    width: 100%;
     height: 77px;
     background: ${({ theme }) => theme.primary};
     color: ${({theme}) => theme.buttonText};
@@ -15,7 +16,6 @@ export const ButtonApp = styled.button`
     font-weight: 500;
     text-align: center;
 
-    margin: 2vh auto;
 
     @media screen and (max-width: 1024px) {
         width: 30vw;

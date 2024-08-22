@@ -3,13 +3,12 @@ import { FormDataSchemaStepOne, schemaStepOne } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormStepOneStyled } from './Form.styles';
 import PasswordInput from '../../../components/common/PasswordInput';
-import { AiOutlineMail } from 'react-icons/ai';
 import { IoMdCard } from "react-icons/io";
 
 import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
 import { handleCNPJChange } from '../../../utils';
-import { TfiUnlock } from "react-icons/tfi";
+import { MdLockOpen, MdOutlineEmail } from 'react-icons/md';
 
 
 interface Props{
@@ -35,7 +34,7 @@ const FormStepOne = ({setvalue}: Props) => {
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-one'>
             <Input
                 id='input-email'
-                icon={AiOutlineMail}
+                icon={MdOutlineEmail}
                 placeholder='Email'
                 {...register('email')}
                 error={errors.email}
@@ -52,7 +51,7 @@ const FormStepOne = ({setvalue}: Props) => {
             />
             <PasswordInput
                 id='input-password'
-                icon={TfiUnlock}
+                icon={MdLockOpen}
                 placeholder="Senha"
                 {...register('password')}
                 error={errors.password}
@@ -60,7 +59,7 @@ const FormStepOne = ({setvalue}: Props) => {
             />
             <PasswordInput
                 id='input-confirm-password'
-                icon={TfiUnlock}
+                icon={MdLockOpen}
                 placeholder="Confirmar senha"
                 {...register('confirmPassword')}
                 error={errors.confirmPassword}

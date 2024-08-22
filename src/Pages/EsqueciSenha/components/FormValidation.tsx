@@ -9,6 +9,7 @@ import PasswordInput from '../../../components/common/PasswordInput';
 import { SpacingContents } from '../EsqueciSenha.styles';
 import { useNavigate } from 'react-router-dom';
 import { FormForgotPassword } from './Form.styles';
+import { MdLockOpen } from 'react-icons/md';
 
 interface Props {
     value: React.Dispatch<React.SetStateAction<number>>
@@ -41,7 +42,7 @@ const FormValidation = ({value}: Props) => {
         />
         <PasswordInput
           id="input-password"
-          icon={AiOutlineLock}
+          icon={MdLockOpen}
           placeholder="Nova senha"
           {...register("password")}
           error={errors.password}
@@ -49,7 +50,7 @@ const FormValidation = ({value}: Props) => {
         />
         <PasswordInput
           id="input-confirm-password"
-          icon={AiOutlineLock}
+          icon={MdLockOpen}
           placeholder="Confirmar senha"
           {...register("confirmPassword")}
           error={errors.confirmPassword}

@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
   display: flex;
   align-items: center;
+  justify-content: space-between; /* Alinha os itens com espaço entre eles */
   border: 1px solid
     ${({ isValid, isTouched }) => {
     if (!isTouched) return '#ccc';
@@ -29,19 +30,30 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
 
   svg{
     color: #A2A2A2;
-    margin-right: 12px;
   }
 `;
 
+export const IconWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+export const TextWrapper = styled.div`
+  flex-grow: 1;
+  text-align: left;
+  padding-left: 8px;
+  color: #A2A2A2;
+
+`;
+
 export const Dropdown = styled.div`
-  position: absolute;
   background-color: white;
   border: 1px solid #ccc;
-  height: 17vh;
+  height: 100%;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   width: 24.8vw;
-  max-height: 200px;
+  max-height: 120px;
   overflow-y: auto;
   z-index: 1000; 
   
@@ -114,11 +126,6 @@ export const DropdownItem = styled.div`
 
 `;
 
-export const IconWrapper = styled.div`
-  margin-right: 8px;
-  display: flex;
-  align-items: center;
-`;
 
 export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.error};
