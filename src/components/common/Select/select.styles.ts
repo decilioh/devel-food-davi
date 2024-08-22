@@ -36,6 +36,8 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
 export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
+  font-size: 26px;
+  margin-right: 18px;
 `;
 
 export const TextWrapper = styled.div`

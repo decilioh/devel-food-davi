@@ -3,7 +3,6 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormDataSchemaValidation, schemaValidation } from '../schema'
 import Input from '../../../components/common/Input';
-import { AiOutlineLock } from 'react-icons/ai';
 import Button from '../../../components/common/Button';
 import PasswordInput from '../../../components/common/PasswordInput';
 import { SpacingContents } from '../EsqueciSenha.styles';
@@ -34,7 +33,7 @@ const FormValidation = ({value}: Props) => {
       <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate id='form-forgot-password'>
         <Input
           id="input-validation"
-          icon={AiOutlineLock}
+          icon={MdLockOpen}
           placeholder="Código de validação"
           {...register("validationCode")}
           error={errors.validationCode}
