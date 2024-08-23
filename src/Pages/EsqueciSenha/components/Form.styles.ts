@@ -51,4 +51,7 @@ export const FormValidation = styled.form`
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    #button-forgot-password-2-continue{
+        margin-top: 31px;
+    }
 `
