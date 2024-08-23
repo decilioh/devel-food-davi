@@ -10,7 +10,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ icon: Icon, erro
       <InputWrapper isValid={!error} isTouched={isTouched}>
         {Icon && (
           <IconWrapper>
-            <Icon />
+            <Icon/>
           </IconWrapper>
         )}
         <InputField ref={ref} {...props} onChange={onChange} />

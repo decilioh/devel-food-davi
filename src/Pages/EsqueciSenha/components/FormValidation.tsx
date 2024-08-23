@@ -3,12 +3,12 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormDataSchemaValidation, schemaValidation } from '../schema'
 import Input from '../../../components/common/Input';
-import { AiOutlineLock } from 'react-icons/ai';
 import Button from '../../../components/common/Button';
 import PasswordInput from '../../../components/common/PasswordInput';
 import { SpacingContents } from '../EsqueciSenha.styles';
 import { useNavigate } from 'react-router-dom';
 import { FormForgotPassword } from './Form.styles';
+import { MdLockOpen } from 'react-icons/md';
 
 interface Props {
     value: React.Dispatch<React.SetStateAction<number>>
@@ -33,7 +33,7 @@ const FormValidation = ({value}: Props) => {
       <FormForgotPassword onSubmit={handleSubmit(onSubmit)} noValidate id='form-forgot-password'>
         <Input
           id="input-validation"
-          icon={AiOutlineLock}
+          icon={MdLockOpen}
           placeholder="Código de validação"
           {...register("validationCode")}
           error={errors.validationCode}
@@ -41,7 +41,7 @@ const FormValidation = ({value}: Props) => {
         />
         <PasswordInput
           id="input-password"
-          icon={AiOutlineLock}
+          icon={MdLockOpen}
           placeholder="Nova senha"
           {...register("password")}
           error={errors.password}
@@ -49,7 +49,7 @@ const FormValidation = ({value}: Props) => {
         />
         <PasswordInput
           id="input-confirm-password"
-          icon={AiOutlineLock}
+          icon={MdLockOpen}
           placeholder="Confirmar senha"
           {...register("confirmPassword")}
           error={errors.confirmPassword}

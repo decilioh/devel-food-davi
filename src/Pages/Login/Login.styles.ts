@@ -9,13 +9,13 @@ export const MainContainer = styled.div`
 `
 
 export const DivImage = styled.div`
-  width: 60%;
+  width: 62.76%;
     
   @media screen and (max-width: 1024px) {
-    width: 50%;
+    width: 52.76%;
   }
   @media screen and (max-width: 780px) {
-    width: 40%;
+    width: 42.76%;
   }
   @media screen and (max-width: 610px) {
        display: none;
@@ -31,14 +31,14 @@ export const ImagePrato = styled.img`
 
 export const DivLogin = styled.div`
   height: 100%;
-  width: 40%;
+  width: 37.24%;
   display: flex;
 
   @media screen and (max-width: 1024px) {
-    width: 50%;
+    width: 57.24%;
   }
   @media screen and (max-width: 780px) {
-        width: 60%;
+        width: 67.24%;
   }
   @media screen and (max-width: 610px) {
        width: 100%;
@@ -72,7 +72,7 @@ export const CardLogin = styled.div`
 
 
 export const ImageLogo = styled.img`
-  margin-top: 10vh;
+  margin-top: 81px;
   width: auto; // Ajuste conforme necessário
   height: auto;
 `
@@ -81,13 +81,19 @@ export const CardLinks = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  @media screen and (max-height: 840px){
+        margin-top: 14px;
+      }
 
   a{
-      font-size: 16px;
+      font-size: 18px;
       text-decoration: none;
       color: ${({ theme }) => theme.primary};
       cursor: pointer;
       font-family: Roboto;
+      @media screen and (max-height: 840px){
+        font-size: 14px;
+      }
     }
 `
 

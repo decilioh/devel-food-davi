@@ -19,7 +19,7 @@ export const FormStepOneStyled = styled.form`
     }
 
     #button-register{
-        margin-top: 5vh;
+        margin: 5vh auto;
     }
 `;
 
