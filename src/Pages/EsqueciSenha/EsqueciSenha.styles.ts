@@ -36,6 +36,7 @@ export const NoticeVerified = styled.span`
 `
 
 export const SpacingContents = styled.div`
+  margin-top: 44px; 
   width: 20vw;
   display: flex;
   gap: 24px;

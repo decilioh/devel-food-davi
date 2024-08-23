@@ -1,7 +1,10 @@
 import { useState, forwardRef } from 'react';
-import { AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/ai';
 import { PasswordInputProps } from './interface';
 import { ErrorAsterisk, ErrorMessage, IconWrapper, PasswordField, PasswordInputWrapper, ToggleButton } from './password.styles';
+import { HiEye, HiEyeOff } from "react-icons/hi";
+
+
+
 
 const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: Icon, error, isTouched, ...props }, ref) => {
   const [isPasswordVisible, setPasswordVisible] = useState(false);
@@ -25,7 +28,7 @@ const PasswordInput = forwardRef<HTMLInputElement, PasswordInputProps>(({ icon: 
           {...props}
         />
         <ToggleButton type="button" onClick={togglePasswordVisibility}>
-          {isPasswordVisible ? <AiOutlineEye /> : <AiOutlineEyeInvisible />}
+          {isPasswordVisible ? <HiEye className='iconEye'/> : <HiEyeOff  className='iconEye' />}
         </ToggleButton>
       </PasswordInputWrapper>
       {error && <ErrorMessage>{error.message}</ErrorMessage>}
