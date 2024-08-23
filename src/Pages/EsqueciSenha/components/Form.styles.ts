@@ -29,7 +29,7 @@ export const FormForgotPasswordEmail = styled.form`
     gap: 71px;
 
     input{
-        min-width: 20vw;
+        min-width: 22vw;
     }
 
     @media screen and (max-width: 1024px) {
