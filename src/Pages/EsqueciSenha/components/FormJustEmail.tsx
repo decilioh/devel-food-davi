@@ -3,17 +3,18 @@ import { SubmitHandler, useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormDataSchema, schemaJustEmail } from '../schema'
 import Input from '../../../components/common/Input';
-import { AiOutlineMail } from 'react-icons/ai';
 import Button from '../../../components/common/Button';
-import { FormForgotPassword, FormForgotPasswordEmail } from './Form.styles';
+import { FormForgotPassword, FormForgotPasswordEmail, SpacingContents } from './Form.styles';
 import { MdOutlineEmail } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
-interface Props{
+interface Props {
     value: React.Dispatch<React.SetStateAction<number>>
 }
 
 
-const FormJustEmail = ({value}: Props) => {
+const FormJustEmail = ({ value }: Props) => {
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -37,7 +38,14 @@ const FormJustEmail = ({value}: Props) => {
                 error={errors.email}
                 isTouched={touchedFields.email}
             />
-            <Button id='button-forgot-password' type='submit'>Continuar</Button>
+            <SpacingContents>
+                <Button id="button-return-page" onClick={() => navigate("/login")}>
+                    Voltar
+                </Button>
+                <Button id="button-submit" type="submit">
+                    Continuar
+                </Button>
+            </SpacingContents>
         </FormForgotPasswordEmail>
 
     )

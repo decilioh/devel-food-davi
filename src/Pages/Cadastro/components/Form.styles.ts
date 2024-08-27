@@ -4,18 +4,11 @@ export const FormStepOneStyled = styled.form`
     display: flex;
     flex-direction: column;
     margin: 5vh auto 2vh auto;
-    width: 25vw;
+    max-width: 558px;
+    width: 100%;
 
-    @media screen and (max-width: 1024px) {
-        width: 30vw;
-    }
-
-    @media screen and (max-width: 780px) {
-        width: 40vw;
-    }
-
-    @media screen and (max-width: 610px) {
-       width: 77vw;
+    @media screen and (max-width: 600px) {
+        width: 90%;
     }
 
     #button-register{
@@ -54,3 +47,19 @@ export const FormDivisionOne = styled.div`
         width: 30%;
     }
 `;
+
+export const SpacingContents = styled.div`
+    
+    max-width: 558px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    button{
+        width: 100%;
+        max-width: 259px;
+        height: 62px;
+        border-radius: 10px;
+    }
+` 
