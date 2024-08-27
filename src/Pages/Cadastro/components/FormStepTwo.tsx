@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormDataSchemaStepTwo, schemaStepTwo } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormStepOneStyled } from './Form.styles';
+import { FormStepOneStyled, SpacingContents } from './Form.styles';
 import { BsFillTelephoneFill } from "react-icons/bs";
 import { MdAccessibility } from "react-icons/md";
 import { MdFastfood } from "react-icons/md";
@@ -69,7 +69,14 @@ const FormStepTwo = ({setvalue}: Props) => {
                     { value: 'arabe', label: 'Árabe' },
                   ]}
             />
-            <Button id='button-register' type='submit'>Continuar</Button>
+            <SpacingContents style={{marginTop: "64px"}}>
+                <Button id="button-return-page" onClick={() => setvalue(1)}>
+                    Voltar
+                </Button>
+                <Button id="button-submit" type="submit">
+                    Continuar
+                </Button>
+            </SpacingContents>
         </FormStepOneStyled>
 
     )

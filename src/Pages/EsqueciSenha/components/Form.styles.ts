@@ -5,17 +5,12 @@ export const FormForgotPassword = styled.form`
     flex-direction: column;
     width: 20vw;
     margin: 5vh auto 2vh auto;
+    max-width: 558px;
+    width: 100%;
+    gap: 12px;
 
-    @media screen and (max-width: 1024px) {
-        width: 30vw;
-    }
-
-    @media screen and (max-width: 780px) {
-        width: 40vw;
-    }
-
-    @media screen and (max-width: 610px) {
-       width: 70vw;
+    @media screen and (max-width: 600px){
+        width: 90%;
     }
 `;
 
@@ -23,25 +18,12 @@ export const FormForgotPasswordEmail = styled.form`
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 25vw;
+    max-width: 558px;
+    width: 100%;
     margin: 5vh auto 2vh auto;
     gap: 71px;
-
-    input{
-        min-width: 22vw;
-    }
-
-    @media screen and (max-width: 1024px) {
-        width: 30vw;
-    }
-
-    @media screen and (max-width: 780px) {
-        width: 40vw;
-    }
-
-    @media screen and (max-width: 610px) {
-       width: 70vw;
+    @media screen and (max-width: 600px){
+        width: 90%;
     }
 `;
 
@@ -49,9 +31,40 @@ export const FormForgotPasswordEmail = styled.form`
 export const FormValidation = styled.form`
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: center; 
     align-items: center;
-    #button-forgot-password-2-continue{
-        margin-top: 31px;
+    button{
+        margin-top: 56px;
     }
 `
+
+export const SpacingContents = styled.div`
+  max-width: 558px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  button{
+    width: 100%;
+    max-width: 259px;
+    height: 62px;
+    border-radius: 10px;
+  }
+` 
+
+export const SpacingContentsStepThree = styled.div`
+    margin-top: 23px;
+    max-width: 558px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    button{
+        width: 100%;
+        max-width: 259px;
+        height: 62px;
+        border-radius: 10px;
+    }
+` 
