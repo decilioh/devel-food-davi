@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormDataSchemaStepOne, schemaStepOne } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormStepOneStyled } from './Form.styles';
+import { FormStepOneStyled, SpacingContents } from './Form.styles';
 import PasswordInput from '../../../components/common/PasswordInput';
 import { IoMdCard } from "react-icons/io";
 
@@ -9,13 +9,15 @@ import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
 import { handleCNPJChange } from '../../../utils';
 import { MdLockOpen, MdOutlineEmail } from 'react-icons/md';
+import { useNavigate } from 'react-router-dom';
 
 
-interface Props{
+interface Props {
     setvalue: React.Dispatch<React.SetStateAction<number>>
 }
 
-const FormStepOne = ({setvalue}: Props) => {
+const FormStepOne = ({ setvalue }: Props) => {
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -65,7 +67,14 @@ const FormStepOne = ({setvalue}: Props) => {
                 error={errors.confirmPassword}
                 isTouched={touchedFields.confirmPassword}
             />
-            <Button id='button-register' type='submit'>Continuar</Button>
+            <SpacingContents style={{marginTop: "94px"}}>
+                <Button id="button-return-page" onClick={() => navigate("/login")}>
+                    Voltar
+                </Button>
+                <Button id="button-submit" type="submit">
+                    Continuar
+                </Button>
+            </SpacingContents>
         </FormStepOneStyled>
 
     )

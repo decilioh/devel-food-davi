@@ -1,7 +1,7 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { FormDataSchemaStepThree, schemaStepThree } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
-import { FormDivisionOne, FormStepOneStyled } from './Form.styles';
+import { FormDivisionOne, FormStepOneStyled, SpacingContents } from './Form.styles';
 
 import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
@@ -103,7 +103,14 @@ const FormStepThree = ({ setvalue }: Props) => {
 
 
             </FormDivisionOne>
-            <Button id='button-register' type='submit'>Continuar</Button>
+            <SpacingContents style={{marginTop: "53px"}}>
+                <Button id="button-return-page" onClick={() => setvalue(1)}>
+                    Voltar
+                </Button>
+                <Button id="button-submit" type="submit">
+                    Continuar
+                </Button>
+            </SpacingContents>
         </FormStepOneStyled>
 
     )

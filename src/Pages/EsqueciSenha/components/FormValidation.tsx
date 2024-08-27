@@ -5,9 +5,8 @@ import { FormDataSchemaValidation, schemaValidation } from '../schema'
 import Input from '../../../components/common/Input';
 import Button from '../../../components/common/Button';
 import PasswordInput from '../../../components/common/PasswordInput';
-import { SpacingContents } from '../EsqueciSenha.styles';
 import { useNavigate } from 'react-router-dom';
-import { FormForgotPassword } from './Form.styles';
+import { FormForgotPassword, SpacingContents, SpacingContentsStepThree } from './Form.styles';
 import { MdLockOpen } from 'react-icons/md';
 
 interface Props {
@@ -55,14 +54,14 @@ const FormValidation = ({value}: Props) => {
           error={errors.confirmPassword}
           isTouched={touchedFields.confirmPassword}
         />
-        <SpacingContents>
-          <Button id="button-forget-password" onClick={() => value(2)}>
+        <SpacingContentsStepThree>
+          <Button id="button-return-page" onClick={() => value(2)}>
             Voltar
           </Button>
-          <Button id="button-forget-password-conclude" type="submit">
+          <Button id="button-submit" type="submit">
             Concluir
-          </Button>
-        </SpacingContents>
+          </Button> 
+        </SpacingContentsStepThree>
       </FormForgotPassword>
     );
 }

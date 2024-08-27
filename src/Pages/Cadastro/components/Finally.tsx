@@ -29,10 +29,10 @@ const Finally = ({value, setvalue}: Props) => {
 
     return (
         <>
-            <ImageFinally src={value == 4 ? sucess[0] : error[0]} id='id-image-sucess-or-error'/>
-            <Paragraph id='paragraph-1'>{value == 4 ? sucess[1] : error[1]}</Paragraph>
+            <ImageFinally src={value == 4 ? sucess[0] : error[0]} id='id-image-sucess-or-error' style={{marginTop: "75px"}}/>
+            <Paragraph id='paragraph-1' >{value == 4 ? sucess[1] : error[1]}</Paragraph>
             <Paragraph id='paragraph-2' style={{marginBottom: "5vh"}}>{value == 4 ? sucess[2] : error[2]}</Paragraph>
-            <Button id='button-register' onClick={handleContinue}>Continuar</Button>
+            <Button id='button-continue-final' onClick={handleContinue}>Continuar</Button>
         </>
     )
 }
