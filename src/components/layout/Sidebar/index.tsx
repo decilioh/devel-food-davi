@@ -52,7 +52,7 @@ const Sidebar = () => {
           {theme?.theme === "light" ? <MdDarkMode /> : <MdLightMode />}
           {isOpen && <span>Tema</span>}
         </MenuItem>
-        <MenuItem id='sidebar-theme' onClick={theme?.toggleTheme}>
+        <MenuItem id='sidebar-logout'>
           <TbLogout2 />
           {isOpen && <span>Sair</span>}
         </MenuItem>
