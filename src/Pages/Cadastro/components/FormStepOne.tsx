@@ -61,7 +61,7 @@ const FormStepOne = ({ setvalue }: Props) => {
             />
             <PasswordInput
                 id='input-confirm-password'
-                icon={MdLockOpen}
+                icon={IoMdCard}
                 placeholder="Confirmar senha"
                 {...register('confirmPassword')}
                 error={errors.confirmPassword}
