@@ -68,7 +68,7 @@ const FormStepTwo = ({setvalue}: Props) => {
                     { value: 'italiana', label: 'Italiana' },
                     { value: 'arabe', label: 'Árabe' },
                   ]}
-            />
+            /> 
             <SpacingContents style={{marginTop: "64px"}}>
                 <Button id="button-return-page" onClick={() => setvalue(1)}>
                     Voltar

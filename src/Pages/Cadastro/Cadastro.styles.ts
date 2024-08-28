@@ -5,20 +5,18 @@ export const MainContainer = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 2vh;
-
-  #button-continue-final{
-    margin-top: 80px;
-  }
+  height: 100vh;
 `
 export const ImageLogo = styled.img`
   width: auto; // Ajuste conforme necessário
   height: auto;
-  margin-bottom: 5vh;
+  margin-bottom: 18px;
 `
 export const ImageProgress = styled.img`
-  width: 10vw; // Ajuste conforme necessário
+  width: 244px; // Ajuste conforme necessário
   height: auto;
+  margin-bottom: 22px;
+  margin-top: 20px;
   @media screen and (max-width: 1024px) {
         width: 20vw;
     }
@@ -33,8 +31,8 @@ export const ImageProgress = styled.img`
 `
 
 export const Paragraph = styled.p`
-    font-size: 14px;
+    font-size: 18px;
     font-family: Roboto;
     text-align: center;
-    width: 428px;
+    width: 456px;
 `

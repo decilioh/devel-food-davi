@@ -7,22 +7,45 @@ import Loader from "../../components/common/Loader";
 import Button from "../../components/common/Button";
 import Modal from "../../components/common/Modal";
 import { ModalContext } from "../../context/modalContext";
+import Sidebar from "../../components/layout/Sidebar";
+import { Outlet, useLocation } from "react-router-dom";
+
+const MainContainer = styled.div`
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+`;
+
+const MainSection = styled.div`
+  display: flex;
+  flex: 1;
+`;
+
+const Content = styled.div`
+  flex: 1;
+  padding: 20px;
+  background-color: ${({ theme }) => theme.background};
+  overflow-y: auto;
+`;
 
 
-const Home = () => {
+
+const Layout = () => {
     const theme = useContext(ThemeContext)
     const modalContext = useContext(ModalContext)
 
-
-
     return (
-        <>
+        <MainContainer>
             <HeaderMain />
-            {/* <Loader theme={theme}/> */}
-            <Button id="button-modal" onClick={modalContext?.openModal}>Modal</Button>
-            <Modal />
-        </>
+            <MainSection>
+                <Sidebar/>
+                <Content>
+                    <Outlet />
+                </Content>
+            </MainSection>
+        </MainContainer>
+
     )
 }
 
-export default Home
+export default Layout

@@ -67,7 +67,7 @@ const FormStepOne = ({ setvalue }: Props) => {
                 error={errors.confirmPassword}
                 isTouched={touchedFields.confirmPassword}
             />
-            <SpacingContents style={{marginTop: "94px"}}>
+            <SpacingContents style={{marginTop: "60px"}}>
                 <Button id="button-return-page" onClick={() => navigate("/login")}>
                     Voltar
                 </Button>

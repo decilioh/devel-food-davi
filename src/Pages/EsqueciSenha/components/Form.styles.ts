@@ -4,10 +4,10 @@ export const FormForgotPassword = styled.form`
     display: flex;
     flex-direction: column;
     width: 20vw;
-    margin: 5vh auto 2vh auto;
+    margin: 2px auto 2vh auto;
     max-width: 558px;
     width: 100%;
-    gap: 12px;
+    gap: 6px;
 
     @media screen and (max-width: 600px){
         width: 90%;
@@ -20,8 +20,7 @@ export const FormForgotPasswordEmail = styled.form`
     justify-content: center;
     max-width: 558px;
     width: 100%;
-    margin: 5vh auto 2vh auto;
-    gap: 71px;
+    gap: 32px;
     @media screen and (max-width: 600px){
         width: 90%;
     }

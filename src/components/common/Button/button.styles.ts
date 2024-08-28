@@ -3,15 +3,15 @@ import styled from "styled-components";
 export const ButtonApp = styled.button`
     max-width: 450px;
     width: 100%;
-    height: 77px;
+    height: 62px;
     background: ${({ theme }) => theme.primary};
     color: ${({theme}) => theme.buttonText};
-    border-radius: 17px;
+    border-radius: 10px;
     border: none;
     cursor: pointer;
     
     /* Text button */
-    font-size: 36px;
+    font-size: 32px;
     font-family: Roboto Condensed;
     font-weight: 500;
     text-align: center;

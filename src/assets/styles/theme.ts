@@ -6,7 +6,8 @@ export const lightTheme = {
   error: "#C90000",
   text: "#031626",
   buttonText: "#FFF",
-  imageLoginForm: "../../assets/images/logoDevelThemeWhite.svg"
+  imageLoginForm: "../../assets/images/logoDevelThemeWhite.svg",
+  sidebar: "white"
 };
 
 export const darkTheme = {
@@ -17,5 +18,6 @@ export const darkTheme = {
   error: "#C90000",
   text: "#FFF",
   buttonText: "#031626",
-  imageLoginForm: "../../assets/images/logoDevelThemeBlack.svg" 
+  imageLoginForm: "../../assets/images/logoDevelThemeBlack.svg",
+  sidebar: "#071A40"
 };
