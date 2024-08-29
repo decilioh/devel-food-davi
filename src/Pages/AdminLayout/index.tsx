@@ -12,6 +12,10 @@ const MainContainer = styled.div`
   display: flex;
   flex-direction: column;
   overflow-y: hidden;
+  @media screen and (max-width: 1025px){
+    overflow-y: auto;
+  }
+  
 `;
 
 const MainSection = styled.div`
@@ -23,9 +27,16 @@ const Content = styled.div`
   background-color: ${({ theme }) => theme.background};
   overflow-y: hidden;
   max-height: 1080px;
-  max-width: 1440px;
+  overflow-x: hidden;
+
   width: 100%;
-  margin: auto auto;
+  margin: auto 0 auto 99px;
+  @media screen and (max-width: 1025px){
+    overflow-y: auto;
+    margin: auto 0 auto auto;
+
+  }
+  
 `;
 
 
