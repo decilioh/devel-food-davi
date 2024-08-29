@@ -4,8 +4,7 @@ import { FormDataSchema, schema } from '../schema'
 import Input from '../../../components/common/Input';
 import { AiOutlineMail } from 'react-icons/ai';
 import PasswordInput from '../../../components/common/PasswordInput';
-import Button from '../../../components/common/Button';
-import { FormLogin } from './Form.styles';
+import { ButtonApp, FormLogin } from './Form.styles';
 import { MdLockOpen, MdOutlineEmail } from 'react-icons/md';
 
 const Form = () => {
@@ -20,6 +19,8 @@ const Form = () => {
     const onSubmit: SubmitHandler<FormDataSchema> = (data) => {
         console.log(data);
     };
+
+    
 
     return (
         <FormLogin onSubmit={handleSubmit(onSubmit)} noValidate id='form-login'>
@@ -41,7 +42,7 @@ const Form = () => {
                 error={errors.password}
                 isTouched={touchedFields.password}
             />
-            <Button id='botao-submit' type='submit'>Logar</Button>
+            <ButtonApp id='botao-submit' type='submit'>Logar</ButtonApp>
         </FormLogin>
 
     )

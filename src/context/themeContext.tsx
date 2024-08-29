@@ -2,12 +2,12 @@ import { createContext, ReactNode, useEffect, useState } from "react";
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import { darkTheme, lightTheme } from "../assets/styles/theme";
 
-interface ThemeContextProps {
+export interface ThemeContextProps {
     theme: 'light' | 'dark';
     toggleTheme: () => void;
 }
 
-interface ThemeProviderProps {
+export interface ThemeProviderProps {
     children: ReactNode;
 }
 

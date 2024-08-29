@@ -12,6 +12,7 @@ export const MainContainer = styled.div`
 export const ImageLogo = styled.img`
   width: auto; // Ajuste conforme necessário
   height: auto;
+  margin-bottom: 38px;
 `
 
 export const VerifiedLogo = styled.img`

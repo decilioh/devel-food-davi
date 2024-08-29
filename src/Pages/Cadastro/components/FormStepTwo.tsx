@@ -3,7 +3,7 @@ import { FormDataSchemaStepTwo, schemaStepTwo } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormStepOneStyled, SpacingContents } from './Form.styles';
 import { BsFillTelephoneFill } from "react-icons/bs";
-import { MdAccessibility } from "react-icons/md";
+import { MdAccessibility, MdOutlineAccessibility } from "react-icons/md";
 import { MdFastfood } from "react-icons/md";
 
 
@@ -11,6 +11,7 @@ import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
 import Select from '../../../components/common/Select';
 import { handlePhoneChange } from '../../../utils';
+import { FaPhoneAlt } from 'react-icons/fa';
 
 interface Props{
     setvalue: React.Dispatch<React.SetStateAction<number>>
@@ -35,7 +36,7 @@ const FormStepTwo = ({setvalue}: Props) => {
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-two'>
             <Input
                 id='input-name'
-                icon={MdAccessibility}
+                icon={MdOutlineAccessibility}
                 placeholder='Nome'
                 {...register('name')}
                 error={errors.name}
@@ -43,7 +44,7 @@ const FormStepTwo = ({setvalue}: Props) => {
             />
             <Input
                 id='input-telephone'
-                icon={BsFillTelephoneFill }
+                icon={FaPhoneAlt}
                 placeholder='Telefone'
                 {...register('telephone')}
                 error={errors.telephone}
@@ -51,12 +52,11 @@ const FormStepTwo = ({setvalue}: Props) => {
                 onChange={(e) => handlePhoneChange(e, setValue)}
             />
             <Select
-                id='select-typesOfFood
-'
+                id='select-typesOfFood'
                 icon={MdFastfood}
                 {...register('typesOfFood')}
                 error={errors.typesOfFood
-}
+            }
                 onCustomChange={(selectedValues) => setValue("typesOfFood", selectedValues)}
                 options={[
                     { value: 'brasileira', label: 'Brasileira' },
@@ -68,7 +68,7 @@ const FormStepTwo = ({setvalue}: Props) => {
                     { value: 'italiana', label: 'Italiana' },
                     { value: 'arabe', label: 'Árabe' },
                   ]}
-            />
+            /> 
             <SpacingContents style={{marginTop: "64px"}}>
                 <Button id="button-return-page" onClick={() => setvalue(1)}>
                     Voltar

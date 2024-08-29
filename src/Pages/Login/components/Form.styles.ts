@@ -3,17 +3,17 @@ import styled from "styled-components";
 export const FormLogin = styled.form`
     display: flex;
     flex-direction: column;
-    max-width: 450px;
-    width: 80%;
-    margin: 31px auto 99px auto;
+    width: 76.53%;
+    margin: 23px auto 99px auto;
     .margin-bottom{
         margin-bottom: 13px;
     }
-    #botao-submit{
-        margin-top: 52px;
-    }
+
     @media screen and (max-height: 811px){
-        margin-bottom: 10px
+        margin-bottom: 10px;
+        #botao-submit{
+            margin-top: 32px;
+        }
     }
     @media screen and (max-width: 1024px) {
         width: 30vw;
@@ -27,3 +27,33 @@ export const FormLogin = styled.form`
        width: 70vw;
     }
 `
+
+export const ButtonApp = styled.button`
+        width: 100%;
+        height: 62px;
+        background: ${({ theme }) => theme.primary};
+        color: ${({ theme }) => theme.buttonText};
+        border-radius: 10px;
+        border: none;
+        cursor: pointer;
+        margin-top: 46px;
+        
+        /* Text button */
+        font-size: 32px;
+        font-family: Roboto Condensed;
+        font-weight: 500;
+        text-align: center;
+
+
+        @media screen and (max-width: 1024px) {
+            width: 30vw;
+        }
+
+        @media screen and (max-width: 780px) {
+            width: 40vw;
+        }
+
+        @media screen and (max-width: 610px) {
+        width: 70vw;
+        }
+    `

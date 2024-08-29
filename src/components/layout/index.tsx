@@ -1,1 +1,0 @@
-// Componentes relacionados ao layout da aplicação, como cabeçalhos e rodapés. 
