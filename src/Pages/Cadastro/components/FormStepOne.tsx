@@ -61,13 +61,13 @@ const FormStepOne = ({ setvalue }: Props) => {
             />
             <PasswordInput
                 id='input-confirm-password'
-                icon={MdLockOpen}
+                icon={IoMdCard}
                 placeholder="Confirmar senha"
                 {...register('confirmPassword')}
                 error={errors.confirmPassword}
                 isTouched={touchedFields.confirmPassword}
             />
-            <SpacingContents style={{marginTop: "94px"}}>
+            <SpacingContents style={{marginTop: "60px"}}>
                 <Button id="button-return-page" onClick={() => navigate("/login")}>
                     Voltar
                 </Button>

@@ -52,7 +52,7 @@ export const CardLogin = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: start;
-  width: 30vw;
+  width: 82.24%;
   height: 90vh;
   border-radius: 23px;
   opacity: 0px;
@@ -72,7 +72,7 @@ export const CardLogin = styled.div`
 
 
 export const ImageLogo = styled.img`
-  margin-top: 81px;
+  margin-top: 74px;
   width: auto; // Ajuste conforme necessário
   height: auto;
 `

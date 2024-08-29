@@ -5,11 +5,11 @@ export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean 
   align-items: center;
   border: 1px solid
     ${({ isValid, isTouched }) => {
-    if (!isTouched) return '#ccc';
-    return isValid ? '#00BFFF' : '#FF6347';
+    if (!isTouched) return '#dddddd';
+    return isValid ? '#07D9D9' : '#FF6347';
   }};
   background-color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   margin-bottom: 8px;
   height: 56px;
   padding: 0 8px;
@@ -33,7 +33,7 @@ export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   color: #A2A2A2;
-  font-size: 26.47px;
+  font-size: 22px;
 `;
 
 export const ErrorMessage = styled.span`

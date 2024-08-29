@@ -3,16 +3,11 @@ import styled from "styled-components";
 export const FormStepOneStyled = styled.form`
     display: flex;
     flex-direction: column;
-    margin: 5vh auto 2vh auto;
     max-width: 558px;
     width: 100%;
 
     @media screen and (max-width: 600px) {
         width: 90%;
-    }
-
-    #button-register{
-        margin: 5vh auto;
     }
 `;
 
@@ -49,7 +44,6 @@ export const FormDivisionOne = styled.div`
 `;
 
 export const SpacingContents = styled.div`
-    
     max-width: 558px;
     width: 100%;
     display: flex;

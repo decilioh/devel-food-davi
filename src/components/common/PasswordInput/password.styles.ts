@@ -5,11 +5,11 @@ export const PasswordInputWrapper = styled.div<{ isValid?: boolean; isTouched?: 
   align-items: center;
   border: 1px solid
     ${({ isValid, isTouched }) => {
-    if (!isTouched) return '#ccc'; // Cor inicial cinza
-    return isValid ? '#00BFFF' : '#FF6347';
+    if (!isTouched) return '#dddddd'; // Cor inicial cinza
+    return isValid ? '#07D9D9' : '#FF6347';
   }};
   background-color: white;
-  border-radius: 5px;
+  border-radius: 8px;
   height: 56px;
   padding: 0 8px;
   margin-bottom: 8px;
@@ -34,8 +34,7 @@ export const IconWrapper = styled.div`
   margin-left:10px;
   display: flex;
   align-items: center;
-    font-size: 26.47px;
-
+  font-size: 22px;
 `;
 
 export const ToggleButton = styled.button`
@@ -46,7 +45,7 @@ export const ToggleButton = styled.button`
   display: flex;
   align-items: center;
   .iconEye{
-      font-size: 33px;
+      font-size: 22px;
     }
 `;
 
