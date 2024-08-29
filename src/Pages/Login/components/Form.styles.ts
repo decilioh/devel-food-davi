@@ -19,12 +19,10 @@ export const FormLogin = styled.form`
         width: 30vw;
     }
 
-    @media screen and (max-width: 780px) {
-        width: 40vw;
-    }
 
-    @media screen and (max-width: 610px) {
+    @media screen and (max-width: 780px) {
        width: 70vw;
+       margin: 0 auto 0 auto;
     }
 `
 
@@ -50,10 +48,6 @@ export const ButtonApp = styled.button`
         }
 
         @media screen and (max-width: 780px) {
-            width: 40vw;
-        }
-
-        @media screen and (max-width: 610px) {
         width: 70vw;
         }
     `
