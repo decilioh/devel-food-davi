@@ -23,7 +23,7 @@ export const Error404Unloged = () => {
                     erro por parte do nosso sistema, retorne para a página inicial
                 </p>
             </MessageError>
-            <Button id="button-return" onClick={() => navigate("/login")}>Home</Button>
+            <Button id="button-return" onClick={() => navigate("/login")}>Login</Button>
         </MainContainer>
     )
 }
