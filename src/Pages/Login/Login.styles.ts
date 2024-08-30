@@ -15,10 +15,7 @@ export const DivImage = styled.div`
     width: 52.76%;
   }
   @media screen and (max-width: 780px) {
-    width: 42.76%;
-  }
-  @media screen and (max-width: 610px) {
-       display: none;
+      display: none;
   }
 `
 
@@ -38,10 +35,7 @@ export const DivLogin = styled.div`
     width: 57.24%;
   }
   @media screen and (max-width: 780px) {
-        width: 67.24%;
-  }
-  @media screen and (max-width: 610px) {
-       width: 100%;
+      width: 100%;
   }
 `
 
@@ -62,10 +56,9 @@ export const CardLogin = styled.div`
     width: 50vw;
   }
   @media screen and (max-width: 780px) {
-        width: 60vw;
-  }
-  @media screen and (max-width: 610px) {
-       width: 90vw;
+      width: 100%;
+      box-shadow: none;
+      gap: 5.5rem;
   }
   
 `
@@ -86,15 +79,17 @@ export const CardLinks = styled.div`
       }
 
   a{
-      font-size: 18px;
-      text-decoration: none;
-      color: ${({ theme }) => theme.primary};
-      cursor: pointer;
-      font-family: Roboto;
-      @media screen and (max-height: 840px){
-        font-size: 14px;
-      }
+    font-size: 18px;
+    text-decoration: none;
+    color: ${({ theme }) => theme.primary};
+    cursor: pointer;
+    font-family: Roboto;
+    @media screen and (max-height: 840px){
+      font-size: 14px;
     }
+  }
+
+  
 `
 
 

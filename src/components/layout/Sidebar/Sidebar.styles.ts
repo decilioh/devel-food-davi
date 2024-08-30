@@ -1,12 +1,23 @@
 import styled from "styled-components";
 
-export const Container = styled.div<{isOpen: boolean}>`
+interface ContainerProps {
+  isOpen: boolean;
+  isMobile: boolean;
+}
+
+export const Container = styled.div<ContainerProps>`
   background-color: ${({theme}) => theme.primary};
   width: ${({ isOpen }) => (isOpen ? '270px' : '60px')};
   transition: all 0.4s ease;
-  display: flex;
+  display: ${({ isMobile }) => (isMobile ? 'none' : 'flex')};
   flex-direction: column;
   padding: 10px 0;
+
+  @media screen and (max-width: 650px) {
+    left: ${({ isOpen }) => (isOpen ? '0' : '-60px')};
+    width: ${({ isOpen }) => (isOpen ? '60px' : '0')};
+    display: flex;
+  }
 `;
 
 export const ToggleSidebarButton = styled.button`
@@ -49,7 +60,11 @@ export const MenuItem = styled.li`
   }
 `;
 
-export const LineDivisor = styled.div<{isOpen: boolean}>`
+interface LineDivisorProps {
+  isOpen: boolean;
+}
+
+export const LineDivisor = styled.div<LineDivisorProps>`
     display:flex;
     justify-content:center;
     width:100%;
@@ -62,7 +77,7 @@ export const LineDivisor = styled.div<{isOpen: boolean}>`
         border: 1px solid black;
         opacity:20%;
     }
-`
+`;
 
 export const TitleOpen = styled.span`
     width: 90%;
@@ -71,4 +86,4 @@ export const TitleOpen = styled.span`
     font-family: Roboto Condensed;
     margin: 0 10px 0 10px;
     padding: 9px 0;
-`
+`;

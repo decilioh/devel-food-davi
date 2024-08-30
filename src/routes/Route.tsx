@@ -6,7 +6,7 @@ import Register from "../Pages/Cadastro"
 import ForgotMyPassword from "../Pages/EsqueciSenha"
 import { Error404Unloged } from "../Pages/404unloged";
 import Layout from "../Pages/AdminLayout";
-import { Error404Loged } from "../Pages/AdminLayout/404loged";
+import { Error404Loged } from "../Pages/404loged";
 import Home from "../Pages/Home";
 
 const Router = () => {

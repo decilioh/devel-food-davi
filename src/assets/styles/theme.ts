@@ -1,5 +1,6 @@
 export const lightTheme = {
   body: '#F2F2F2',
+  bodyText: '#031626',
   primary: '#071A40',
   secondary: "#01A5A5",
   success: "#00D982",
@@ -12,6 +13,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   body: '#031626',
+  bodyText: '#F2F2F2',
   primary: '#07D9D9',
   secondary: "#01A5A5",
   success: "#00D982",

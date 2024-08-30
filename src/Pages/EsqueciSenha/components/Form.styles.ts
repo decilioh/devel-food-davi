@@ -28,13 +28,13 @@ export const FormForgotPasswordEmail = styled.form`
 
 
 export const FormValidation = styled.form`
+    max-width: 558px;
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center; 
     align-items: center;
-    button{
-        margin-top: 56px;
-    }
+
 `
 
 export const SpacingContents = styled.div`
