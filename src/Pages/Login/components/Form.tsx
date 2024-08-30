@@ -6,8 +6,17 @@ import { AiOutlineMail } from 'react-icons/ai';
 import PasswordInput from '../../../components/common/PasswordInput';
 import { ButtonApp, FormLogin } from './Form.styles';
 import { MdLockOpen, MdOutlineEmail } from 'react-icons/md';
+import { mockUser } from '../../../utils/mockUser';
+import { useContext } from 'react';
+import { AuthContext, IAuthContextFunctions } from '../../../context/authContext';
+import { IUserContextFunctions, UserContext } from '../../../context/userContext';
+import { Bounce, toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const Form = () => {
+    const {signInSetCookies} = useContext(AuthContext) as IAuthContextFunctions
+    const {setEmail, setPassword, setUser, email, password} = useContext(UserContext) as IUserContextFunctions
+    const navigate = useNavigate()
     const {
         register,
         handleSubmit,
@@ -17,7 +26,23 @@ const Form = () => {
     })
 
     const onSubmit: SubmitHandler<FormDataSchema> = (data) => {
-        console.log(data);
+        if(data){
+            if(data.email === mockUser.email && data.password === mockUser.password){
+                signInSetCookies(mockUser.token)
+                setEmail(data.email)
+                setPassword(data.password)
+                setUser({email: email, password: password})
+                return toast.success("Login realizado com sucesso!", {
+                    transition: Bounce,
+                    onClose: () => {
+                        navigate('/admin/home')
+                    }
+                })
+            }
+            return toast.error("Email ou senha inválidos!", {
+                transition: Bounce,
+            })
+        }
     };
 
     
