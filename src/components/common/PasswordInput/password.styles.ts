@@ -22,7 +22,7 @@ export const PasswordField = styled.input`
     flex: 1;
     padding: 8px;
     width: 558px;
-    color: #A2A2A2;
+    color: #525252;
     &::placeholder{
       color: #A2A2A2;
     }

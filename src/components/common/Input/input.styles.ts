@@ -21,7 +21,7 @@ export const InputField = styled.input`
   outline: none;
   flex: 1;
   padding: 8px;
-  color: #A2A2A2;
+  color: #525252;
     &::placeholder{
       color: #A2A2A2;
     }
