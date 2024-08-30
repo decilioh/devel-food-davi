@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
   display: flex;
   align-items: center;
+  justify-content: center;
   border: 1px solid
     ${({ isValid, isTouched }) => {
     if (!isTouched) return '#dddddd';
@@ -23,6 +24,7 @@ export const InputField = styled.input`
   padding: 8px;
   color: #525252;
   letter-spacing: 0.05rem;
+  font-size: 1.13rem;
     &::placeholder{
       color: #A2A2A2;
       letter-spacing: 0.05rem;
