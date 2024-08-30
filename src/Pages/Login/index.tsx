@@ -11,6 +11,9 @@ import { ThemeContext } from "../../context/themeContext"
 const Login = () => {
   const theme = useContext(ThemeContext)
 
+  console.log("REACT_APP_BASE_URL_CEP", process.env.REACT_APP_BASE_URL_CEP);
+  console.log("VITE_SOME_KEY", import.meta.env.VITE_SOME_KEY);
+
   return (
     <MainContainer>
       <DivImage>

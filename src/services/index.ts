@@ -2,7 +2,9 @@ import axios from "axios";
 
 export const FetchAdressByCEP = async (cep: string) => {
     try {
-        const { data } = await axios.get(`https://viacep.com.br/ws/${cep}/json/`);
+        const baseUrl = process.env.REACT_APP_BASE_URL_CEP;
+
+        const { data } = await axios.get(`${baseUrl}/${cep}/json/`);
         return data;
     } catch (error) {
         return error;
