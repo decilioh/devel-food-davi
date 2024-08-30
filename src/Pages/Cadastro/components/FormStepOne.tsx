@@ -37,7 +37,7 @@ const FormStepOne = ({ setvalue }: Props) => {
             <Input
                 id='input-email'
                 icon={MdOutlineEmail}
-                placeholder='Email'
+                placeholder='E-mail'
                 {...register('email')}
                 error={errors.email}
                 isTouched={touchedFields.email}

@@ -23,7 +23,8 @@ export const TitleOrCodeVerified = styled.p`
   font-family: Roboto;
   font-size: 18px;
   font-weight: 400;
-  width: 400px;
+  max-width: 400px;
+  width: 100%;
   text-align: center;
 `
 export const NoticeVerified = styled.span`
@@ -32,7 +33,8 @@ export const NoticeVerified = styled.span`
   font-weight: 400;
   text-align: left;
   margin: 2vh 0;
-  width: 500px;
+  max-width: 500px;
+  width: 100%;
   color: #A2A2A2;
 `
 
