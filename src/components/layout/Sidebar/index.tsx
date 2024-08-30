@@ -5,6 +5,7 @@ import { MdDarkMode, MdKeyboardArrowLeft, MdLightMode } from 'react-icons/md';
 import { AiFillHome } from 'react-icons/ai';
 import { ThemeContext } from '../../../context/themeContext';
 import { TbLogout2 } from "react-icons/tb";
+import { AuthContext, IAuthContextFunctions } from '../../../context/authContext';
 
 interface SidebarProps {
   isMobile: boolean;
@@ -14,6 +15,7 @@ interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) => {
   const theme = useContext(ThemeContext);
+  const {signOutCookies} = useContext(AuthContext) as IAuthContextFunctions
 
   return (
     <Container isOpen={isOpen} isMobile={isMobile}>
@@ -58,7 +60,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
           {theme?.theme === "light" ? <MdDarkMode /> : <MdLightMode />}
           {isOpen && !isMobile && <span>Tema</span>}
         </MenuItem>
-        <MenuItem id='sidebar-logout'>
+        <MenuItem id='sidebar-logout' onClick={signOutCookies}>
           <TbLogout2 />
           {isOpen && !isMobile && <span>Sair</span>}
         </MenuItem>
