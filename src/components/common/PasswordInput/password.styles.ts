@@ -23,8 +23,10 @@ export const PasswordField = styled.input`
     padding: 8px;
     width: 558px;
     color: #525252;
+    letter-spacing: 0.05rem;
     &::placeholder{
       color: #A2A2A2;
+      letter-spacing: 0.05rem;
     }
 `;
 

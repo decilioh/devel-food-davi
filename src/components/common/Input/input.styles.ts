@@ -22,8 +22,10 @@ export const InputField = styled.input`
   flex: 1;
   padding: 8px;
   color: #525252;
+  letter-spacing: 0.05rem;
     &::placeholder{
       color: #A2A2A2;
+      letter-spacing: 0.05rem;
     }
 `;
 
