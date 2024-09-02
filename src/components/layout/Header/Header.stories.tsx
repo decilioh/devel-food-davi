@@ -22,9 +22,7 @@ const withLightTheme: Decorator = (Story) => (
 
 const withDarkTheme: Decorator = (Story) => (
     <ThemeProviderStyled theme={darkTheme}>
-        <ThemeProvider>
             <Story />
-        </ThemeProvider>
     </ThemeProviderStyled>
 );
 
