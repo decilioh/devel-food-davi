@@ -5,11 +5,11 @@ import { ThemeContext } from "styled-components"
 import { ThemeContextProps } from "../../../context/themeContext"
 
 
-interface Props{
+export interface LoaderProps{
     theme: ThemeContextProps | undefined
 }
 
-const Loader = ({theme}: Props) => {
+const Loader = ({theme}: LoaderProps) => {
 
     return (
         <Overlay>
