@@ -10,6 +10,7 @@ import { Error404Loged } from "../Pages/404loged";
 import Home from "../Pages/Home";
 import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "./PrivateRoute";
+import Menu from "../Pages/Menu";
 
 
 const Router = () => {
@@ -23,6 +24,7 @@ const Router = () => {
         <Route path="/cadastrar" element={<Register />} />
         <Route path="/admin" element={<PrivateRoute><Layout /></PrivateRoute>}>
           <Route path="home" element={<Home />} />
+          <Route path="menu" element={<Menu />} />
           <Route path="*" element={<Error404Loged />} />
         </Route>
         <Route path="/*" element={<Error404Unloged />} />

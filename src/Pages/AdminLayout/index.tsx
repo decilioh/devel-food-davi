@@ -14,7 +14,6 @@ import { Content, MainContainer, MainSection } from "./AdminLayout.styles";
 
 const Layout = () => {
   const theme = useContext(ThemeContext)
-  const modalContext = useContext(ModalContext)
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 650);
 
