@@ -7,7 +7,7 @@ import { ThemeContext } from '../../../context/themeContext';
 import { TbLogout2 } from "react-icons/tb";
 import { AuthContext, IAuthContextFunctions } from '../../../context/authContext';
 
-interface SidebarProps {
+export interface SidebarProps {
   isMobile: boolean;
   isOpen: boolean;
   toggleSidebar: () => void;
