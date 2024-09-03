@@ -16,6 +16,7 @@ export const MainContainer = styled.main`
 `
 
 export const HeaderMenu = styled.section`
+    max-width: 1279px;
     width: 100%;
     display: flex;
     justify-content: space-between;

@@ -27,7 +27,7 @@ export const Content = styled.div`
   max-height: 1080px;
   overflow-x: hidden;
 
-  margin: auto auto auto auto;
+  margin: auto;
   @media screen and (max-width: 1025px){
     overflow-y: auto;
     margin: auto 0 auto auto;
