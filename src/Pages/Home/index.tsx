@@ -44,6 +44,7 @@ export const Divisor = styled.div`
   width: 100%;
   hr{
     border: 1px solid rgba(162, 162, 162, 1);
+    margin: 0;
   }
 `
 export const ActivePromos = styled.section`
@@ -76,7 +77,8 @@ export const CardPromos = styled.div`
   }
 `
 export const ImageCardPromo = styled.img`
-  width: 16.419vw;
+  width: 300px;
+  height: 207px;
   @media screen and (max-width: 1025px){
     width: 90%;
     margin-bottom: 5rem;
@@ -103,7 +105,7 @@ export const ReviewsWithComentSection = styled.section`
     color: ${({ theme }) => theme.bodyText};
     font-family: Roboto Condensed;
     font-size: 3rem;
-    margin: 0 0 4.13rem;
+    margin: 3.8vh 0 2.2rem 0;
     text-align: center;
     font-weight: 500;
   }
@@ -120,7 +122,7 @@ export const CommentSection = styled.article`
   justify-content: center;
   margin: auto;
   p{
-    margin-bottom: 2rem;
+    margin-bottom: 1.8rem;
     font-family: Roboto;
     width: 100%;
   }
