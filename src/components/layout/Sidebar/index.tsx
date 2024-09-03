@@ -6,6 +6,7 @@ import { AiFillHome } from 'react-icons/ai';
 import { ThemeContext } from '../../../context/themeContext';
 import { TbLogout2 } from "react-icons/tb";
 import { AuthContext, IAuthContextFunctions } from '../../../context/authContext';
+import { useNavigate } from 'react-router-dom';
 
 export interface SidebarProps {
   isMobile: boolean;
@@ -15,6 +16,7 @@ export interface SidebarProps {
 
 const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) => {
   const theme = useContext(ThemeContext);
+  const navigate = useNavigate()
   const {signOutCookies} = useContext(AuthContext) as IAuthContextFunctions
 
   return (
@@ -36,7 +38,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
         </ToggleSidebarButton>
       )}
       <Menu>
-        <MenuItem id='sidebar-home'>
+        <MenuItem id='sidebar-home' onClick={() => navigate("home")}>
           <AiFillHome />
           {isOpen && !isMobile && <span>Home</span>}
         </MenuItem>
@@ -44,7 +46,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
           <FaUser />
           {isOpen && !isMobile && <span>Perfil</span>}
         </MenuItem>
-        <MenuItem id='sidebar-menu'>
+        <MenuItem id='sidebar-menu' onClick={() => navigate("menu")}>
           <FaUtensils />
           {isOpen && !isMobile && <span>Menu</span>}
         </MenuItem>
