@@ -6,11 +6,11 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
   justify-content: space-between; /* Alinha os itens com espaço entre eles */
   border: 1px solid
     ${({ isValid, isTouched }) => {
-    if (!isTouched) return '#ccc';
+    if (!isTouched) return '#dddddd';
     return isValid ? '#00BFFF' : '#FF6347';
   }};
   background-color: white;
-  border-radius: 4px;
+  border-radius: 8px;
   padding: 8px 12px;
   height: 38px; 
   cursor: pointer;
@@ -43,9 +43,9 @@ export const IconWrapper = styled.div`
 export const TextWrapper = styled.div`
   flex-grow: 1;
   text-align: left;
-  padding-left: 8px;
+  padding-left: 1px;
   color: #A2A2A2;
-
+  font-size: 18px;
 `;
 
 export const Dropdown = styled.div`
