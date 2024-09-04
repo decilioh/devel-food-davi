@@ -8,9 +8,9 @@ export const TextAreaWrapper = styled.div<{ isValid?: boolean; isTouched?: boole
     return isValid ? '#07D9D9' : '#FF6347';
   }};
   background-color: white;
-  border-radius: 8px;
-  margin-bottom: 8px;
-  padding: 8px;
+  border-radius: 0.5rem;
+  margin-bottom: 0.5rem;
+  padding: 0.5rem;
 `;
 
 export const TextAreaField = styled.textarea`
@@ -19,7 +19,7 @@ export const TextAreaField = styled.textarea`
   outline: none;
   width: 100%;
   min-height: 120px;
-  padding: 8px;
+  padding: 0.5rem;
   resize: vertical;
   color: #525252;
   letter-spacing: 0.05rem;
@@ -32,15 +32,15 @@ export const TextAreaField = styled.textarea`
 
 export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.error};
-  font-size: 12px;
-  margin-top: -6px;
+  font-size: 0.75rem;
+  margin-top: -0.375rem;
   display: flex;
   justify-content: space-between;
 `;
 
 export const ErrorAsterisk = styled.div`
   color: ${({ theme }) => theme.error};
-  font-size: 12px;
+  font-size: 0.75rem;
   text-align: right;
-  margin-top: -12px;
+  margin-top: -0.75rem;
 `;

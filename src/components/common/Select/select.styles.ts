@@ -10,13 +10,13 @@ export const SelectWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean
     return isValid ? '#00BFFF' : '#FF6347';
   }};
   background-color: white;
-  border-radius: 8px;
-  padding: 8px 12px;
-  height: 38px; 
+  border-radius: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  height: 2.38rem; 
   cursor: pointer;
   color: #757575;
   font-family: Roboto;
-  font-size: 13px;
+  font-size: 0.8125rem;
 
   &:focus {
     outline: none;
@@ -37,7 +37,7 @@ export const IconWrapper = styled.div`
   display: flex;
   align-items: center;
   font-size: 26px;
-  margin-right: 18px;
+  margin-right: 1.13rem;
 `;
 
 export const TextWrapper = styled.div`
@@ -45,15 +45,15 @@ export const TextWrapper = styled.div`
   text-align: left;
   padding-left: 1px;
   color: #A2A2A2;
-  font-size: 18px;
+  font-size: 1.13rem;
 `;
 
 export const Dropdown = styled.div`
   background-color: white;
   border: 1px solid #ccc;
   height: 100%;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
+  box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
   width: 100%;
   max-height: 120px;
   overflow-y: auto;
@@ -77,7 +77,7 @@ export const Dropdown = styled.div`
     }
     &::-webkit-scrollbar-thumb {
         background-color:#3F3D3D;
-        border-radius: 4px;
+        border-radius: 0.25rem;
         height: 2px;
     }
     &::-webkit-scrollbar-track {
@@ -86,12 +86,12 @@ export const Dropdown = styled.div`
 `;
 
 export const DropdownItem = styled.div`
-  padding: 4px 12px;
+  padding: 0.25rem 0.75rem;
   display: flex;
   align-items: center;
   cursor: pointer;
   font-family: roboto condensed;
-  font-size: 16px;
+  font-size: 1rem;
   color: #A2A2A2;
   
   
@@ -105,10 +105,10 @@ export const DropdownItem = styled.div`
     -webkit-appearance: none;
     background-color: #eee;
     border: 1px solid #ccc;
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     border-radius: 3px;
-    margin-right: 8px;
+    margin-right: 0.5rem;
     cursor: pointer;
     
     &:checked {
@@ -121,7 +121,7 @@ export const DropdownItem = styled.div`
       display: block;
       text-align: center;
       color: white;
-      font-size: 12px;
+      font-size: 0.75rem;
     }
   }
 
@@ -131,7 +131,7 @@ export const DropdownItem = styled.div`
 
 export const ErrorMessage = styled.span`
   color: ${({ theme }) => theme.error};
-  font-size: 12px;
+  font-size: 0.75rem;
   margin-top: 2px;
   display: flex;
   justify-content: space-between;
@@ -139,8 +139,8 @@ export const ErrorMessage = styled.span`
 
 export const ErrorAsterisk = styled.div`
   color: ${({ theme }) => theme.error};
-  font-size: 12px;
+  font-size: 0.75rem;
   text-align: right;
-  margin-top: -12px;
+  margin-top: -0.75rem;
   
 `

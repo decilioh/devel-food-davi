@@ -29,6 +29,6 @@ export const MenuButton = styled.button`
     @media screen and (max-width: 650px) {
         display: block;
         position: absolute;
-        left: 10px;
+        left: 0.625rem;
     }
 `;

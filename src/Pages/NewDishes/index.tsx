@@ -14,6 +14,7 @@ import { useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { ButtonHeader, ErrorMessage, FormContent, HeaderMenu, HiddenInput, ImageUploadContainer, LabelText, MainContainer, OtherInputs, UploadIcon } from "./newDishes.styles";
+import { optionsSelect } from "../../utils/optionsSelect";
 
 
 
@@ -89,16 +90,7 @@ const NewDishes = () => {
             {...register("typesOfFood")}
             error={errors.typesOfFood}
             onCustomChange={(selectedValues) => setValue("typesOfFood", selectedValues)}
-            options={[
-              { value: "brasileira", label: "Brasileira" },
-              { value: "picante", label: "Picante" },
-              { value: "mexicana", label: "Mexicana" },
-              { value: "japonesa", label: "Japonesa" },
-              { value: "americana", label: "Americana" },
-              { value: "irlandesa", label: "Irlandesa" },
-              { value: "italiana", label: "Italiana" },
-              { value: "arabe", label: "Árabe" },
-            ]}
+            options={optionsSelect}
           />
           <Button id="button-submit" type="submit">Salvar</Button>
         </OtherInputs>

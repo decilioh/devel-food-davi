@@ -4,7 +4,7 @@ import { ButtonApp } from "../../components/common/Button/button.styles";
 
 export const MainContainer = styled.main`
     width: 100%;
-    margin: 70px 390px auto auto;
+    margin: 4.38rem 24.38rem auto auto;
     height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
@@ -26,8 +26,8 @@ export const HeaderMenu = styled.section`
         font-family: 'Roboto Condensed';
         font-style: normal;
         font-weight: 500;
-        font-size: 48px;
-        line-height: 56px;
+        font-size: 3rem;
+        line-height: 3.5rem;
         margin: 0;
 
         color: ${({ theme }) => theme.primary};
@@ -41,36 +41,36 @@ export const HeaderMenu = styled.section`
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        gap: 30px;
-        margin: auto auto 30px auto;
+        gap: 1.88rem;
+        margin: auto auto 1.88rem auto;
     }
 
 `
 
 export const ButtonHeader = styled(ButtonApp)`
     max-width: 73px;
-    height: 51px;
+    height: 3.19rem;
     font-size: 2rem;
     margin: 0;
     justify-content: center;
     align-items: center;
     text-align: center;
-    border-radius: 20px;
+    border-radius: 1.25rem;
     svg{
-        width: 51px;
-        height: 51px;
+        width: 3.19rem;
+        height: 3.19rem;
     }
 `
 
 export const FormContent = styled.form`
     max-width: 950px;
     width: 100%;
-    margin: 69px auto auto 125px;
+    margin: 4.31rem auto auto 7.81rem;
     display: flex;
     overflow-y: auto;
     overflow-x: hidden;
     label{
-      margin-right: 89px;
+      margin-right: 5.56rem;
     }
 
     @media screen and (max-width: 1180px){
@@ -80,7 +80,7 @@ export const FormContent = styled.form`
       text-align: center;
       label{
         margin: auto;
-        margin-bottom: 30px;
+        margin-bottom: 1.88rem;
       }
       button{
         margin: auto;
@@ -96,7 +96,7 @@ export const ImageUploadContainer = styled.div<{ imageUrl?: string, errorBorder?
   width: 271px;
   height: 271px;
   background-color: #d9d9d9;
-  border-radius: 24px;
+  border-radius: 1.5rem;
   border: ${({ errorBorder }) => (errorBorder ? "1px solid #FF6347" : "none")};
   cursor: pointer;
   text-align: center;
@@ -111,28 +111,28 @@ export const HiddenInput = styled.input`
 
 export const UploadIcon = styled.div`
   color: #383838;
-  font-size: 64px;
+  font-size: 4rem;
   svg {
-    width: 64px;
-    height: 64px;
+    width: 4rem;
+    height: 4rem;
   }
 `;
 
 export const LabelText = styled.p`
-  font-size: 18px;
+  font-size: 1.13rem;
   color: #383838;
   margin-top: 0;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
-  line-height: 21px;
+  line-height: 1.81rem;
   text-align: center;
 `;
 
 export const OtherInputs = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 29px;
+  gap: 1.81rem;
   textarea {
     width: 361px;
     height: 179px;
@@ -143,7 +143,7 @@ export const ErrorMessage = styled.span`
   justify-content: center;
   align-items: center;
   color: ${({ theme }) => theme.error};
-  font-size: 14px;
+  font-size: 10.25rem;
   text-align: center;
   width: 100%;
 `;

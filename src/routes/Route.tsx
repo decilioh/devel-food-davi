@@ -25,7 +25,7 @@ const Router = () => {
         <Route path="/cadastrar" element={<Register />} />
         <Route path="/admin" element={<PrivateRoute><Layout /></PrivateRoute>}>
           <Route path="home" element={<Home />} />
-          <Route path="menu" element={<Menu />} />
+          <Route path="menu" element={<Menu />}></Route>
           <Route path="menu/novo-prato" element={<NewDishes />} />
           <Route path="*" element={<Error404Loged />} />
         </Route>

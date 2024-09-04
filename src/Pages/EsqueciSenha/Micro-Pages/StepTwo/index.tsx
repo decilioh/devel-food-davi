@@ -22,7 +22,7 @@ const StepTwo = ({ value }: Props) => {
                 <TitleOrCodeVerified>Código de validação</TitleOrCodeVerified>
                 <NoticeVerified style={{ color: `${theme?.theme == "light" ? "#A2A2A2" : "white"}` }}>Copie ou anote este código, ele será utilizado para você finalizar a recuperação de senha!</NoticeVerified>
                 <TitleOrCodeVerified>AUIhuiaasa56d4as56-AUIhuiaasa56d4as56 56das465fa4d56-5fsd4fgsd65f4sa</TitleOrCodeVerified>
-                <SpacingContents style={{marginTop: "56px"}}>
+                <SpacingContents style={{marginTop: "3.5rem"}}>
                     <Button id="button-forget-password" onClick={() => value(1)}>
                         Voltar
                     </Button>

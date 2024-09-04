@@ -29,7 +29,7 @@ export const ModalDialog = styled.div`
     max-height: 377px;
     height: 100%; 
     background-color: white;
-    border-radius: 24px;
+    border-radius: 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -68,7 +68,7 @@ export const ButtonAction = styled.button`
     max-height: 73px;
     width: 100%;
     height: 100%;
-    border-radius: 10px;
+    border-radius: 0.625rem;
     outline: none;
     border: none;
     color: white;
