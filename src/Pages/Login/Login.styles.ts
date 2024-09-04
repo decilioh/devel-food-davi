@@ -48,9 +48,9 @@ export const CardLogin = styled.div`
   justify-content: start;
   width: 82.24%;
   height: 90vh;
-  border-radius: 23px;
+  border-radius: 1.44rem;
   opacity: 0px;
-  box-shadow: 4px 4px 20px 0px #00000040;
+  box-shadow: 0.25rem 0.25rem 1.25rem 0px #00000040;
 
   @media screen and (max-width: 1024px) {
     width: 50vw;
@@ -65,7 +65,7 @@ export const CardLogin = styled.div`
 
 
 export const ImageLogo = styled.img`
-  margin-top: 74px;
+  margin-top: 4.63rem;
   width: auto; // Ajuste conforme necessário
   height: auto;
 `
@@ -75,17 +75,17 @@ export const CardLinks = styled.div`
   flex-direction: column;
   align-items: center;
   @media screen and (max-height: 840px){
-        margin-top: 14px;
+        margin-top: 0.875rem;
       }
 
   a{
-    font-size: 18px;
+    font-size: 1.13rem;
     text-decoration: none;
     color: ${({ theme }) => theme.primary};
     cursor: pointer;
     font-family: Roboto;
     @media screen and (max-height: 840px){
-      font-size: 14px;
+      font-size: 0.875rem;
     }
   }
 

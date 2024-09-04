@@ -10,13 +10,13 @@ export const MainContainer = styled.div`
 export const ImageLogo = styled.img`
   width: auto; // Ajuste conforme necessário
   height: auto;
-  margin-bottom: 18px;
+  margin-bottom: 1.13rem;
 `
 export const ImageProgress = styled.img`
   width: 244px; // Ajuste conforme necessário
   height: auto;
-  margin-bottom: 22px;
-  margin-top: 20px;
+  margin-bottom: 1.38rem;
+  margin-top: 1.25rem;
   @media screen and (max-width: 1024px) {
         width: 20vw;
     }
@@ -31,7 +31,7 @@ export const ImageProgress = styled.img`
 `
 
 export const Paragraph = styled.p`
-    font-size: 18px;
+    font-size: 1.13rem;
     font-family: Roboto;
     text-align: center;
     width: 456px;

@@ -7,7 +7,7 @@ export const FormForgotPassword = styled.form`
     margin: 2px auto 2vh auto;
     max-width: 558px;
     width: 100%;
-    gap: 6px;
+    gap: 0.375rem;
 
     @media screen and (max-width: 600px){
         width: 90%;
@@ -20,7 +20,7 @@ export const FormForgotPasswordEmail = styled.form`
     justify-content: center;
     max-width: 558px;
     width: 100%;
-    gap: 32px;
+    gap: 2rem;
     @media screen and (max-width: 600px){
         width: 90%;
     }
@@ -43,27 +43,27 @@ export const SpacingContents = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 40px;
+  gap: 2.5rem;
   button{
     width: 100%;
     max-width: 259px;
     height: 62px;
-    border-radius: 10px;
+    border-radius: 0.625rem;
   }
 ` 
 
 export const SpacingContentsStepThree = styled.div`
-    margin-top: 23px;
+    margin-top: 1.44rem;
     max-width: 558px;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 2.5rem;
     button{
         width: 100%;
         max-width: 259px;
         height: 62px;
-        border-radius: 10px;
+        border-radius: 0.625rem;
     }
 ` 

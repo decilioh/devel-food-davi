@@ -12,7 +12,7 @@ export const GlobalStyles = createGlobalStyle`
     transition: background 0.2s ease-in, color 0.2s ease-in;
     font-family: "Roboto Condensed", sans-serif;
     font-weight: 400;
-    font-size: 18px;
+    font-size: 1.13rem;
   }
 `;
 

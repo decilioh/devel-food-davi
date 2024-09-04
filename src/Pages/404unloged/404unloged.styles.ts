@@ -24,7 +24,7 @@ export const ImageLogo = styled.img`
 
 
 export const LogoContainer = styled.div`
-    margin-bottom:69px;
+    margin-bottom:4.31rem;
 `
 export const MessageError = styled.div`
     width:100%;
@@ -33,9 +33,9 @@ export const MessageError = styled.div`
     align-items:center;
     justify-content:center;
     flex-direction:column;
-    margin-bottom:58px;
+    margin-bottom:3.63rem;
     span{
-        font-size:128px;
+        font-size:8rem;
         line-height:150px;
         font-weight:700;
         color:${({ theme }) => theme.primary}
@@ -43,6 +43,6 @@ export const MessageError = styled.div`
     p{
         font-size:1.5rem;
         text-align:center;
-        margin-top:-8px;
+        margin-top:-0.5rem;
     }
 `

@@ -11,7 +11,7 @@ export const MainContainer = styled.div`
 
 export const LogoContainer = styled.div`
     margin: 0;
-    font-size: 230px;
+    font-size: 14.38rem;
     height: 213px;
     color: ${({theme}) => theme.primary}
 `
@@ -23,16 +23,16 @@ export const MessageError = styled.div`
     align-items:center;
     justify-content:center;
     flex-direction:column;
-    margin-bottom:58px;
+    margin-bottom:3.63rem;
     span{
-        font-size:128px;
-        line-height:150px;
+        font-size:8rem;
+        line-height:9.38rem;
         font-weight:700;
         color:${({ theme }) => theme.primary}
     }
     p{
         font-size:1.5rem;
         text-align:center;
-        margin-top:-8px;
+        margin-top:-0.5rem;
     }
 `

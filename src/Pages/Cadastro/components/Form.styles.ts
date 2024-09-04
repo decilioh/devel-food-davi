@@ -13,7 +13,7 @@ export const FormStepOneStyled = styled.form`
 
 export const FormDivisionOne = styled.div`
     display: flex;
-    gap: 8px;
+    gap: 0.5rem;
     width: 100%;
     flex-wrap: no-wrap;
 
@@ -44,16 +44,16 @@ export const FormDivisionOne = styled.div`
 `;
 
 export const SpacingContents = styled.div`
-    max-width: 558px;
+    max-width: 550.5rem;
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 40px;
+    gap: 2.5rem;
     button{
         width: 100%;
         max-width: 259px;
         height: 62px;
-        border-radius: 10px;
+        border-radius: 0.625rem;
     }
 ` 

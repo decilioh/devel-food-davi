@@ -12,7 +12,7 @@ export const MainContainer = styled.div`
 export const ImageLogo = styled.img`
   width: auto; // Ajuste conforme necessário
   height: auto;
-  margin-bottom: 38px;
+  margin-bottom: 2.38rem;
 `
 
 export const VerifiedLogo = styled.img`
@@ -21,7 +21,7 @@ export const VerifiedLogo = styled.img`
 `
 export const TitleOrCodeVerified = styled.p`
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 1.13rem;
   font-weight: 400;
   max-width: 400px;
   width: 100%;
@@ -29,7 +29,7 @@ export const TitleOrCodeVerified = styled.p`
 `
 export const NoticeVerified = styled.span`
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 1.13rem;
   font-weight: 400;
   text-align: left;
   margin: 2vh 0;
@@ -39,13 +39,13 @@ export const NoticeVerified = styled.span`
 `
 
 export const SpacingContents = styled.div`
-  margin-top: 44px; 
+  margin-top: 2.75rem; 
   width: 20vw;
   display: flex;
-  gap: 24px;
+  gap: 1.5rem;
   button{
-    font-size: 28px;
+    font-size: 1.75rem;
     height: 50px;
-    border-radius: 5px;
+    border-radius: 0.3125rem;
   }
 ` 

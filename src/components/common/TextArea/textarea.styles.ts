@@ -1,9 +1,7 @@
 import styled from 'styled-components';
 
-export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
+export const TextAreaWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
   display: flex;
-  align-items: center;
-  justify-content: center;
   border: 1px solid
     ${({ isValid, isTouched }) => {
     if (!isTouched) return '#dddddd';
@@ -12,16 +10,17 @@ export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean 
   background-color: white;
   border-radius: 0.5rem;
   margin-bottom: 0.5rem;
-  height: 3.5rem;
-  padding: 0 0.5rem;
+  padding: 0.5rem;
 `;
 
-
-export const InputField = styled.input`
+export const TextAreaField = styled.textarea`
+    font-family: Roboto;
   border: none;
   outline: none;
-  flex: 1;
+  width: 100%;
+  min-height: 120px;
   padding: 0.5rem;
+  resize: vertical;
   color: #525252;
   letter-spacing: 0.05rem;
   font-size: 1.13rem;
@@ -29,15 +28,6 @@ export const InputField = styled.input`
       color: #A2A2A2;
       letter-spacing: 0.05rem;
     }
-`;
-
-export const IconWrapper = styled.div`
-  margin-right: 0.5rem;
-  margin-left:0.625rem;
-  display: flex;
-  align-items: center;
-  color: #A2A2A2;
-  font-size: 1.38rem;
 `;
 
 export const ErrorMessage = styled.span`
@@ -53,4 +43,4 @@ export const ErrorAsterisk = styled.div`
   font-size: 0.75rem;
   text-align: right;
   margin-top: -0.75rem;
-`
+`;

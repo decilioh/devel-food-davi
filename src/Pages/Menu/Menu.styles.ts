@@ -3,7 +3,7 @@ import { ButtonApp } from "../../components/common/Button/button.styles";
 
 export const MainContainer = styled.main`
     max-width: 1279px;
-    margin: auto auto auto 35px;
+    margin: auto auto auto 2.19rem;
     height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
@@ -21,15 +21,15 @@ export const HeaderMenu = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: end;
-    margin-top: 40px;
-    margin-bottom: 86px;
+    margin-top: 2.5rem;
+    margin-bottom: 5.38rem;
     h2{
         /* Menu do restaurante */
         font-family: 'Roboto Condensed';
         font-style: normal;
         font-weight: 500;
-        font-size: 48px;
-        line-height: 56px;
+        font-size: 3rem;
+        line-height: 3.5rem;
         margin: 0;
 
         color: ${({ theme }) => theme.primary};
@@ -41,14 +41,14 @@ export const HeaderMenu = styled.section`
     @media screen and (max-width: 1180px){
         flex-direction: column;
         align-items: center;
-        gap: 30px;
+        gap: 1.88rem;
     }
 
 `
 
 export const ButtonHeader = styled(ButtonApp)`
     max-width: 215px;
-    height: 63px;
+    height: 3.94rem;
     font-size: 2rem;
     margin: 0;
 `
@@ -57,18 +57,18 @@ export const InputWrapper = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid #ccc;
-  border-radius: 8px;
-  padding: 0 8px;
+  border-radius: 0.5rem;
+  padding: 0 0.5rem;
   background-color: #fff;
   width: 311px;
-  height: 56px;
+  height: 3.5rem;
 `;
 
 export const Input = styled.input`
     width: 80%;
     border: none;
-    padding: 8px 4px;
-    font-size: 16px;
+    padding: 0.5rem 0.25rem;
+    font-size: 1rem;
     color: #666;
     outline: none;
     font-size: 1.13rem;
@@ -82,13 +82,13 @@ export const Divider = styled.div`
   height: 100%;
   width: 1px;
   background-color: #ccc;
-  margin: 0 8px;
+  margin: 0 0.5rem;
 `;
 
 export const SearchIcon = styled.img`
   color: #666;
-  width: 25px;
-  height: 25px;
+  width: 1.56rem;
+  height: 1.56rem;
   cursor: pointer;
   margin: auto;
 `;
@@ -98,13 +98,13 @@ export const SectionMenuOptions = styled.section`
     display: flex;
     flex-wrap: wrap;
     width: calc(100% + 30px);
-    gap: 65px;
+    gap: 4.06rem;
     height: auto;
     overflow-y: auto;
     
     @media screen and (max-width: 1180px){
         justify-content: center;
-        gap: 30px;
+        gap: 1.88rem;
     }
 
 
@@ -141,19 +141,19 @@ export const ImageCard = styled.img`
 
 export const ButtonContainer = styled.div`
   position: absolute;
-  bottom: 25px;
-  left: 10px;
+  bottom: 1.56rem;
+  left: 0.625rem;
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 0.625rem;
 `;
 
 export const IconButton = styled.button`
   background-color: white;
   border: none;
   border-radius: 50%;
-  width: 58px;
-  height: 58px;
+  width: 3.63rem;
+  height: 3.63rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -165,7 +165,7 @@ export const IconButton = styled.button`
 
   svg {
     color: ${({ color }) => color};
-    width: 30px;
-    height: 30px;
+    width: 1.88rem;
+    height: 1.88rem;
   }
 `;
