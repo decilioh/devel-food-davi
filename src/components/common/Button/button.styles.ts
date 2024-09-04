@@ -6,12 +6,12 @@ export const ButtonApp = styled.button`
     height: 62px;
     background: ${({ theme }) => theme.primary};
     color: ${({theme}) => theme.buttonText};
-    border-radius: 10px;
+    border-radius: 0.625rem;
     border: none;
     cursor: pointer;
     
     /* Text button */
-    font-size: 32px;
+    font-size: 2rem;
     font-family: Roboto Condensed;
     font-weight: 500;
     text-align: center;

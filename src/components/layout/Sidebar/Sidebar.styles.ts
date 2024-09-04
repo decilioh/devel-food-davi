@@ -11,7 +11,7 @@ export const Container = styled.div<ContainerProps>`
   transition: all 0.4s ease;
   display: ${({ isMobile }) => (isMobile ? 'none' : 'flex')};
   flex-direction: column;
-  padding: 10px 0;
+  padding: 0.625rem 0;
 
   @media screen and (max-width: 650px) {
     left: ${({ isOpen }) => (isOpen ? '0' : '-60px')};
@@ -25,14 +25,14 @@ export const ToggleSidebarButton = styled.button`
   border: none;
   color: ${({theme}) => theme.sidebar};
   font-size: 1.5rem;
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
   cursor: pointer;
 `;
 
 export const Menu = styled.ul`
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 1.13rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -42,11 +42,11 @@ export const MenuItem = styled.li`
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
-  padding: 10px 20px;
+  padding: 0.625rem 1.25rem;
   font-size: 1.2rem;
   cursor: pointer;
   color: ${({theme}) => theme.sidebar};
-  border-radius:14px 0px 0px 14px;
+  border-radius:0.875rem 0px 0px 0.875rem;
 
   &:hover {
     background-color: ${({theme}) => theme.sidebar};
@@ -55,7 +55,7 @@ export const MenuItem = styled.li`
   }
 
   span {
-    margin-left: 20px;
+    margin-left: 1.25rem;
     white-space: nowrap;
   }
 `;
@@ -69,11 +69,11 @@ export const LineDivisor = styled.div<LineDivisorProps>`
     justify-content:center;
     width:100%;
     height:1px;
-    margin-bottom: 8px;
+    margin-bottom: 0.5rem;
     hr{
         width:${({ isOpen }) => (isOpen ? '80%' : '40%')};
         height:1px;
-        margin-left:12px;
+        margin-left:0.75rem;
         border: 1px solid black;
         opacity:20%;
     }
@@ -84,6 +84,6 @@ export const TitleOpen = styled.span`
     display: flex;
     justify-content: space-between;
     font-family: Roboto Condensed;
-    margin: 0 10px 0 10px;
+    margin: 0 0.625rem 0 0.625rem;
     padding: 9px 0;
 `;

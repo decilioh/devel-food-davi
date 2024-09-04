@@ -12,6 +12,7 @@ import Input from '../../../components/common/Input';
 import Select from '../../../components/common/Select';
 import { handlePhoneChange } from '../../../utils';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { optionsSelect } from '../../../utils/optionsSelect';
 
 interface Props{
     setvalue: React.Dispatch<React.SetStateAction<number>>
@@ -58,16 +59,7 @@ const FormStepTwo = ({setvalue}: Props) => {
                 error={errors.typesOfFood
             }
                 onCustomChange={(selectedValues) => setValue("typesOfFood", selectedValues)}
-                options={[
-                    { value: 'brasileira', label: 'Brasileira' },
-                    { value: 'picante', label: 'Picante' },
-                    { value: 'mexicana', label: 'Mexicana' },
-                    { value: 'japonesa', label: 'Japonesa' },
-                    { value: 'americana', label: 'Americana' },
-                    { value: 'irlandesa', label: 'Irlandesa' },
-                    { value: 'italiana', label: 'Italiana' },
-                    { value: 'arabe', label: 'Árabe' },
-                  ]}
+                options={optionsSelect}
             /> 
             <SpacingContents style={{marginTop: "64px"}}>
                 <Button id="button-return-page" onClick={() => setvalue(1)}>
