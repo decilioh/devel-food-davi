@@ -6,7 +6,8 @@ export const MainContainer = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    margin-right: 12rem;
+    margin-right: 17.5rem;
+    margin-bottom: 17.5rem;
 `
 
 export const LogoContainer = styled.div`
@@ -23,7 +24,6 @@ export const MessageError = styled.div`
     align-items:center;
     justify-content:center;
     flex-direction:column;
-    margin-bottom:3.63rem;
     span{
         font-size:8rem;
         line-height:9.38rem;
@@ -34,5 +34,7 @@ export const MessageError = styled.div`
         font-size:1.5rem;
         text-align:center;
         margin-top:-0.5rem;
+        margin-bottom: 1.13rem;
     }
+
 `

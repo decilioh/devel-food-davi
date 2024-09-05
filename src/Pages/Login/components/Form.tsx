@@ -32,11 +32,9 @@ const Form = () => {
                 setEmail(data.email)
                 setPassword(data.password)
                 setUser({email: email, password: password})
+                navigate('/admin/home')
                 return toast.success("Login realizado com sucesso!", {
-                    transition: Bounce,
-                    onClose: () => {
-                        navigate('/admin/home')
-                    }
+                    transition: Bounce
                 })
             }
             return toast.error("Email ou senha inválidos!", {
