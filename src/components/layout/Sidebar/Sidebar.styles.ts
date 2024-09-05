@@ -84,6 +84,9 @@ export const TitleOpen = styled.span`
     display: flex;
     justify-content: space-between;
     font-family: Roboto Condensed;
+    font-size:1.7rem;
+    font-weight:400;
+    letter-spacing:0.1rem;
     margin: 0 0.625rem 0 0.625rem;
     padding: 9px 0;
 `;
