@@ -8,10 +8,9 @@ export const MainContainer = styled.div`
   @media screen and (max-width: 1025px){
     overflow-y: auto;
   }
-  @media screen and (max-height: 765px){
+  @media screen and (max-height: 766px){
     overflow-y: auto;
     overflow-x: hidden;
-
   }
   
 `;
