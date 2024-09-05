@@ -26,6 +26,7 @@ const Home = () => {
           </CardPromos>
         </ActivePromos>
       </DivisorLeft>
+      
       <ReviewsWithComentSection>
         <h2>O que os clientes estao achando?</h2>
         <CommentSection>

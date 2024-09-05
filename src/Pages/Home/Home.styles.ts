@@ -87,12 +87,35 @@ export const DivisorLeft = styled.div`
   width: 47%;
   display: flex;
   flex-direction: column;
-  padding-right: 3.44rem;
-  border-right: 1px solid rgba(162, 162, 162, 1);
+  padding-right: 5.9rem;
+  position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+  
+  &::after {
+    content: "";
+    position: absolute;
+    top: 2%; /* Ajuste para aumentar a altura acima */
+    bottom: -10%; /* Ajuste para aumentar a altura abaixo */
+    right: 0;
+    width: 1px; /* Largura da borda */
+    background-color: rgba(162, 162, 162, 1); /* Cor da borda */
+  }
+
   @media screen and (max-width: 1025px){
     width: 90%;
     padding: 0;
-    border: 0;
+
+    &::after {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: 768px){
+    width: 100%; /* Ajusta o layout para dispositivos menores */
+    padding: 0;
+
+    &::after {
+      display: none; /* Remove a borda em telas muito pequenas */
+    }
   }
 `
 
