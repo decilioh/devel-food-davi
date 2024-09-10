@@ -7,7 +7,7 @@ export const MainContainer = styled.div`
     align-items: center;
     overflow-x: hidden;
     margin-right: 17.5rem;
-    margin-bottom: 17.5rem;
+    margin-bottom: 16rem;
 `
 
 export const LogoContainer = styled.div`
