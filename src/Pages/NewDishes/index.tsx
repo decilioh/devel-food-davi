@@ -52,12 +52,14 @@ const NewDishes = () => {
   return (
     <MainContainer>
       <HeaderMenu>
-        <ButtonHeader id="button-function-menu">
+        <ButtonHeader id="button-function-menu" onClick={() => navigate(-1)}>
           <FaArrowLeftLong />
         </ButtonHeader>
         <h2>Cadastro de novos pratos</h2>
       </HeaderMenu>
       <FormContent onSubmit={handleSubmit(onSubmit)}>
+        <div id="div-image">
+
         <label htmlFor="input-image">
           <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image}>
             {!imageUrl && (
@@ -77,9 +79,10 @@ const NewDishes = () => {
               onChange={handleImageChange}
             />
 
-          {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
           </ImageUploadContainer>
         </label>
+        {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
+        </div>
         <OtherInputs>
           <Input id="input-name" placeholder="Nome" {...register("name")} error={errors.name} isTouched={touchedFields.name} />
           <TextArea id="input-description" placeholder="Descrição" {...register("description")} error={errors.description} isTouched={touchedFields.description} />

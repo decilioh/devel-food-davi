@@ -12,6 +12,8 @@ import 'react-toastify/dist/ReactToastify.css';
 import PrivateRoute from "./PrivateRoute";
 import Menu from "../Pages/Menu";
 import NewDishes from "../Pages/NewDishes";
+import Promotions from "../Pages/Promocoes";
+import NewPromotion from "../Pages/NewPromotion";
 
 
 const Router = () => {
@@ -27,6 +29,8 @@ const Router = () => {
           <Route path="home" element={<Home />} />
           <Route path="menu" element={<Menu />}></Route>
           <Route path="menu/novo-prato" element={<NewDishes />} />
+          <Route path="promocoes" element={<Promotions />}></Route>
+          <Route path="promocoes/nova-promocao" element={<NewPromotion />} />
           <Route path="*" element={<Error404Loged />} />
         </Route>
         <Route path="/*" element={<Error404Unloged />} />

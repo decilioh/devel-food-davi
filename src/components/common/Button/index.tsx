@@ -6,11 +6,12 @@ export interface ButtonProps{
     type?: "button" | "submit" | "reset" | undefined
     onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
     id: string
+    style?: React.CSSProperties | undefined
 }
 
-const Button = ({id, children, type="button", onClick=()=>{}}: ButtonProps) => {
+const Button = ({id, children, type="button", onClick=()=>{}, style}: ButtonProps) => {
   return (
-    <ButtonApp type={type} id={id} onClick={onClick} >
+    <ButtonApp type={type} id={id} onClick={onClick} style={style}>
         {children}
     </ButtonApp>
   )
