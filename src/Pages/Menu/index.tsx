@@ -5,13 +5,13 @@ import { useNavigate } from "react-router-dom";
 
 import { ModalContext, ModalContextProps } from "../../context/modalContext";
 import Card from "./components/Card";
+import { mockDishes } from "../../mocks/dishes";
 
 
 
 
 const Menu = () => {
     const navigate = useNavigate()
-    const items = Array.from({ length: 16 }, (_, index) => index + 1);
     return (
         <MainContainer>
             <HeaderMenu>
@@ -24,8 +24,8 @@ const Menu = () => {
                 </InputWrapper>
             </HeaderMenu>
             <SectionMenuOptions>
-                {items.map(index => (
-                    <Card key={index}/>
+                {mockDishes.map((item, index) => (
+                    <Card nome={item.prato} key={index}/>
                 ))}
             </SectionMenuOptions>
         </MainContainer>

@@ -135,10 +135,10 @@ export const LabelText = styled.p`
 export const OtherInputs = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.81rem;
-  textarea {
-    width: 361px;
-    height: 179px;
+  gap: 0.2rem;
+  width: 361px;
+  label{
+    font-size: 1rem;
   }
 `;
 
@@ -150,3 +150,4 @@ export const ErrorMessage = styled.span`
   text-align: center;
   width: 100%;
 `;
+

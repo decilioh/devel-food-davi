@@ -3,11 +3,11 @@ import { InputProps } from './interface';
 import { ErrorAsterisk, ErrorMessage, IconWrapper, InputField, InputWrapper } from './input.styles';
 
 
-const Input = React.forwardRef<HTMLInputElement, InputProps>(({ icon: Icon, error, isTouched, onChange, ...props }, ref) => {
+const Input = React.forwardRef<HTMLInputElement, InputProps>(({ icon: Icon, error, isTouched, onChange, showIcon,...props }, ref) => {
   return (
     <div>
-      {error && <ErrorAsterisk>*</ErrorAsterisk>}
-      <InputWrapper isValid={!error} isTouched={isTouched}>
+      {error && <ErrorAsterisk showIcon={showIcon}>*</ErrorAsterisk>}
+      <InputWrapper isValid={!error} isTouched={isTouched} showIcon={showIcon}>
         {Icon && (
           <IconWrapper>
             <Icon/>

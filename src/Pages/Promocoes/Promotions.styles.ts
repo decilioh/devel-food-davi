@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { ButtonApp } from "../../components/common/Button/button.styles";
 
 export const MainContainer = styled.main`
-    max-width: 1279px;
+    max-width: 1426px;
     margin: auto auto auto 2.19rem;
     height: calc(100vh - 150px);
     display: flex;
@@ -16,7 +16,7 @@ export const MainContainer = styled.main`
 `
 
 export const HeaderMenu = styled.section`
-    max-width: 1279px;
+    max-width: 1426px;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -94,13 +94,16 @@ export const SearchIcon = styled.img`
 `;
 
 export const SectionMenuOptions = styled.section`
+
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    width: calc(100% + 30px);
+    width: 1279px;
+    width: calc(100% + 50px);
     gap: 4.06rem;
     height: auto;
     overflow-y: auto;
+    justify-content: center;
     
     @media screen and (max-width: 1180px){
         justify-content: center;
@@ -117,7 +120,6 @@ export const SectionMenuOptionsCard = styled.article`
     align-items: center;
     width: 271px;
     p{
-
         font-family: 'Roboto';
         font-style: normal;
         font-weight: 600;
@@ -137,6 +139,8 @@ export const ImageContainer = styled.div`
 export const ImageCard = styled.img`
   width: 271px;
   height: auto;
+  border-radius: 24px;
+
 `;
 
 export const ButtonContainer = styled.div`
