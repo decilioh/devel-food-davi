@@ -18,7 +18,6 @@ const StepThree = ({ value }: Props) => {
     <>
       <ImageLogo src={theme?.theme === "light" ? ImgLogoWhite : ImgLogoBlack} id="image-logo" />
       <FormValidation value={value} />
-
     </>
   )
 }

@@ -14,6 +14,8 @@ import Menu from "../Pages/Menu";
 import NewDishes from "../Pages/NewDishes";
 import Promotions from "../Pages/Promocoes";
 import NewPromotion from "../Pages/NewPromotion";
+import Profile from "../Pages/Perfil";
+import EditPassword from "../Pages/EditarSenha";
 
 
 const Router = () => {
@@ -27,12 +29,14 @@ const Router = () => {
         <Route path="/cadastrar" element={<Register />} />
         <Route path="/admin" element={<PrivateRoute><Layout /></PrivateRoute>}>
           <Route path="home" element={<Home />} />
-          <Route path="menu" element={<Menu />}></Route>
+          <Route path="menu" element={<Menu />} />
+          <Route path="perfil" element={<Profile />} />
           <Route path="menu/novo-prato" element={<NewDishes />} />
-          <Route path="promocoes" element={<Promotions />}></Route>
+          <Route path="promocoes" element={<Promotions />} />
           <Route path="promocoes/nova-promocao" element={<NewPromotion />} />
           <Route path="*" element={<Error404Loged />} />
         </Route>
+        <Route path="perfil/trocar-senha" element={<PrivateRoute><EditPassword /></PrivateRoute>} />
         <Route path="/*" element={<Error404Unloged />} />
       </Routes>
     </BrowserRouter>
