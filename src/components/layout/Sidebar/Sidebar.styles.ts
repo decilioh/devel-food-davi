@@ -93,6 +93,6 @@ export const TitleOpen = styled.span`
 `;
 
 export const MenuItemPlus = styled(MenuItem)<{ isOpen: boolean }>`
-  margin-left: 2rem;
+  margin-left: 1.5rem;
   display:${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 `;
