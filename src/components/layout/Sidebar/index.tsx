@@ -15,7 +15,6 @@ export interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) => {
-  const theme = useContext(ThemeContext);
   const navigate = useNavigate()
   const {signOutCookies} = useContext(AuthContext) as IAuthContextFunctions
 
@@ -57,10 +56,6 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
         <MenuItem id='sidebar-promotions' onClick={() => navigate("promocoes")}>
           <FaDollarSign />
           {isOpen && !isMobile && <span>Promoções</span>}
-        </MenuItem>
-        <MenuItem id='sidebar-theme' onClick={theme?.toggleTheme}>
-          {theme?.theme === "light" ? <MdDarkMode /> : <MdLightMode />}
-          {isOpen && !isMobile && <span>Tema</span>}
         </MenuItem>
         <MenuItem id='sidebar-logout' onClick={signOutCookies}>
           <TbLogout2 />

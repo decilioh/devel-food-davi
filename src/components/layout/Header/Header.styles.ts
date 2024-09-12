@@ -32,3 +32,12 @@ export const MenuButton = styled.button`
         left: 0.625rem;
     }
 `;
+
+
+export const ButtonToggle = styled.div`
+    color: ${({theme}) => theme.sidebar};
+    position: absolute;
+    right: 0;
+    margin-right: 2.5rem;
+    font-size: 30px;
+`
