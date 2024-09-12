@@ -50,7 +50,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
           <FaUtensils />
           {isOpen && !isMobile && <span>Menu</span>}
         </MenuItem>
-        <MenuItemPlus isOpen={isOpen} id='sidebar-menu' onClick={() => navigate("menu/novo-prato")} style={{marginLeft: "2rem"}}>
+        <MenuItemPlus isOpen={isOpen} id='sidebar-new-dishes' onClick={() => navigate("menu/novo-prato")} style={{marginLeft: "2rem"}}>
           <FaUtensils />
           {isOpen && !isMobile && <span>+ Novo prato</span>}
         </MenuItemPlus>
@@ -62,7 +62,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
           <FaDollarSign />
           {isOpen && !isMobile && <span>Promoções</span>}
         </MenuItem>
-        <MenuItemPlus isOpen={isOpen} id='sidebar-promotions' onClick={() => navigate("promocoes/nova-promocao")}>
+        <MenuItemPlus isOpen={isOpen} id='sidebar-new-promotion' onClick={() => navigate("promocoes/nova-promocao")}>
           <FaDollarSign />
           {isOpen && !isMobile && <span>+ Nova promoção</span>}
         </MenuItemPlus>
