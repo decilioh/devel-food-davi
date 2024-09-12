@@ -136,7 +136,7 @@ export const OtherInputs = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.81rem;
-  textarea {
+  #input-description {
     width: 361px;
     height: 179px;
   }

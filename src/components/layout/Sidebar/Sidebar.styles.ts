@@ -7,7 +7,8 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
   background-color: ${({theme}) => theme.primary};
-  width: ${({ isOpen }) => (isOpen ? '270px' : '60px')};
+  max-width: ${({ isOpen }) => (isOpen ? '270px' : '60px')};
+  width: 100%;
   transition: all 0.4s ease;
   display: ${({ isMobile }) => (isMobile ? 'none' : 'flex')};
   flex-direction: column;

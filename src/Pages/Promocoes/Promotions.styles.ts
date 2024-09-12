@@ -3,7 +3,7 @@ import { ButtonApp } from "../../components/common/Button/button.styles";
 
 export const MainContainer = styled.main`
     max-width: 1426px;
-    margin: auto auto auto 2.19rem;
+    margin: auto;
     height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;

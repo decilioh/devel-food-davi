@@ -61,33 +61,35 @@ const NewDishes = () => {
       <FormContent onSubmit={handleSubmit(onSubmit)}>
         <div id="div-image">
 
-        <label htmlFor="input-image">
-          <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image}>
-            {!imageUrl && (
-              <>
-                <UploadIcon>
-                  <CiImageOn />
-                </UploadIcon>
-                <LabelText>Adicionar imagem</LabelText>
-              </>
-            )}
+          <label htmlFor="input-image">
+            <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image}>
+              {!imageUrl && (
+                <>
+                  <UploadIcon>
+                    <CiImageOn />
+                  </UploadIcon>
+                  <LabelText>Adicionar imagem</LabelText>
+                </>
+              )}
 
-            <HiddenInput
-              id="input-image"
-              accept="image/*"
-              type="file"
-              {...register("image")}
-              onChange={handleImageChange}
-            />
+              <HiddenInput
+                id="input-image"
+                accept="image/*"
+                type="file"
+                {...register("image")}
+                onChange={handleImageChange}
+              />
 
-          </ImageUploadContainer>
-        </label>
-        {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
+            </ImageUploadContainer>
+          </label>
+          {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
         </div>
         <OtherInputs>
           <Input id="input-name" placeholder="Nome" {...register("name")} error={errors.name} isTouched={touchedFields.name} />
-          <TextArea id="input-description" placeholder="Descrição" {...register("description")} error={errors.description} isTouched={touchedFields.description} />
-          <Input id="input-price" placeholder="Preço" {...register("price")} error={errors.price} isTouched={touchedFields.price} />
+          <div style={{display: "flex", flexDirection: "column", gap: "15px"}}>
+            <TextArea id="input-description" placeholder="Descrição" {...register("description")} error={errors.description} isTouched={touchedFields.description} />
+            <Input id="input-price" placeholder="Preço" {...register("price")} error={errors.price} isTouched={touchedFields.price} />
+          </div>
           <Select
             id="select-typesOfFood"
             icon={MdFastfood}
