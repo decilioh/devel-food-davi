@@ -20,7 +20,7 @@ export const AvaliationsSection = styled.section`
     color: ${({ theme }) => theme.bodyText};
     font-family: Roboto Condensed;
     font-size: 3rem;
-    margin-bottom: 3.19rem;
+    margin-bottom: 3.1875rem;
     font-weight: 500;
   }
 `
@@ -56,7 +56,7 @@ export const ActivePromos = styled.section`
     color: ${({ theme }) => theme.bodyText};
     font-family: Roboto Condensed;
     font-size: 3rem;
-    margin: 4.8rem 0 4.13rem;
+    margin: 4.8rem 0 4.125rem;
     font-weight: 500;
   }
 
@@ -146,9 +146,9 @@ export const CommentSection = styled.article`
   justify-content: center;
   margin: auto;
   p{
+    width: 105.7%;
     margin-bottom: 1.8rem;
     font-family: Roboto;
-    width: 100%;
   }
 `
 export const RatingAndDate = styled.div`

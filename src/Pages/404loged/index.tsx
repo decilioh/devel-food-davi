@@ -24,7 +24,7 @@ export const Error404Loged = () => {
                     erro por parte do nosso sistema, retorne para a página inicial
                 </p>
             </MessageError>
-            <Button id="button-return" onClick={() => navigate("/admin/home") }>Home</Button>
+            <Button id="button-return" onClick={() => navigate("/admin/home")} style={{maxWidth: "361px"}}>Home</Button>
         </MainContainer>
     )
 }

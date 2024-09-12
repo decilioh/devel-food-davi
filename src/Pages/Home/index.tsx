@@ -26,9 +26,8 @@ const Home = () => {
           </CardPromos>
         </ActivePromos>
       </DivisorLeft>
-      
       <ReviewsWithComentSection>
-        <h2>O que os clientes estao achando?</h2>
+        <h2>O que os clientes estão achando?</h2>
         <CommentSection>
           <p>“A comida desse lugar é sensacional. Eu e minha esposa comemos quase todo o domingo!!!”</p>
           <RatingAndDate>
