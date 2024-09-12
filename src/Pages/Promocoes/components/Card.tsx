@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import FotoExemplo from "../../../assets/images/fotoPratoExemplo.png"
-import { ButtonContainer, IconButton, ImageCard, ImageContainer, SectionMenuOptionsCard } from '../Menu.styles'
+import FotoExemplo from "../../../assets/images/promotion.png"
+import { ButtonContainer, IconButton, ImageCard, ImageContainer, SectionMenuOptionsCard } from '../Promotions.styles'
 import { LuPencilLine } from 'react-icons/lu'
 import { IoTrashSharp } from 'react-icons/io5'
 import { ModalContext, ModalContextProps } from '../../../context/modalContext'

@@ -1,7 +1,7 @@
 import Cookies from "js-cookie";
 import { createContext, useContext, useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-import { mockUser } from "../utils/mockUser";
+import { mockUser } from "../mocks/mockUser";
 import { IUserContextFunctions, UserContext } from "./userContext";
 import Loader from "../components/common/Loader";
 import { ThemeContext, ThemeContextProps } from "./themeContext";

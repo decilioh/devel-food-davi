@@ -54,7 +54,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
           <FaPhoneAlt />
           {isOpen && !isMobile && <span>Pedidos</span>}
         </MenuItem>
-        <MenuItem id='sidebar-promotions'>
+        <MenuItem id='sidebar-promotions' onClick={() => navigate("promocoes")}>
           <FaDollarSign />
           {isOpen && !isMobile && <span>Promoções</span>}
         </MenuItem>

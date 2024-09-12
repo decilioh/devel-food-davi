@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
-export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean }>`
+export const InputWrapper = styled.div<{ isValid?: boolean; isTouched?: boolean; showIcon?: boolean }>`
+  width: ${({ showIcon }) => showIcon ? "256px" : "auto"};
   display: flex;
   align-items: center;
   justify-content: center;
@@ -25,15 +26,19 @@ export const InputField = styled.input`
   color: #525252;
   letter-spacing: 0.05rem;
   font-size: 1.13rem;
-    &::placeholder{
-      color: #A2A2A2;
-      letter-spacing: 0.05rem;
-    }
+  &::placeholder{
+    color: #A2A2A2;
+    letter-spacing: 0.05rem;
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    opacity: 0;
+  }
 `;
 
 export const IconWrapper = styled.div`
   margin-right: 0.5rem;
-  margin-left:0.625rem;
+  margin-left: 0.625rem;
   display: flex;
   align-items: center;
   color: #A2A2A2;
@@ -48,7 +53,8 @@ export const ErrorMessage = styled.span`
   justify-content: space-between;
 `;
 
-export const ErrorAsterisk = styled.div`
+export const ErrorAsterisk = styled.div<{ showIcon?: boolean }>`
+  max-width: ${({ showIcon }) => showIcon ? "270px" : "auto"};
   color: ${({ theme }) => theme.error};
   font-size: 0.75rem;
   text-align: right;

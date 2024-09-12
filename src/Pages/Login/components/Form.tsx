@@ -6,7 +6,7 @@ import { AiOutlineMail } from 'react-icons/ai';
 import PasswordInput from '../../../components/common/PasswordInput';
 import { ButtonApp, FormLogin } from './Form.styles';
 import { MdLockOpen, MdOutlineEmail } from 'react-icons/md';
-import { mockUser } from '../../../utils/mockUser';
+import { mockUser } from '../../../mocks/mockUser';
 import { useContext } from 'react';
 import { AuthContext, IAuthContextFunctions } from '../../../context/authContext';
 import { IUserContextFunctions, UserContext } from '../../../context/userContext';
