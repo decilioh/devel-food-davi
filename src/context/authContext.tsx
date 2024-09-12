@@ -9,7 +9,7 @@ import { ThemeContext, ThemeContextProps } from "./themeContext";
 export interface IAuthContextFunctions{
     token: string | undefined,
     signInSetCookies: (token: string) => void,
-    signOutCookies: () => JSX.Element
+    signOutCookies: () => void
     isAutenticated: () => boolean
 }
 export const AuthContext = createContext<IAuthContextFunctions|undefined>(undefined)
@@ -53,7 +53,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
     function signOutCookies() {
         Cookies.remove('userToken');
         setUser(undefined);
-        return <Navigate to="/login" replace />;
+        <Navigate to="/login" replace />;
     }
 
 

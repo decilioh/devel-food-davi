@@ -8,6 +8,7 @@ import { IoMdCard } from 'react-icons/io';
 import { MdFastfood } from 'react-icons/md';
 import Select from '../../../components/common/Select';
 import { optionsSelect } from '../../../utils/optionsSelect';
+import { handlePhoneChange } from '../../../utils';
 
 const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => Promise<any>) | null> }) => {
   const { register, handleSubmit, formState: { errors, touchedFields }, setValue } = useForm<FormDataSchemaPersonInfos>({
@@ -35,6 +36,7 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
     <form>
       {/* Email Input */}
       <Input
+        id='email-input'
         icon={MdOutlineEmail}
         disabled={true}
         placeholder='tiago.pereira@develcode.com'
@@ -42,6 +44,7 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
 
       {/* CNPJ Input */}
       <Input
+        id='cnpj-input'
         icon={IoMdCard}
         placeholder='46.233.005/0001-65'
         disabled={true}
@@ -49,6 +52,7 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
 
       {/* Name of Restaurant Input */}
       <Input
+        id='restaurant-input'
         icon={IoMdCard}
         error={errors.name}
         isTouched={touchedFields.name}
@@ -58,15 +62,18 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
 
       {/* Telephone Input */}
       <Input
+        id='telephone-input'
         icon={IoMdCard}
         error={errors.telephone}
         isTouched={touchedFields.telephone}
         {...register('telephone')}
         placeholder="Telefone"
+        onChange={(e) => handlePhoneChange(e, setValue)}
       />
 
       {/* Types of Food Select */}
       <Select
+        id='typesOfFood-input'
         icon={MdFastfood}
         error={errors.typesOfFood}
         options={optionsSelect}
