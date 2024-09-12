@@ -42,7 +42,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
           <AiFillHome />
           {isOpen && !isMobile && <span>Home</span>}
         </MenuItem>
-        <MenuItem id='sidebar-profile'>
+        <MenuItem id='sidebar-profile' onClick={() => navigate("perfil")}>
           <FaUser />
           {isOpen && !isMobile && <span>Perfil</span>}
         </MenuItem>
