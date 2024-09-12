@@ -5,6 +5,7 @@ import FormPersonInfos from './components/FormInfosPessoais'
 import Button from '../../components/common/Button'
 import { useNavigate } from 'react-router-dom'
 import { ContainerAction, ContainerForm, LeftData, MainContainer, RightData } from './Perfil.styles'
+import { Helmet } from 'react-helmet-async'
 
 
 
@@ -53,6 +54,7 @@ const Profile = () => {
                 <hr />
                 <Button id='button-save-changes' onClick={handleSubmit}>Salvar</Button>
             </ContainerAction>
+            <Helmet title="Perfil" />
         </MainContainer>
     )
 }

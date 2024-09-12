@@ -7,6 +7,7 @@ import { ModalContext, ModalContextProps } from "../../context/modalContext";
 import Card from "./components/Card";
 import { mockDishes } from "../../mocks/dishes";
 import { mockPromotions } from "../../mocks/promotions";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -29,6 +30,7 @@ const Promotions = () => {
                     <Card nome={item.nomePromocao} key={index}/>
                 ))}
             </SectionMenuOptions>
+            <Helmet title="Promoções" />
         </MainContainer>
     )
 }

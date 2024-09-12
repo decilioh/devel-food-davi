@@ -15,6 +15,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { ButtonHeader, ErrorMessage, FormContent, HeaderMenu, HiddenInput, ImageUploadContainer, LabelText, MainContainer, OtherInputs, UploadIcon } from "./newDishes.styles";
 import { optionsSelect } from "../../utils/optionsSelect";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -98,6 +99,7 @@ const NewDishes = () => {
           <Button id="button-submit" type="submit">Salvar</Button>
         </OtherInputs>
       </FormContent>
+      <Helmet title="Novo prato" />
     </MainContainer>
   );
 };

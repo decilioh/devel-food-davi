@@ -5,6 +5,7 @@ import { ThemeContext } from "../../context/themeContext"
 import logoDevelThemeWhite from "../../assets/images/logoDevelThemeWhite.svg"
 import logoDevelThemeBlack from "../../assets/images/logoDevelThemeBlack.svg"
 import { ImageLogo, LogoContainer, MainContainer, MessageError } from "./404unloged.styles"
+import { Helmet } from "react-helmet-async"
 
 
 
@@ -24,6 +25,7 @@ export const Error404Unloged = () => {
                 </p>
             </MessageError>
             <Button id="button-return" onClick={() => navigate("/login")} style={{maxWidth: "361px"}}>Login</Button>
+            <Helmet title="Não encontrado" />
         </MainContainer>
     )
 }

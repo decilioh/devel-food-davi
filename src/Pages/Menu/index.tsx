@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { ModalContext, ModalContextProps } from "../../context/modalContext";
 import Card from "./components/Card";
 import { mockDishes } from "../../mocks/dishes";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -28,6 +29,7 @@ const Menu = () => {
                     <Card nome={item.prato} key={index}/>
                 ))}
             </SectionMenuOptions>
+            <Helmet title="Menu" />
         </MainContainer>
     )
 }

@@ -6,6 +6,7 @@ import logoDevelThemeWhite from "../../assets/images/logoDevelThemeWhite.svg"
 import logoDevelThemeBlack from "../../assets/images/logoDevelThemeBlack.svg"
 import { LogoContainer, MainContainer, MessageError } from "./404loged.styles"
 import { TbMoodSadDizzy } from "react-icons/tb"
+import { Helmet } from "react-helmet-async"
 
 
 
@@ -25,6 +26,7 @@ export const Error404Loged = () => {
                 </p>
             </MessageError>
             <Button id="button-return" onClick={() => navigate("/admin/home")} style={{maxWidth: "361px"}}>Home</Button>
+            <Helmet title="Não encontrado" />
         </MainContainer>
     )
 }

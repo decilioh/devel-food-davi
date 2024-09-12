@@ -1,6 +1,7 @@
 import { Rating } from "react-simple-star-rating"
 import ImagePromo from "../../assets/images/imagePromo.png"
 import { ActivePromos, AvaliationsSection, CardPromos, CommentSection, Divisor, DivisorLeft, ImageCardPromo, MainContainer, RatingAndDate, RatingSection, ReviewsWithComentSection, StyledRating } from "./Home.styles"
+import { Helmet } from "react-helmet-async"
 
 
 
@@ -59,6 +60,8 @@ const Home = () => {
           </Divisor>
         </CommentSection>
       </ReviewsWithComentSection>
+      <Helmet title="Home" />
+
     </MainContainer>
   )
 }
