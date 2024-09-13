@@ -8,7 +8,6 @@ export const MainContainer = styled.main`
     height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
-    align-items: start;
     overflow-x: hidden;
     @media screen and (max-width: 1180px){
         margin: auto;
@@ -18,7 +17,7 @@ export const MainContainer = styled.main`
 
 export const HeaderMenu = styled.section`
     width: 950px;
-    margin: 0 auto 0 0;
+    margin: 0 auto ;
     display: flex;
     justify-content: space-between;
     h2{
@@ -65,8 +64,9 @@ export const ButtonHeader = styled(ButtonApp)`
 export const FormContent = styled.form`
     max-width: 950px;
     width: 100%;
-    margin: 4.31rem auto auto 7.81rem;
+    margin: 4.31rem auto auto auto;
     display: flex;
+    justify-content: center;
     overflow-y: auto;
     overflow-x: hidden;
     #div-image{

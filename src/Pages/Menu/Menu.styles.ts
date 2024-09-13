@@ -21,8 +21,8 @@ export const HeaderMenu = styled.section`
     display: flex;
     justify-content: space-between;
     align-items: end;
-    margin-top: 2.5rem;
-    margin-bottom: 5.38rem;
+    margin-top: 1.2rem;
+    margin-bottom: 79px;
     h2{
         /* Menu do restaurante */
         font-family: 'Roboto Condensed';
@@ -99,8 +99,6 @@ export const SectionMenuOptions = styled.section`
     flex-wrap: wrap;
     width: calc(100% + 30px);
     gap: 4.06rem;
-    height: auto;
-    overflow-y: auto;
     
     @media screen and (max-width: 1180px){
         justify-content: center;
