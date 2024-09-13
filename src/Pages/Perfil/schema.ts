@@ -21,7 +21,7 @@ export const schemaPersonInfos = z.object({
     }),
     typesOfFood: z.union([
         z.enum(["brasileira", "picante", "mexicana", "japonesa", "arabe", "americana", "irlandesa", "italiana"]).array().nonempty({ message: "Selecione pelo menos uma opção" }),
-        z.array(z.string()).max(0)
+        z.array(z.string()).min(1)
     ])
 })
 export type FormDataSchemaPersonInfos = z.infer<typeof schemaPersonInfos>

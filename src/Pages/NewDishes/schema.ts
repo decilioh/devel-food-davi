@@ -7,7 +7,7 @@ export const schema = z.object({
         .nonempty({ message: "Input - Inválido" }),
     typesOfFood: z.union([
         z.enum(["brasileira", "picante", "mexicana", "japonesa", "arabe", "americana", "irlandesa", "italiana"]).array().nonempty({ message: "Selecione pelo 1 tipo de comida" }),
-        z.array(z.string()).max(0)
+        z.array(z.string()).min(1)
     ]),
     image: z
         .any()
