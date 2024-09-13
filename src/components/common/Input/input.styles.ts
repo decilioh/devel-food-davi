@@ -39,7 +39,10 @@ export const InputField = styled.input<{ disabled?: boolean }>`
 
   &::-webkit-calendar-picker-indicator {
     opacity: 0;
+    position: absolute;
+    transform: translateX(-40px);
   }
+
 `;
 
 export const IconWrapper = styled.div<{ disabled?: boolean }>`
