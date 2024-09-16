@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled from "styled-components";
 
 export const MainContainer = styled.main`
     width: 100%;
@@ -13,7 +13,6 @@ export const MainContainer = styled.main`
     }
 
     h2{
-        /* Roboto - title */
         font-family: 'Roboto Condensed';
         font-style: normal;
         font-weight: 500;
@@ -21,19 +20,18 @@ export const MainContainer = styled.main`
         line-height: 56px;
         text-align: center;
         margin-bottom: 3.8125rem;
-
         color: ${({ theme }) => theme.text};
     }
-`
+`;
 
 export const ContainerForm = styled.section`
     display: flex;
     margin: auto;
     @media screen and (max-width: 1100px){
-        width: 100%;
         flex-direction: column;
+        align-items: center; /* Centraliza os inputs */
     }
-`
+`;
 
 export const ContainerAction = styled.section`
     width: 100%;
@@ -44,37 +42,41 @@ export const ContainerAction = styled.section`
 
     button{
         margin: 3.9375rem 0 0 0;
+        width: 100%; /* Deixa o botão com 100% da largura disponível */
+        max-width: 400px; /* Limita a largura máxima */
     }
 
     hr {
-        width: 1400px; /* Ajusta a largura da linha horizontal */
+        width: 100%; /* Ajusta a linha horizontal para 100% da largura */
+        max-width: 1400px; /* Define um limite de largura máxima */
         border: 0;
-        border-top: 1px solid rgba(162, 162, 162, 1); /* Adiciona a borda superior para a linha horizontal */
-        margin: 0; /* Remove margens, se necessário */
+        border-top: 1px solid rgba(162, 162, 162, 1);
+        margin: 0;
     }
-`
+`;
 
 export const LeftData = styled.article`
     padding-right: 6.6875rem;
-    position: relative; /* Necessário para o posicionamento do pseudo-elemento */
+    position: relative; 
   
     &::after {
         content: "";
         position: absolute;
-        top: 2%; /* Ajuste para aumentar a altura acima */
-        bottom: 10%; /* Ajuste para aumentar a altura abaixo */
+        top: 2%;
+        bottom: 10%;
         right: 0;
-        width: 1px; /* Largura da borda */
-        background-color: rgba(162, 162, 162, 1); /* Cor da borda */
+        width: 1px;
+        background-color: rgba(162, 162, 162, 1);
         @media screen and (max-width: 1100px){
             display: none;
         }
     }
 
     form{
-        width: 428px;
+        width: 100%;
+        max-width: 428px;
         @media screen and (max-width: 1100px){
-            margin: auto;
+            margin:0 auto;
         }
     }
 
@@ -85,11 +87,20 @@ export const LeftData = styled.article`
         flex-direction: column;
         align-items: center;
 
+        h2{
+            margin: 20vh auto 4rem auto;
+
+        }
+
         button{
-            margin: 0 0 0;
+            margin: 0;
+        }
+
+        input {
+            width: 100%; /* Faz os inputs ocuparem toda a largura disponível */
         }
     }
-`
+`;
 
 export const RightData = styled.article`
     margin-left: 7.125rem;
@@ -100,8 +111,13 @@ export const RightData = styled.article`
         flex-direction: column;
         align-items: center;
 
+        input, button{
+            width: 100%; /* Faz os inputs e o botão ocuparem toda a largura disponível */
+        }
+
         button{
-            margin: 0 0 0;
+            margin: 0;
+            max-width: 400px; /* Limita a largura máxima do botão */
         }
     }
-`
+`;

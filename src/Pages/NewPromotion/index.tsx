@@ -8,13 +8,14 @@ import { FormData, schema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../../components/common/Button";
 import { FaArrowLeftLong } from "react-icons/fa6";
-import { useState } from "react";
+import { ChangeEvent, useState } from "react";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { ButtonHeader, ErrorMessage, FormContent, HeaderMenu, HiddenInput, ImageUploadContainer, LabelText, MainContainer, OtherInputs, UploadIcon } from "./newPromotion.styles";
 import { optionsSelect } from "../../utils/optionsSelect";
 import { LuCalendarDays } from "react-icons/lu";
 import { Divisor } from "../Home/Home.styles";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -43,29 +44,21 @@ const NewPromotion = () => {
     });
   };
 
-  const handleStartDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newStartDate = e.target.value;
-    setStartDate(newStartDate);
-
-    if (endDate && new Date(newStartDate) > new Date(endDate)) {
-      toast.error("A data de início não pode ser posterior à data de término.");
-      setValue("startDate", ""); // Limpa o campo se a data for inválida
-    } else {
-      setValue("startDate", newStartDate);
+  const handleStartDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newDate = e.target.value;
+    setStartDate(newDate);
+    setValue("startDate", newDate);
+    if (endDate && newDate > endDate) {
+        setEndDate("");
+        setValue("endDate", "");
     }
-  };
+};
+const handleEndDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+    const newDate = e.target.value;
+    setEndDate(newDate);
+    setValue("endDate", newDate);
+};
 
-  const handleEndDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const newEndDate = e.target.value;
-    setEndDate(newEndDate);
-
-    if (startDate && new Date(newEndDate) < new Date(startDate)) {
-      toast.error("A data de término não pode ser anterior à data de início.");
-      setValue("endDate", ""); // Limpa o campo se a data for inválida
-    } else {
-      setValue("endDate", newEndDate);
-    }
-  };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -146,6 +139,7 @@ const NewPromotion = () => {
           <Button id="button-submit" type="submit" style={{marginTop: "56px", textTransform: "capitalize"}}>Cadastrar</Button>
         </OtherInputs>
       </FormContent>
+      <Helmet title="Nova promoção" />
     </MainContainer>
   );
 };

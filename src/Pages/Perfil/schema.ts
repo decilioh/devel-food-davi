@@ -8,7 +8,7 @@ export const schemaAddress = z.object({
     city: z.string().nonempty({ message: "Campo obrigatório" }),
     neighborhood: z.string().nonempty({ message: "Campo obrigatório" }),
     state: z.string().nonempty({ message: "Campo obrigatório" }),
-    number: z.string().regex(/^\d+$/, { message: "Apenas números são permitidos" }).nonempty({ message: "Campo obrigatório" }),
+    number: z.string().regex(/^([A-Za-z]?\d{1,6}|\d{1,6}[A-Za-z]?)$/, { message: "Número deve conter no máximo 1 letra e no máximo 6 números." }).nonempty({ message: "Campo obrigatório" }),
 })
 export type FormDataSchemaAddress = z.infer<typeof schemaAddress>;
 
@@ -21,7 +21,7 @@ export const schemaPersonInfos = z.object({
     }),
     typesOfFood: z.union([
         z.enum(["brasileira", "picante", "mexicana", "japonesa", "arabe", "americana", "irlandesa", "italiana"]).array().nonempty({ message: "Selecione pelo menos uma opção" }),
-        z.array(z.string()).max(0)
+        z.array(z.string()).min(1)
     ])
 })
 export type FormDataSchemaPersonInfos = z.infer<typeof schemaPersonInfos>

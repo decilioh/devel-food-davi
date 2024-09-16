@@ -6,7 +6,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(({ icon: Icon, erro
   return (
     <div>
       {error && <ErrorAsterisk showIcon={showIcon}>*</ErrorAsterisk>}
-      <InputWrapper isValid={!error} isTouched={isTouched} showIcon={showIcon} disabled={disabled}>
+      <InputWrapper  isValid={!error} isTouched={isTouched} showIcon={showIcon} disabled={disabled}>
         {Icon && (
           <IconWrapper>
             <Icon/>
