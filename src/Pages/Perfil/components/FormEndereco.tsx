@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
 import { FormDataSchemaAddress, schemaAddress } from '../schema';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormDivisionOne, FormStepOneStyled } from '../../Cadastro/components/Form.styles';
@@ -7,28 +7,32 @@ import Input from '../../../components/common/Input';
 import { FaHouse } from 'react-icons/fa6';
 import { handleCepChange } from '../../../utils';
 
-const FormAddress = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => void) | null> }) => {
-    const { register, handleSubmit, formState: { errors, touchedFields }, setValue, getValues } = useForm<FormDataSchemaAddress>({
+const FormAddress = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => Promise<any>) | null> }) => {
+    const { register, handleSubmit, formState: { errors, touchedFields }, setValue } = useForm<FormDataSchemaAddress>({
         resolver: zodResolver(schemaAddress),
     });
 
-    const onSubmit = () => {
-        // Usamos getValues para pegar os dados do formulário
-        const data = getValues();
-        return data; // Certifique-se de que os dados estão sendo retornados corretamente
+    const onSubmit = async (data: FormDataSchemaAddress) => {
+        console.log("FormAddress Data Inside onSubmit:", data); // Log para verificar os dados do formulário
+        return data;
     };
     
     useEffect(() => {
         onSubmitRef.current = async () => {
-            const data = getValues(); // Captura os dados do formulário
-            console.log("FormAddress Data:", data); // Adiciona log para verificar os dados
-            return data;
+            return new Promise((resolve, reject) => {
+                handleSubmit((data) => {
+                    console.log("FormAddress Data from useEffect:", data); // Log para verificar se os dados estão sendo enviados
+                    resolve(data);
+                }, (error) => {
+                    console.error("FormAddress Validation Errors:", error); // Log de erro para validação
+                    reject(error); // Rejeita caso tenha erro
+                })();
+            });
         };
-    }, [onSubmitRef, getValues]);
+    }, [onSubmitRef, handleSubmit]);
 
-    
     return (
-        <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-three'>
+        <FormStepOneStyled>
             <FormDivisionOne>
                 <div className='esquerda'>
                     <Input
@@ -90,7 +94,7 @@ const FormAddress = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() 
                 </div>
                 <div className="direita2">
                     <Input
-                        style={{ width: "1005%" }}
+                        style={{ width: "100%" }}
                         id='input-number'
                         icon={FaHouse}
                         placeholder='Número'
@@ -99,8 +103,6 @@ const FormAddress = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() 
                         isTouched={touchedFields.number}
                     />
                 </div>
-
-
             </FormDivisionOne>
         </FormStepOneStyled>
     )
