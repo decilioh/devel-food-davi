@@ -8,7 +8,7 @@ export const schemaAddress = z.object({
     city: z.string().nonempty({ message: "Campo obrigatório" }),
     neighborhood: z.string().nonempty({ message: "Campo obrigatório" }),
     state: z.string().nonempty({ message: "Campo obrigatório" }),
-    number: z.string().regex(/^\d+$/, { message: "Apenas números são permitidos" }).nonempty({ message: "Campo obrigatório" }),
+    number: z.string().regex(/^([A-Za-z]?\d{1,6}|\d{1,6}[A-Za-z]?)$/, { message: "Número deve conter no máximo 1 letra e no máximo 6 números." }).nonempty({ message: "Campo obrigatório" }),
 })
 export type FormDataSchemaAddress = z.infer<typeof schemaAddress>;
 
