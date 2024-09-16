@@ -11,6 +11,7 @@ import PasswordInput from '../../components/common/PasswordInput'
 import { FormForgotPassword, SpacingContentsStepThree } from '../EsqueciSenha/components/Form.styles'
 import { MdLockOpen } from 'react-icons/md'
 import Button from '../../components/common/Button'
+import { Helmet } from 'react-helmet-async'
 
 const EditPassword = () => {
     const theme = useContext(ThemeContext)
@@ -66,6 +67,7 @@ const EditPassword = () => {
                     </Button>
                 </SpacingContentsStepThree>
             </FormForgotPassword>
+            <Helmet title="Trocar senha" />
         </MainContainer>
     )
 }

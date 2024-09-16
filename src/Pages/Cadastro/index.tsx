@@ -16,6 +16,7 @@ import FormStepThree from './components/FormStepThree'
 import { MainContainer, ImageLogo, ImageProgress } from './Cadastro.styles'
 import Finally from "./components/Finally"
 import { ThemeContext } from "../../context/themeContext"
+import { Helmet } from "react-helmet-async"
 
 
 
@@ -53,6 +54,7 @@ const Register = () => {
       <ImageLogo src={theme?.theme === "light" ? ImgLogoWhite : ImgLogoBlack} id="image-logo" />
       <ImageProgress src={theme?.theme === "light" ? progressWhite : progressBlack} />
       {checkStep()}
+      <Helmet title="Cadastre-se" />
     </MainContainer>
   )
 }

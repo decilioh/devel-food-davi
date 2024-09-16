@@ -7,7 +7,8 @@ interface ContainerProps {
 
 export const Container = styled.div<ContainerProps>`
   background-color: ${({theme}) => theme.primary};
-  width: ${({ isOpen }) => (isOpen ? '270px' : '60px')};
+  max-width: ${({ isOpen }) => (isOpen ? '270px' : '60px')};
+  width: 100%;
   transition: all 0.4s ease;
   display: ${({ isMobile }) => (isMobile ? 'none' : 'flex')};
   flex-direction: column;
@@ -89,4 +90,9 @@ export const TitleOpen = styled.span`
     letter-spacing:0.1rem;
     margin: 0 0.625rem 0 0.625rem;
     padding: 9px 0;
+`;
+
+export const MenuItemPlus = styled(MenuItem)<{ isOpen: boolean }>`
+  margin-left: 1.5rem;
+  display:${({ isOpen }) => (isOpen ? 'flex' : 'none')};
 `;

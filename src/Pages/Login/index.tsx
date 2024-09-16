@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { CardLinks, CardLogin, DivImage, DivLogin, MainContainer, ImageLogo, ImagePrato } from "./Login.styles"
 import { useContext } from "react"
 import { ThemeContext } from "../../context/themeContext"
+import { Helmet } from "react-helmet-async"
 
 
 const Login = () => {
@@ -26,6 +27,7 @@ const Login = () => {
           </CardLinks>
         </CardLogin>
       </DivLogin>
+      <Helmet title="Login" />
     </MainContainer>
   )
 }

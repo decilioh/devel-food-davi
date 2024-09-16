@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const HeaderHome = styled.header`
-    width: 100vw;
+    width: 100%;
     height: 84px;
     background-color: ${({ theme }) => theme.primary};
     display: flex;
@@ -32,3 +32,12 @@ export const MenuButton = styled.button`
         left: 0.625rem;
     }
 `;
+
+
+export const ButtonToggle = styled.div`
+    color: ${({theme}) => theme.sidebar};
+    position: absolute;
+    right: 0;
+    margin-right: 2.5rem;
+    font-size: 30px;
+`

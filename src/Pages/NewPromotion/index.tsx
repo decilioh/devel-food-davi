@@ -15,6 +15,7 @@ import { ButtonHeader, ErrorMessage, FormContent, HeaderMenu, HiddenInput, Image
 import { optionsSelect } from "../../utils/optionsSelect";
 import { LuCalendarDays } from "react-icons/lu";
 import { Divisor } from "../Home/Home.styles";
+import { Helmet } from "react-helmet-async";
 
 
 
@@ -146,6 +147,7 @@ const NewPromotion = () => {
           <Button id="button-submit" type="submit" style={{marginTop: "56px", textTransform: "capitalize"}}>Cadastrar</Button>
         </OtherInputs>
       </FormContent>
+      <Helmet title="Nova promoção" />
     </MainContainer>
   );
 };

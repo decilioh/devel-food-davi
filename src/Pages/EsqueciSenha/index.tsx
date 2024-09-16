@@ -4,6 +4,7 @@ import StepTwo from "./Micro-Pages/StepTwo"
 import { useState } from "react"
 import StepThree from "./Micro-Pages/StepThree"
 import { MainContainer } from "./EsqueciSenha.styles"
+import { Helmet } from "react-helmet-async"
 
 
 
@@ -27,6 +28,7 @@ const ForgotMyPassword = () => {
   return (
     <MainContainer>
       {checkStep()}
+      <Helmet title="Login" />
     </MainContainer>
   )
 }

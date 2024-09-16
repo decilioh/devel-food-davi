@@ -27,9 +27,9 @@ const Layout = () => {
 
   return (
     <MainContainer>
-      <HeaderMain toggleSidebar={toggleSidebar} />
+      <Sidebar isMobile={isMobile} toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
       <MainSection>
-        <Sidebar isMobile={isMobile} toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
+        <HeaderMain toggleSidebar={toggleSidebar} />
         <Content>
           <Outlet />
         </Content>
