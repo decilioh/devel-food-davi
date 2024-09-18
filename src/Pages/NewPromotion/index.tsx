@@ -1,5 +1,5 @@
-import styled from "styled-components"
-import { ButtonApp } from "../../components/common/Button/button.styles"
+import styled from "styled-components";
+import { ButtonApp } from "../../components/common/Button/button.styles";
 import { CiImageOn } from "react-icons/ci";
 import Input from "../../components/common/Input";
 import { MdFastfood } from "react-icons/md";
@@ -17,16 +17,21 @@ import { LuCalendarDays } from "react-icons/lu";
 import { Divisor } from "../Home/Home.styles";
 import { Helmet } from "react-helmet-async";
 
-
-
-
+// Helper function to get today's date in yyyy-mm-dd format
+const getTodayDate = () => {
+  const today = new Date();
+  const year = today.getFullYear();
+  const month = (today.getMonth() + 1).toString().padStart(2, '0');
+  const day = today.getDate().toString().padStart(2, '0');
+  return `${year}-${month}-${day}`;
+};
 
 const NewPromotion = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [startDate, setStartDate] = useState<string | null>(null);
   const [endDate, setEndDate] = useState<string | null>(null);
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors, touchedFields }, setValue } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
@@ -37,9 +42,9 @@ const NewPromotion = () => {
       onClose: () => {
         toast.error("Ocorreu algum erro!", {
           onClose: () => {
-            navigate(-1)
+            navigate(-1);
           }
-        })
+        });
       }
     });
   };
@@ -49,16 +54,16 @@ const NewPromotion = () => {
     setStartDate(newDate);
     setValue("startDate", newDate);
     if (endDate && newDate > endDate) {
-        setEndDate("");
-        setValue("endDate", "");
+      setEndDate("");
+      setValue("endDate", "");
     }
-};
-const handleEndDateChange = (e: ChangeEvent<HTMLInputElement>) => {
+  };
+
+  const handleEndDateChange = (e: ChangeEvent<HTMLInputElement>) => {
     const newDate = e.target.value;
     setEndDate(newDate);
     setValue("endDate", newDate);
-};
-
+  };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -104,10 +109,8 @@ const handleEndDateChange = (e: ChangeEvent<HTMLInputElement>) => {
         </div>
         <OtherInputs>
           <Input id="input-name" placeholder="Nome da promoção" {...register("name")} error={errors.name} isTouched={touchedFields.name} />
-          {/* Input para a porcentagem de desconto */}
           <Input id="input-discount" placeholder="Percentual %" type="number" {...register("discount")} error={errors.discount} isTouched={touchedFields.discount} />
 
-          {/* Inputs para as datas */}
           <div>
             <label htmlFor="input-start-date">Data inicial</label>
             <Input
@@ -119,7 +122,8 @@ const handleEndDateChange = (e: ChangeEvent<HTMLInputElement>) => {
               error={errors.startDate}
               isTouched={touchedFields.startDate}
               showIcon={true}
-              onChange={handleStartDateChange} // Adicione esta linha
+              onChange={handleStartDateChange}
+              min={getTodayDate()} // Add this line to set the minimum date to today
             />
           </div>
           <div>
@@ -133,7 +137,8 @@ const handleEndDateChange = (e: ChangeEvent<HTMLInputElement>) => {
               error={errors.endDate}
               isTouched={touchedFields.endDate}
               showIcon={true}
-              onChange={handleEndDateChange} // Adicione esta linha
+              onChange={handleEndDateChange}
+              min={startDate || getTodayDate()} // Set minimum end date to the selected start date or today
             />
           </div>
           <Button id="button-submit" type="submit" style={{marginTop: "56px", textTransform: "capitalize"}}>Cadastrar</Button>

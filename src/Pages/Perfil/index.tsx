@@ -41,7 +41,7 @@ const Profile = () => {
         <MainContainer>
             <ContainerForm>
                 <LeftData>
-                    <h2>Informações pessoais</h2>
+                    <h2>Informações Pessoais</h2>
                     <FormPersonInfos onSubmitRef={submitPersonInfosRef} />
                     <Button id='button-change-password' style={{ marginTop: "1.75rem" }} onClick={() => navigate("/perfil/trocar-senha")}>Alterar senha</Button>
                 </LeftData>
