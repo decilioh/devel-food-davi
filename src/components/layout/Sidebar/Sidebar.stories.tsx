@@ -5,11 +5,12 @@ import { action } from '@storybook/addon-actions';
 import Sidebar, { SidebarProps } from ".";
 import { AuthProvider } from "../../../context/authContext";
 import { UserProvider } from "../../../context/userContext";
+import SidebarClone from "./clone";
 
 
 export default {
     title: "Layout/Sidebar",
-    component: Sidebar,
+    component: SidebarClone,
 } as Meta<SidebarProps>
 
 const withLightTheme: Decorator = (Story) => (
