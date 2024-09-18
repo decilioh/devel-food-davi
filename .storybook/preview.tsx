@@ -1,20 +1,21 @@
-// .storybook/preview.tsx
 import React from 'react';
-import { Preview } from '@storybook/react';
 import { ThemeProvider } from 'styled-components';
-import {GlobalStyles} from '../src/assets/styles/global'
-import {darkTheme, lightTheme} from "../src/assets/styles/theme"; // Importe o tema se estiver usando um
+import { GlobalStyles } from '../src/assets/styles/global';
+import { darkTheme, lightTheme } from '../src/assets/styles/theme';
+import { HelmetProvider } from 'react-helmet-async';
 
-const theme = "light";
+const theme = 'light';
 
 const withGlobalStyle = (Story) => (
-  <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-    <GlobalStyles />
-    <Story />
+  <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
+    <HelmetProvider>
+      <GlobalStyles />
+      <Story />
+    </HelmetProvider>
   </ThemeProvider>
 );
 
-const preview: Preview = {
+const preview = {
   decorators: [withGlobalStyle],
   parameters: {
     controls: {
