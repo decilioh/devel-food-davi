@@ -10,6 +10,8 @@ import Input from '../../../components/common/Input';
 import { handleCNPJChange } from '../../../utils';
 import { MdLockOpen, MdOutlineEmail } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { SignupContext, signupProps } from '../../../context/signupContext';
 
 
 interface Props {
@@ -18,6 +20,8 @@ interface Props {
 
 const FormStepOne = ({ setvalue }: Props) => {
     const navigate = useNavigate()
+    const {setUser} = useContext(SignupContext) as signupProps
+
     const {
         register,
         handleSubmit,
@@ -29,6 +33,32 @@ const FormStepOne = ({ setvalue }: Props) => {
 
     const onSubmit: SubmitHandler<FormDataSchemaStepOne> = (data) => {
         console.log(data)
+        setUser((prevContent) => {
+            const prevUser = prevContent || {
+                name: "",
+                email: "",
+                password: "",
+                cnpj: "",
+                phoneNumber: "",
+                foodType: "",
+                restaurantAddress: {
+                    adressLabel: "",
+                    postalCode: "",
+                    street: "",
+                    neighborhood: "",
+                    city: "",
+                    number: "",
+                    state: ""
+                }
+            };
+    
+            return {
+                ...prevUser, // Preserva os dados anteriores
+                email: data.email,
+                cnpj: data.cnpj,
+                password: data.password,
+            };
+        });
         setvalue(2)
     };
 

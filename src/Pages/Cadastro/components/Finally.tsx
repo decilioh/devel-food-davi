@@ -22,9 +22,9 @@ const Finally = ({value, setvalue}: Props) => {
 
     const handleContinue = () => {
         if(value == 5){
-            return navigate("/login")
+            setvalue(1)
         }
-        setvalue(5)
+        return navigate("/login")
     }
 
     return (

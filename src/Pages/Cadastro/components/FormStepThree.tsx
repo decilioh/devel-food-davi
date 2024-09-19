@@ -6,7 +6,11 @@ import { FormDivisionOne, FormStepOneStyled, SpacingContents } from './Form.styl
 import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
 import { FaHouse } from "react-icons/fa6";
-import { handleCepChange } from '../../../utils';
+import { extrairNumeros, handleCepChange } from '../../../utils';
+import { useContext } from 'react';
+import { SignupContext, signupProps } from '../../../context/signupContext';
+import { signUpRestaurant } from '../../../services/signUp';
+import { toast } from 'react-toastify';
 
 interface Props {
     setvalue: React.Dispatch<React.SetStateAction<number>>
@@ -14,6 +18,7 @@ interface Props {
 
 
 const FormStepThree = ({ setvalue }: Props) => {
+    const { user, setUser } = useContext(SignupContext) as signupProps
     const {
         register,
         handleSubmit,
@@ -23,9 +28,38 @@ const FormStepThree = ({ setvalue }: Props) => {
         resolver: zodResolver(schemaStepThree)
     })
 
-    const onSubmit: SubmitHandler<FormDataSchemaStepThree> = (data) => {
-        console.log(data)
-        setvalue(4)
+    const onSubmit: SubmitHandler<FormDataSchemaStepThree> = async(data) => {
+        if (!user) return null
+        const addressArray = {
+            adressLabel: data["nicknameAddress"],
+            city: data["city"],
+            neighborhood: data["neighborhood"],
+            number: data["number"],
+            postalCode: extrairNumeros(data["cep"]),
+            state: data["state"],
+            street: data["road"]
+        }
+
+        setUser({
+            cnpj: user.cnpj,
+            email: user.email,
+            password: user.password,
+            name: user.name,
+            phoneNumber: user.phoneNumber,
+            foodType: user.foodType,
+            restaurantAddress: addressArray,
+        })
+
+
+        try {
+            const data = await signUpRestaurant(user)
+            console.log(data)
+            setvalue(4)
+        } catch (error) {
+            toast.error(`${error}`)
+            setvalue(5)
+        }
+
     };
 
     return (
@@ -103,7 +137,7 @@ const FormStepThree = ({ setvalue }: Props) => {
 
 
             </FormDivisionOne>
-            <SpacingContents style={{marginTop: "53px"}}>
+            <SpacingContents style={{ marginTop: "53px" }}>
                 <Button id="button-return-page" onClick={() => setvalue(1)}>
                     Voltar
                 </Button>

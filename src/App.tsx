@@ -4,6 +4,7 @@ import { ModalProvider } from './context/modalContext';
 import { UserProvider } from './context/userContext';
 import { AuthProvider } from './context/authContext';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
+import { SignupProvider } from './context/signupContext';
 
 
 export default function App() {
@@ -14,9 +15,11 @@ export default function App() {
         <AuthProvider>
           <ModalProvider>
             <>
-              <GlobalStyles />
-              <Helmet titleTemplate='%s | DevelFood' />
-              <Router />
+              <SignupProvider>
+                <GlobalStyles />
+                <Helmet titleTemplate='%s | DevelFood' />
+                <Router />
+              </SignupProvider>
             </>
           </ModalProvider>
         </AuthProvider>

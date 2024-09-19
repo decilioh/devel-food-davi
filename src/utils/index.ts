@@ -58,6 +58,11 @@ export const handleCNPJChange = (event: React.ChangeEvent<HTMLInputElement>, set
     setValue('cnpj', formattedValue, { shouldValidate: false });
 };
 
+export const extrairNumeros = (cep: string): string => {
+    // Remove qualquer caractere que não seja um número
+    return cep.replace(/\D/g, '');
+}
+
 
 export const maskPhone = (value: string) => {
     return value
