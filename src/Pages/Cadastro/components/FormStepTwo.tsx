@@ -42,7 +42,7 @@ const FormStepTwo = ({setvalue}: Props) => {
                 restaurantAddress: user.restaurantAddress,
                 name: data["name"],
                 phoneNumber: data["telephone"].replace(/[^\d]/g, ''),
-                foodType: data["typesOfFood"].join(" ")
+                foodType: data["typesOfFood"].join(",")
         })
         setvalue(3)
     };

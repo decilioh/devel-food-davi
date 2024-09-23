@@ -31,7 +31,17 @@ const FormStepOne = ({ setvalue }: Props) => {
         resolver: zodResolver(schemaStepOne)
     })
 
-    const onSubmit: SubmitHandler<FormDataSchemaStepOne> = (data) => {
+    const encryptPassword = async (password: string) => {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hash = await crypto.subtle.digest("SHA-256", data);
+        let hashArray = Array.from(new Uint8Array(hash)); // Convert buffer to byte array
+        let hashString = hashArray.map(b => String.fromCharCode(b)).join(''); // Convert bytes to string
+        return btoa(hashString); // Encode string as base64
+    }
+
+    const onSubmit: SubmitHandler<FormDataSchemaStepOne> = async(data) => {
+        const passwordEncrypted = await encryptPassword(data.password)
         console.log(data)
         setUser((prevContent) => {
             const prevUser = prevContent || {
@@ -42,7 +52,7 @@ const FormStepOne = ({ setvalue }: Props) => {
                 phoneNumber: "",
                 foodType: "",
                 restaurantAddress: {
-                    adressLabel: "",
+                    addressLabel: "",
                     postalCode: "",
                     street: "",
                     neighborhood: "",

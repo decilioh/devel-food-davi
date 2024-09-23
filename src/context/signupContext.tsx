@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useState } from "react"
 
 type Adress = {
-    adressLabel: string
+    addressLabel: string
     postalCode: string
     street: string
     neighborhood: string

@@ -31,7 +31,7 @@ const FormStepThree = ({ setvalue }: Props) => {
     const onSubmit: SubmitHandler<FormDataSchemaStepThree> = async(data) => {
         if (!user) return null
         const addressArray = {
-            adressLabel: data["nicknameAddress"],
+            addressLabel: data["nicknameAddress"],
             city: data["city"],
             neighborhood: data["neighborhood"],
             number: data["number"],
@@ -47,16 +47,24 @@ const FormStepThree = ({ setvalue }: Props) => {
             name: user.name,
             phoneNumber: user.phoneNumber,
             foodType: user.foodType,
-            restaurantAddress: addressArray,
+            restaurantAddress: {
+                addressLabel: data["nicknameAddress"],
+                city: data["city"],
+                neighborhood: data["neighborhood"],
+                number: data["number"],
+                postalCode: extrairNumeros(data["cep"]),
+                state: data["state"],
+                street: data["road"]
+            }    
         })
 
 
         try {
+            console.log(user)
             const data = await signUpRestaurant(user)
             console.log(data)
             setvalue(4)
         } catch (error) {
-            toast.error(`${error}`)
             setvalue(5)
         }
 

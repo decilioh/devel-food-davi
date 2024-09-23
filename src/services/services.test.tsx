@@ -12,7 +12,7 @@ const criaRestauranteCorreto = {
     password: '123123@@gmail.com',
     phoneNumber: '24999117580',
     restaurantAddress: {
-        adressLabel: 'Casa',
+        addressLabel: 'Casa',
         city: 'Resende',
         neighborhood: 'Santa Isabel',
         number: '215',
@@ -33,7 +33,7 @@ describe('Testes nas funções que executam serviços', () => {
                 password: '123123@@gmail.com',
                 phoneNumber: '24999117580',
                 restaurantAddress: {
-                    adressLabel: 'Casa',
+                    addressLabel: 'Casa',
                     city: 'Resende',
                     neighborhood: 'Santa Isabel',
                     number: '215',
