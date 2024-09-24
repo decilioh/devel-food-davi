@@ -21,6 +21,8 @@
     "axios": "^1.7.3",
     "js-cookie": "^3.0.5",
     "react": "latest",
+    "react-dnd": "^16.0.1",
+    "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "latest",
     "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.52.2",

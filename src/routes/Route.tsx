@@ -16,6 +16,9 @@ import Promotions from "../Pages/Promocoes";
 import NewPromotion from "../Pages/NewPromotion";
 import Profile from "../Pages/Perfil";
 import EditPassword from "../Pages/EditarSenha";
+import Orders from "../Pages/Pedidos";
+import { HTML5Backend } from "react-dnd-html5-backend";
+import { DndProvider } from "react-dnd";
 
 
 const Router = () => {
@@ -34,6 +37,7 @@ const Router = () => {
           <Route path="menu/novo-prato" element={<NewDishes />} />
           <Route path="promocoes" element={<Promotions />} />
           <Route path="promocoes/nova-promocao" element={<NewPromotion />} />
+          <Route path="pedidos" element={<DndProvider backend={HTML5Backend}><Orders /></DndProvider>} />
           <Route path="*" element={<Error404Loged />} />
         </Route>
         <Route path="perfil/trocar-senha" element={<PrivateRoute><EditPassword /></PrivateRoute>} />
