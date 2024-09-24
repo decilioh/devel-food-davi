@@ -1,4 +1,4 @@
-import { FetchAdressByCEP } from "../services";
+import { FetchAdressByCEP } from "../services/cep";
 
 export const useCepAutoComplete = async (cep: string) => {
     cep = cep.replace('-', '')

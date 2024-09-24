@@ -20,7 +20,24 @@ export const schemaPersonInfos = z.object({
         message: "Input - Inválido"
     }),
     typesOfFood: z.union([
-        z.enum(["brasileira", "picante", "mexicana", "japonesa", "arabe", "americana", "irlandesa", "italiana"]).array().nonempty({ message: "Selecione pelo menos uma opção" }),
+        z.enum([
+            "Brasileira",
+            "Mexicana",
+            "Japonesa",
+            "Americana",
+            "Italiana",
+            "Lanches",
+            "Pizza",
+            "Churrasco",
+            "Saudavel",
+            "Bebidas",
+            "Acai",
+            "Petiscos",
+            "Chinesa",
+            "Sobremesas",
+        ])
+        .array()
+        .nonempty({ message: "Selecione pelo menos uma opção" }),
         z.array(z.string()).min(1)
     ])
 })
