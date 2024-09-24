@@ -10,6 +10,8 @@ import Input from '../../../components/common/Input';
 import { handleCNPJChange } from '../../../utils';
 import { MdLockOpen, MdOutlineEmail } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+import { useContext } from 'react';
+import { SignupContext, signupProps } from '../../../context/signupContext';
 
 
 interface Props {
@@ -18,6 +20,8 @@ interface Props {
 
 const FormStepOne = ({ setvalue }: Props) => {
     const navigate = useNavigate()
+    const {setUser} = useContext(SignupContext) as signupProps
+
     const {
         register,
         handleSubmit,
@@ -27,8 +31,44 @@ const FormStepOne = ({ setvalue }: Props) => {
         resolver: zodResolver(schemaStepOne)
     })
 
-    const onSubmit: SubmitHandler<FormDataSchemaStepOne> = (data) => {
+    const encryptPassword = async (password: string) => {
+        const encoder = new TextEncoder();
+        const data = encoder.encode(password);
+        const hash = await crypto.subtle.digest("SHA-256", data);
+        let hashArray = Array.from(new Uint8Array(hash)); // Convert buffer to byte array
+        let hashString = hashArray.map(b => String.fromCharCode(b)).join(''); // Convert bytes to string
+        return btoa(hashString); // Encode string as base64
+    }
+
+    const onSubmit: SubmitHandler<FormDataSchemaStepOne> = async(data) => {
+        const passwordEncrypted = await encryptPassword(data.password)
         console.log(data)
+        setUser((prevContent) => {
+            const prevUser = prevContent || {
+                name: "",
+                email: "",
+                password: "",
+                cnpj: "",
+                phoneNumber: "",
+                foodType: "",
+                restaurantAddress: {
+                    addressLabel: "",
+                    postalCode: "",
+                    street: "",
+                    neighborhood: "",
+                    city: "",
+                    number: "",
+                    state: ""
+                }
+            };
+    
+            return {
+                ...prevUser, // Preserva os dados anteriores
+                email: data.email,
+                cnpj: data.cnpj,
+                password: data.password,
+            };
+        });
         setvalue(2)
     };
 

@@ -6,7 +6,24 @@ export const schema = z.object({
     price: z.string().min(1, 'Insira o preço').regex(/^\d+(\.\d{1,2})?$/, { message: 'Preço inválido. Apenas números e até duas casas decimais são permitidos.' })
         .nonempty({ message: "Input - Inválido" }),
     typesOfFood: z.union([
-        z.enum(["brasileira", "picante", "mexicana", "japonesa", "arabe", "americana", "irlandesa", "italiana"]).array().nonempty({ message: "Selecione pelo 1 tipo de comida" }),
+        z.enum([
+            "Brasileira",
+            "Mexicana",
+            "Japonesa",
+            "Americana",
+            "Italiana",
+            "Lanches",
+            "Pizza",
+            "Churrasco",
+            "Saudavel",
+            "Bebidas",
+            "Acai",
+            "Petiscos",
+            "Chinesa",
+            "Sobremesas",
+        ])
+            .array()
+            .nonempty({ message: "Selecione pelo menos uma opção" }),
         z.array(z.string()).min(1)
     ]),
     image: z
