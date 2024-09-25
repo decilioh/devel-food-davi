@@ -10,14 +10,15 @@ interface Props{
   observacao: string
   qtd: number
   id: number
+  status: string
 }
 
-const Card = ({data, preco, nome, observacao, qtd, id}: Props) => {
+const Card = ({data, preco, nome, observacao, qtd, id, status}: Props) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'CARD',
-    item: {data_pedido: data, id: id, nome_pedido: nome, obs_pedido: observacao, qtd_pedido: qtd, valor_pedido: preco},
+    item: {id: id, data_pedido: data,  nome_pedido: nome, obs_pedido: observacao, qtd_pedido: qtd, valor_pedido: preco, status_pedido: status},
     collect: (monitor) => ({
       isDragging: !!monitor.isDragging(),
     }),
