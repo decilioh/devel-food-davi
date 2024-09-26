@@ -41,7 +41,6 @@ export const ContainerAction = styled.section`
     align-items: center;
 
     button{
-        margin: 3.9375rem 0 0 0;
         width: 100%; /* Deixa o botão com 100% da largura disponível */
         max-width: 400px; /* Limita a largura máxima */
     }

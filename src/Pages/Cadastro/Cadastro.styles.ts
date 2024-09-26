@@ -11,6 +11,10 @@ export const ImageLogo = styled.img`
   width: auto; // Ajuste conforme necessário
   height: auto;
   margin-bottom: 1.13rem;
+
+  @media screen and (max-height: 800px) {
+      margin-top: 170px;
+  }
 `
 export const ImageProgress = styled.img`
   width: 244px; // Ajuste conforme necessário

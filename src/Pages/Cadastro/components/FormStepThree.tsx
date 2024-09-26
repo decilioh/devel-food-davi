@@ -47,6 +47,7 @@ const FormStepThree = ({ setvalue }: Props) => {
             name: user.name,
             phoneNumber: user.phoneNumber,
             foodType: user.foodType,
+            url: user.url,
             restaurantAddress: {
                 addressLabel: data["nicknameAddress"],
                 city: data["city"],

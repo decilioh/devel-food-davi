@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { FormDataSchemaPersonInfos, schemaPersonInfos } from '../schema';
@@ -9,8 +9,12 @@ import { MdFastfood } from 'react-icons/md';
 import Select from '../../../components/common/Select';
 import { optionsSelect } from '../../../utils/optionsSelect';
 import { handlePhoneChange } from '../../../utils';
+import { ErrorMessage, HiddenInput, ImageUploadContainer, LabelText, UploadIcon } from '../../NewDishes/newDishes.styles';
+import { CiImageOn } from 'react-icons/ci';
 
 const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => Promise<any>) | null> }) => {
+  const [imageUrl, setImageUrl] = useState<string | null>(null);
+
   const { register, handleSubmit, formState: { errors, touchedFields }, setValue } = useForm<FormDataSchemaPersonInfos>({
     resolver: zodResolver(schemaPersonInfos),
   });
@@ -32,9 +36,43 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
     };
   }, [onSubmitRef, handleSubmit]);
 
+  const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
+    if (file) {
+      const imageUrl = URL.createObjectURL(file);
+      setImageUrl(imageUrl);
+      setValue("image", file);
+    }
+  };
+
   return (
-    <form>
+    <form style={{ margin: "auto auto 30px auto",justifyContent: "center", display: "flex", flexDirection: "column", height: "500px" }}>
       {/* Email Input */}
+      <div id="div-image" style={{ margin: "auto auto 20px auto", alignItems: "center", justifyContent: "center" }}>
+        <label htmlFor="input-image" >
+          <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image} style={{ width: "230px", height: '200px' }}>
+            {!imageUrl && (
+              <>
+                <UploadIcon>
+                  <CiImageOn />
+                </UploadIcon>
+                <LabelText>Adicionar imagem</LabelText>
+              </>
+            )}
+
+            <HiddenInput
+              id="input-image"
+              accept="image/*"
+              type="file"
+              {...register("image")}
+              onChange={handleImageChange}
+            />
+
+          </ImageUploadContainer>
+        </label>
+        {errors.image && <ErrorMessage>{errors.image.message}</ErrorMessage>}
+      </div>
+
       <Input
         id='email-input'
         icon={MdOutlineEmail}

@@ -51,6 +51,7 @@ const FormStepOne = ({ setvalue }: Props) => {
                 cnpj: "",
                 phoneNumber: "",
                 foodType: "",
+                url: "",
                 restaurantAddress: {
                     addressLabel: "",
                     postalCode: "",

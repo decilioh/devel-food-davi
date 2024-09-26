@@ -43,16 +43,16 @@ const Profile = () => {
                 <LeftData>
                     <h2>Informações Pessoais</h2>
                     <FormPersonInfos onSubmitRef={submitPersonInfosRef} />
-                    <Button id='button-change-password' style={{ marginTop: "1.75rem" }} onClick={() => navigate("/perfil/trocar-senha")}>Alterar senha</Button>
                 </LeftData>
                 <RightData>
                     <h2>Endereço</h2>
                     <FormAddress onSubmitRef={submitAddressRef} />
                 </RightData>
-            </ContainerForm>
+            </ContainerForm>          
             <ContainerAction>
                 <hr />
-                <Button id='button-save-changes' onClick={handleSubmit}>Salvar</Button>
+                    <Button id='button-change-password' style={{ marginTop: "1.2rem", marginBottom: "14px" }} onClick={() => navigate("/perfil/trocar-senha")}>Alterar senha</Button>
+                    <Button id='button-save-changes' onClick={handleSubmit}>Salvar</Button>
             </ContainerAction>
             <Helmet title="Perfil" />
         </MainContainer>
