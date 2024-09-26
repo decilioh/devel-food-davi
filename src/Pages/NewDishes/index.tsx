@@ -1,11 +1,9 @@
-import styled from "styled-components"
-import { ButtonApp } from "../../components/common/Button/button.styles"
 import { CiImageOn } from "react-icons/ci";
 import Input from "../../components/common/Input";
 import TextArea from "../../components/common/TextArea";
 import Select from "../../components/common/Select";
 import { MdFastfood } from "react-icons/md";
-import { FieldError, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { FormData, schema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../../components/common/Button";
@@ -16,8 +14,8 @@ import { useNavigate } from "react-router-dom";
 import { ButtonHeader, ErrorMessage, FormContent, HeaderMenu, HiddenInput, ImageUploadContainer, LabelText, MainContainer, OtherInputs, UploadIcon } from "./newDishes.styles";
 import { optionsSelect } from "../../utils/optionsSelect";
 import { Helmet } from "react-helmet-async";
-
-
+import { uploadImage } from "../../hooks/firebaseStorage";
+import { createDish } from "../../services/createDish";
 
 
 
@@ -28,8 +26,27 @@ const NewDishes = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const onSubmit: SubmitHandler<FormData> = async(data) => {
     console.log(data);
+    try {
+      const imageUrl = await uploadImage(data.image)
+      console.log(imageUrl)
+      await createDish({
+        description: data.description,
+        dishName: data.name,
+        foodType: data.typesOfFood.join(' '),
+        photo: imageUrl,
+        price: data.price,
+        restaurant: {
+          id: 2
+        }
+      })
+      
+    } catch (error) {
+      toast.error("Erro durante o upload e salvamento da imagem")
+    }
+
+
     toast.success('Prato adicionado com sucesso!', {
       onClose: () => {
         toast.error("Ocorreu algum erro!", {
