@@ -2,12 +2,13 @@ import styled from "styled-components";
 
 export const MainContainer = styled.section`
     padding: 20px;
-    margin: auto;
     h2 {
         text-align: center;
         font-size: 3rem;
         font-family: Roboto;
-        margin-bottom: 108px; 
+        margin-bottom: 80px; 
+        margin-top: 56px;
+        font-weight: 500;
     } 
     overflow-y: auto;
 
@@ -27,52 +28,66 @@ export const MainContainer = styled.section`
         }
     }
 `;
+
 export const TableContainer = styled.div`
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    display: flex;
     gap: 20px;
     margin-top: 20px;
-    justify-items: center; 
-    width: 100%; 
+    width: 100%;
     min-height: 32vw;
+    
 
     @media (max-width: 1024px) {
-        grid-template-columns: repeat(2, 1fr);
+        flex-wrap: wrap;
+        gap: 10px;
     }
 
     @media (max-width: 768px) {
-        grid-template-columns: 1fr;
+        flex-direction: column;
+        align-items: center;
     }
 `;
 
+export const ContainerTitle = styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+`;
 
-export const TableColumn = styled.div`
+export const TableColumn = styled.div<{ isFirst?: boolean }>`
     display: flex;
     flex-direction: column;
     gap: 20px;
-    padding: 0 10px; 
+    padding: 1rem 10px;
     max-width: 362.25px;
     width: 100%;
     align-items: center;
     overflow-y: auto;
+    min-height: 32vw;
 
-    border-right: 2px solid #ccc; 
-    &:first-child {
-        border-left: 2px solid #ccc;
+    ${({ isFirst }) => isFirst && `border-left: 2px solid #ccc;`} 
+    border-right: 2px solid #ccc;
+
+    @media (max-width: 1024px) {
+        max-width: 100%;
+        border-left: none;
+        border-right: none;
+        ${({ isFirst }) => isFirst && `border-left: none;`} 
     }
 
     @media (max-width: 768px) {
         max-width: 100%;
     }
+
+    @media (max-width: 480px) {
+        padding: 0 5px;
+    }
 `;
 
 export const ColumnTitle = styled.h3`
     font-family: 'Roboto Condensed', sans-serif;
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-
-    @media (max-width: 768px) {
-        font-size: 1.2rem;
-    }
-`;
-
+    font-weight: bold;
+    font-size: 1.25rem;
+    color: #625858;
+    margin-bottom: 67px;
+`
