@@ -29,48 +29,57 @@ const FormStepTwo = ({ setvalue }: Props) => {
     const {
         register,
         handleSubmit,
-        formState: { errors, touchedFields },
+        formState: { errors, touchedFields, isSubmitting },
         setValue
     } = useForm<FormDataSchemaStepTwo>({
         resolver: zodResolver(schemaStepTwo)
     })
 
-    const onSubmit: SubmitHandler<FormDataSchemaStepTwo> = async(data) => {
+    const onSubmit: SubmitHandler<FormDataSchemaStepTwo> = async (data) => {
+        if(isSubmitting) return null
         try {
             const downloadUrl = await uploadImage(data.image)
             console.log(data)
-            if(!user) return null
+            if (!user) return null
             setUser({
                 cnpj: user.cnpj,
                 email: user.email,
                 password: user.password,
-                restaurantAddress: user.restaurantAddress,
-                url: downloadUrl,
                 name: data["name"],
                 phoneNumber: data["telephone"].replace(/[^\d]/g, ''),
-                foodType: data["typesOfFood"].join(",")
-            }) 
+                foodType: data["typesOfFood"].join(","),
+                url: downloadUrl,
+                restaurantAddress: {
+                    addressLabel: user.restaurantAddress.addressLabel,
+                    city: user.restaurantAddress.city,
+                    neighborhood: user.restaurantAddress.neighborhood,
+                    number: user.restaurantAddress.number,
+                    postalCode: user.restaurantAddress.postalCode,
+                    state: user.restaurantAddress.state,
+                    street: user.restaurantAddress.street,
+                },
+            })
             setvalue(3)
         } catch (error) {
             console.error(error)
-        }   
-        
+        }
+
     };
 
     const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const file = event.target.files?.[0];
         if (file) {
-          const imageUrl = URL.createObjectURL(file);
-          setImageUrl(imageUrl);
-          setValue("image", file);
+            const imageUrl = URL.createObjectURL(file);
+            setImageUrl(imageUrl);
+            setValue("image", file);
         }
-      };
+    };
 
     return (
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-two'>
-            <div id="div-image" style={{margin: "auto auto 20px auto"}}>
+            <div id="div-image" style={{ margin: "auto auto 20px auto" }}>
                 <label htmlFor="input-image" >
-                    <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image} style={{ width: "230px", height: '200px'}}>
+                    <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image} style={{ width: "230px", height: '200px' }}>
                         {!imageUrl && (
                             <>
                                 <UploadIcon>
@@ -122,8 +131,8 @@ const FormStepTwo = ({ setvalue }: Props) => {
                 <Button id="button-return-page" onClick={() => setvalue(1)}>
                     Voltar
                 </Button>
-                <Button id="button-submit" type="submit">
-                    Continuar
+                <Button id="button-submit" type="submit" isSubmitting={isSubmitting}>
+                    {isSubmitting ? "Enviando..." : "Salvar"}
                 </Button>
             </SpacingContents>
         </FormStepOneStyled>

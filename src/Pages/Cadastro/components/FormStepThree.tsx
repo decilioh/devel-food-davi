@@ -49,13 +49,13 @@ const FormStepThree = ({ setvalue }: Props) => {
             foodType: user.foodType,
             url: user.url,
             restaurantAddress: {
-                addressLabel: data["nicknameAddress"],
-                city: data["city"],
-                neighborhood: data["neighborhood"],
-                number: data["number"],
-                postalCode: extrairNumeros(data["cep"]),
-                state: data["state"],
-                street: data["road"]
+                addressLabel: data.nicknameAddress,
+                city: data.city,
+                neighborhood: data.neighborhood,
+                number: data.number,
+                postalCode: extrairNumeros(data.cep),
+                state: data.state,
+                street: data.road
             }    
         })
 

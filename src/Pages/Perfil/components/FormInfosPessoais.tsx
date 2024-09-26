@@ -46,8 +46,7 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
   };
 
   return (
-    <form style={{ margin: "auto auto 30px auto",justifyContent: "center", display: "flex", flexDirection: "column", height: "500px" }}>
-      {/* Email Input */}
+    <form style={{ margin: "auto auto 30px auto", display: "flex", flexDirection: "column", maxHeight: "540px"}}>
       <div id="div-image" style={{ margin: "auto auto 20px auto", alignItems: "center", justifyContent: "center" }}>
         <label htmlFor="input-image" >
           <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image} style={{ width: "230px", height: '200px' }}>

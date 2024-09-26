@@ -7,11 +7,12 @@ export interface ButtonProps{
     onClick?: React.MouseEventHandler<HTMLButtonElement> | undefined
     id: string
     style?: React.CSSProperties | undefined
+    isSubmitting?: boolean
 }
 
-const Button = ({id, children, type="button", onClick=()=>{}, style}: ButtonProps) => {
+const Button = ({id, children, type="button", onClick=()=>{}, style, isSubmitting}: ButtonProps) => {
   return (
-    <ButtonApp type={type} id={id} onClick={onClick} style={style}>
+    <ButtonApp type={type} id={id} disabled={isSubmitting} onClick={onClick} style={style}>
         {children}
     </ButtonApp>
   )

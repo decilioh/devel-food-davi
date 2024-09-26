@@ -22,11 +22,12 @@ import { createDish } from "../../services/createDish";
 const NewDishes = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const navigate = useNavigate()
-  const { register, handleSubmit, formState: { errors, touchedFields }, setValue } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors, touchedFields, isSubmitting }, setValue } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
   const onSubmit: SubmitHandler<FormData> = async(data) => {
+    if(isSubmitting) return null
     console.log(data);
     try {
       const imageUrl = await uploadImage(data.image)
@@ -41,21 +42,21 @@ const NewDishes = () => {
           id: 2
         }
       })
+      toast.success('Prato adicionado com sucesso!', {
+        onClose: () => {
+          navigate(-1)
+        }
+      });
       
     } catch (error) {
-      toast.error("Erro durante o upload e salvamento da imagem")
+      toast.error("Ocorreu algum erro!", {
+        onClose: () => {
+        }
+      })
     }
 
 
-    toast.success('Prato adicionado com sucesso!', {
-      onClose: () => {
-        toast.error("Ocorreu algum erro!", {
-          onClose: () => {
-            navigate(-1)
-          }
-        })
-      }
-    });
+    
   };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -115,7 +116,7 @@ const NewDishes = () => {
             onCustomChange={(selectedValues) => setValue("typesOfFood", selectedValues)}
             options={optionsSelect}
           />
-          <Button id="button-submit" type="submit">Salvar</Button>
+          <Button id="button-submit" type="submit" isSubmitting={isSubmitting}>{isSubmitting ? "Enviando..." : "Salvar"}</Button>
         </OtherInputs>
       </FormContent>
       <Helmet title="Novo prato" />
