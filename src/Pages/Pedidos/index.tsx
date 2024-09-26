@@ -1,11 +1,12 @@
 // Orders.tsx
 import Card from './components/Card';
 import { useDrop } from 'react-dnd';
-import { ColumnTitle, MainContainer, TableColumn, TableContainer } from './orders.styles';
+import { ColumnTitle, ContainerTitle, MainContainer, TableColumn, TableContainer } from './orders.styles';
 import { useContext, useEffect, useState } from 'react';
 import { IOrder, mockOrders, StatusPedido } from '../../mocks/orders';
 import { ModalContext, ModalContextProps } from '../../context/modalContext';
 import { toast } from 'react-toastify';
+import { Helmet } from 'react-helmet-async';
 
 
 const Orders = () => {
@@ -27,8 +28,8 @@ const Orders = () => {
   const handleInvalidDrop = (item: IOrder, targetStatus: string) => {
     const statusPedido = checkStatus(targetStatus);
     if (statusPedido === "AGUARDANDO_CONFIRMACAO" ||
-        (statusPedido === "EM_PREPARO" && (item.status_pedido === "SAIU_PARA_ENTREGA" || item.status_pedido === "ENTREGUE")) ||
-        (statusPedido === "SAIU_PARA_ENTREGA" && item.status_pedido === "ENTREGUE")) {
+      (statusPedido === "EM_PREPARO" && (item.status_pedido === "SAIU_PARA_ENTREGA" || item.status_pedido === "ENTREGUE")) ||
+      (statusPedido === "SAIU_PARA_ENTREGA" && item.status_pedido === "ENTREGUE")) {
       return toast.error("Não é possível mover para uma etapa anterior!");
     }
     return false;
@@ -145,67 +146,77 @@ const Orders = () => {
     <MainContainer className="orders-page">
       <h2>Seus pedidos</h2>
       <TableContainer>
-        <TableColumn ref={dropWaiting}>
+        <ContainerTitle>
           <ColumnTitle>Esperando Aceitação</ColumnTitle>
-          {boardWaiting.map((item: IOrder) => (
-            <Card 
-              data={item.data_pedido}
-              nome={item.nome_pedido}
-              observacao={item.obs_pedido}
-              preco={item.valor_pedido}
-              qtd={item.qtd_pedido}
-              key={item.id}
-              id={item.id}
-              status={item.status_pedido}
-            />
-          ))}
-        </TableColumn>
-        <TableColumn ref={dropPreparing}>
+          <TableColumn ref={dropWaiting} id='first-column' isFirst>
+            {boardWaiting.map((item: IOrder) => (
+              <Card
+                data={item.data_pedido}
+                nome={item.nome_pedido}
+                observacao={item.obs_pedido}
+                preco={item.valor_pedido}
+                qtd={item.qtd_pedido}
+                key={item.id}
+                id={item.id}
+                status={item.status_pedido}
+              />
+            ))}
+          </TableColumn>
+        </ContainerTitle>
+        <ContainerTitle>
           <ColumnTitle>Em Preparo</ColumnTitle>
-          {boardPreparing.map((item: IOrder) => (
-            <Card 
-              data={item.data_pedido}
-              nome={item.nome_pedido}
-              observacao={item.obs_pedido}
-              preco={item.valor_pedido}
-              qtd={item.qtd_pedido}
-              key={item.id}
-              id={item.id}
-              status={item.status_pedido}
-            />
-          ))}
-        </TableColumn>
-        <TableColumn ref={dropOnTheWay}>
+          <TableColumn ref={dropPreparing}>
+            {boardPreparing.map((item: IOrder) => (
+              <Card
+                data={item.data_pedido}
+                nome={item.nome_pedido}
+                observacao={item.obs_pedido}
+                preco={item.valor_pedido}
+                qtd={item.qtd_pedido}
+                key={item.id}
+                id={item.id}
+                status={item.status_pedido}
+              />
+            ))}
+          </TableColumn>
+        </ContainerTitle>
+        <ContainerTitle>
           <ColumnTitle>Em Rota</ColumnTitle>
-          {boardOnTheWay.map((item: IOrder) => (
-            <Card 
-              data={item.data_pedido}
-              nome={item.nome_pedido}
-              observacao={item.obs_pedido}
-              preco={item.valor_pedido}
-              qtd={item.qtd_pedido}
-              key={item.id}
-              id={item.id}
-              status={item.status_pedido}
-            />
-          ))}
-        </TableColumn>
-        <TableColumn ref={dropDelivered}>
+          <TableColumn ref={dropOnTheWay}>
+            {boardOnTheWay.map((item: IOrder) => (
+              <Card
+                data={item.data_pedido}
+                nome={item.nome_pedido}
+                observacao={item.obs_pedido}
+                preco={item.valor_pedido}
+                qtd={item.qtd_pedido}
+                key={item.id}
+                id={item.id}
+                status={item.status_pedido}
+              />
+            ))}
+          </TableColumn>
+        </ContainerTitle>
+        <ContainerTitle>
           <ColumnTitle>Entregue</ColumnTitle>
-          {boardDelivered.map((item: IOrder) => (
-            <Card 
-              data={item.data_pedido}
-              nome={item.nome_pedido}
-              observacao={item.obs_pedido}
-              preco={item.valor_pedido}
-              qtd={item.qtd_pedido}
-              key={item.id}
-              id={item.id}
-              status={item.status_pedido}
-            />
-          ))}
-        </TableColumn>
+          <TableColumn ref={dropDelivered}>
+            {boardDelivered.map((item: IOrder) => (
+              <Card
+                data={item.data_pedido}
+                nome={item.nome_pedido}
+                observacao={item.obs_pedido}
+                preco={item.valor_pedido}
+                qtd={item.qtd_pedido}
+                key={item.id}
+                id={item.id}
+                status={item.status_pedido}
+              />
+            ))}
+          </TableColumn>
+        </ContainerTitle>
+
       </TableContainer>
+      <Helmet title="Pedidos" />
     </MainContainer>
   );
 };

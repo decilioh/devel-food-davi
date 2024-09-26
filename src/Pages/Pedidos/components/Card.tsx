@@ -43,15 +43,14 @@ const Card = ({data, preco, nome, observacao, qtd, id, status}: Props) => {
         )}
       </CardData>
       <CardBottom>
-        <Separator />
+        <Separator isOpen={isOpen}/>
         <ToggleButton onClick={toggleCard}>
             {isOpen ? 'Clique para ver menos' : 'Clique para ver mais'}
         </ToggleButton>
-
       </CardBottom>
 
 
-      <FoodIcon />
+      <FoodIcon isOpen={isOpen}/>
     </CardContainer>
   );
 };
