@@ -128,7 +128,7 @@ const FormStepTwo = ({ setvalue }: Props) => {
                 options={optionsSelect}
             />
             <SpacingContents style={{ marginTop: "64px" }}>
-                <Button id="button-return-page" onClick={() => setvalue(1)}>
+                <Button isSubmitting={isSubmitting} id="button-return-page" onClick={() => setvalue(1)}>
                     Voltar
                 </Button>
                 <Button id="button-submit" type="submit" isSubmitting={isSubmitting}>

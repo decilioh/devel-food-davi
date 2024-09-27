@@ -25,7 +25,7 @@ const FormStepOne = ({ setvalue }: Props) => {
     const {
         register,
         handleSubmit,
-        formState: { errors, touchedFields },
+        formState: { errors, touchedFields, isSubmitting },
         setValue
     } = useForm<FormDataSchemaStepOne>({
         resolver: zodResolver(schemaStepOne)
@@ -42,6 +42,7 @@ const FormStepOne = ({ setvalue }: Props) => {
 
     const onSubmit: SubmitHandler<FormDataSchemaStepOne> = async(data) => {
         const passwordEncrypted = await encryptPassword(data.password)
+        if(isSubmitting) return null
         console.log(data)
         setUser((prevContent) => {
             const prevUser = prevContent || {
@@ -109,10 +110,10 @@ const FormStepOne = ({ setvalue }: Props) => {
                 isTouched={touchedFields.confirmPassword}
             />
             <SpacingContents style={{marginTop: "60px"}}>
-                <Button id="button-return-page" onClick={() => navigate("/login")}>
+                <Button isSubmitting={isSubmitting} id="button-return-page" onClick={() => navigate("/login")}>
                     Voltar
                 </Button>
-                <Button id="button-submit" type="submit">
+                <Button isSubmitting={isSubmitting} id="button-submit" type="submit">
                     Continuar
                 </Button>
             </SpacingContents>
