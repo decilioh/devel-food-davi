@@ -17,7 +17,7 @@ export interface IUser {
     cnpj: string
     phoneNumber: string
     foodType: string
-    url: string
+    photo: string
     restaurantAddress: Adress
 }
 

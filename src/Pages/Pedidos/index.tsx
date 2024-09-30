@@ -26,12 +26,18 @@ const Orders = () => {
   );
 
   const handleInvalidDrop = (item: IOrder, targetStatus: string) => {
-    const statusPedido = checkStatus(targetStatus);
-    if (statusPedido === "AGUARDANDO_CONFIRMACAO" ||
-      (statusPedido === "EM_PREPARO" && (item.status_pedido === "SAIU_PARA_ENTREGA" || item.status_pedido === "ENTREGUE")) ||
-      (statusPedido === "SAIU_PARA_ENTREGA" && item.status_pedido === "ENTREGUE")) {
+    const status = checkStatus(targetStatus);
+  
+    const condic = [
+      status === "AGUARDANDO_CONFIRMACAO",
+      status === "EM_PREPARO" && (item.status_pedido === "SAIU_PARA_ENTREGA" || item.status_pedido === "ENTREGUE"),
+      status === "SAIU_PARA_ENTREGA" && item.status_pedido === "ENTREGUE"
+    ];
+  
+    if (condic.some(condition => condition)) {
       return toast.error("Não é possível mover para uma etapa anterior!");
     }
+  
     return false;
   };
 
@@ -214,7 +220,6 @@ const Orders = () => {
             ))}
           </TableColumn>
         </ContainerTitle>
-
       </TableContainer>
       <Helmet title="Pedidos" />
     </MainContainer>
