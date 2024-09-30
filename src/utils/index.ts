@@ -76,6 +76,7 @@ export const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, setVal
     telephone: string;
     typesOfFood
     : ["brasileiro" | "picante" | "mexicana" | "japonesa", ...("brasileiro" | "picante" | "mexicana" | "japonesa")[]] | string[];
+    image: File
 }>) => {
     const maskedValue = maskPhone(e.target.value);
     setValue('telephone', maskedValue);

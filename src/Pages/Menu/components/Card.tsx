@@ -26,6 +26,7 @@ const Card = ({nome}: Props) => {
                 </ButtonContainer>
             </ImageContainer>
             <p>{nome}</p>
+
         </SectionMenuOptionsCard>
     )
 }

@@ -1,11 +1,9 @@
-import styled from "styled-components"
-import { ButtonApp } from "../../components/common/Button/button.styles"
 import { CiImageOn } from "react-icons/ci";
 import Input from "../../components/common/Input";
 import TextArea from "../../components/common/TextArea";
 import Select from "../../components/common/Select";
 import { MdFastfood } from "react-icons/md";
-import { FieldError, SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm } from "react-hook-form";
 import { FormData, schema } from "./schema";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Button from "../../components/common/Button";
@@ -16,29 +14,49 @@ import { useNavigate } from "react-router-dom";
 import { ButtonHeader, ErrorMessage, FormContent, HeaderMenu, HiddenInput, ImageUploadContainer, LabelText, MainContainer, OtherInputs, UploadIcon } from "./newDishes.styles";
 import { optionsSelect } from "../../utils/optionsSelect";
 import { Helmet } from "react-helmet-async";
-
-
+import { uploadImage } from "../../hooks/firebaseStorage";
+import { createDish } from "../../services/createDish";
 
 
 
 const NewDishes = () => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const navigate = useNavigate()
-  const { register, handleSubmit, formState: { errors, touchedFields }, setValue } = useForm<FormData>({
+  const { register, handleSubmit, formState: { errors, touchedFields, isSubmitting }, setValue } = useForm<FormData>({
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormData> = (data) => {
+  const onSubmit: SubmitHandler<FormData> = async(data) => {
+    if(isSubmitting) return null
     console.log(data);
-    toast.success('Prato adicionado com sucesso!', {
-      onClose: () => {
-        toast.error("Ocorreu algum erro!", {
-          onClose: () => {
-            navigate(-1)
-          }
-        })
-      }
-    });
+    try {
+      const imageUrl = await uploadImage(data.image)
+      console.log(imageUrl)
+      await createDish({
+        description: data.description,
+        dishName: data.name,
+        foodType: data.typesOfFood.join(' '),
+        photo: imageUrl,
+        price: data.price,
+        restaurant: {
+          id: 2
+        }
+      })
+      toast.success('Prato adicionado com sucesso!', {
+        onClose: () => {
+          navigate(-1)
+        }
+      });
+      
+    } catch (error) {
+      toast.error("Ocorreu algum erro!", {
+        onClose: () => {
+        }
+      })
+    }
+
+
+    
   };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -98,7 +116,7 @@ const NewDishes = () => {
             onCustomChange={(selectedValues) => setValue("typesOfFood", selectedValues)}
             options={optionsSelect}
           />
-          <Button id="button-submit" type="submit">Salvar</Button>
+          <Button id="button-submit" type="submit" isSubmitting={isSubmitting}>{isSubmitting ? "Enviando..." : "Salvar"}</Button>
         </OtherInputs>
       </FormContent>
       <Helmet title="Novo prato" />

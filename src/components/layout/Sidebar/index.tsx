@@ -54,7 +54,7 @@ const Sidebar: React.FC<SidebarProps> = ({ isMobile, isOpen, toggleSidebar }) =>
           <FaUtensils />
           {isOpen && !isMobile && <span>+ Cadastrar prato</span>}
         </MenuItemPlus>
-        <MenuItem id='sidebar-orders'>
+        <MenuItem id='sidebar-orders' onClick={() => navigate("pedidos")}>
           <FaPhoneAlt />
           {isOpen && !isMobile && <span>Pedidos</span>}
         </MenuItem>
