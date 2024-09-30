@@ -8,6 +8,5 @@ export default {
       '^.+\\.(ts|tsx)$': 'ts-jest',
       '^.+\\.(js|jsx|mjs)$': 'babel-jest',
     },
-    setupFiles: ['./jest.setup.js'],
   };
   
