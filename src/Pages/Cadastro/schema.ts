@@ -43,7 +43,14 @@ export const schemaStepTwo = z.object({
         .array()
         .nonempty({ message: "Selecione pelo menos uma opção" }),
         z.array(z.string()).min(1)
-    ])
+    ]),
+    image: z
+        .any()
+        .refine((file) => file instanceof File, { message: 'Insira uma imagem' })
+        .refine((file) => file.size <= 5 * 1024 * 1024, { message: 'O tamanho da imagem deve ser menor que 5MB' })
+        .refine((file) => ['image/jpeg', 'image/png'].includes(file.type), {
+            message: 'Apenas arquivos PNG e JPEG são permitidos',
+        }),
 })
 
 export type FormDataSchemaStepTwo = z.infer<typeof schemaStepTwo>;

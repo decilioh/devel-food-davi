@@ -22,7 +22,7 @@ const FormStepThree = ({ setvalue }: Props) => {
     const {
         register,
         handleSubmit,
-        formState: { errors, touchedFields },
+        formState: { errors, touchedFields, isSubmitting },
         setValue
     } = useForm<FormDataSchemaStepThree>({
         resolver: zodResolver(schemaStepThree)
@@ -30,6 +30,7 @@ const FormStepThree = ({ setvalue }: Props) => {
 
     const onSubmit: SubmitHandler<FormDataSchemaStepThree> = async(data) => {
         if (!user) return null
+        if (isSubmitting) return null
         const addressArray = {
             addressLabel: data["nicknameAddress"],
             city: data["city"],
@@ -47,14 +48,15 @@ const FormStepThree = ({ setvalue }: Props) => {
             name: user.name,
             phoneNumber: user.phoneNumber,
             foodType: user.foodType,
+            photo: user.photo,
             restaurantAddress: {
-                addressLabel: data["nicknameAddress"],
-                city: data["city"],
-                neighborhood: data["neighborhood"],
-                number: data["number"],
-                postalCode: extrairNumeros(data["cep"]),
-                state: data["state"],
-                street: data["road"]
+                addressLabel: data.nicknameAddress,
+                city: data.city,
+                neighborhood: data.neighborhood,
+                number: data.number,
+                postalCode: extrairNumeros(data.cep),
+                state: data.state,
+                street: data.road
             }    
         })
 
@@ -146,11 +148,11 @@ const FormStepThree = ({ setvalue }: Props) => {
 
             </FormDivisionOne>
             <SpacingContents style={{ marginTop: "53px" }}>
-                <Button id="button-return-page" onClick={() => setvalue(1)}>
+                <Button isSubmitting={isSubmitting} id="button-return-page" onClick={() => setvalue(1)}>
                     Voltar
                 </Button>
-                <Button id="button-submit" type="submit">
-                    Continuar
+                <Button isSubmitting={isSubmitting} id="button-submit" type="submit">
+                    {isSubmitting ? "Enviando..." : "Continuar"}
                 </Button>
             </SpacingContents>
         </FormStepOneStyled>

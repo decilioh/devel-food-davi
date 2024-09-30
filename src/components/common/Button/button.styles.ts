@@ -16,6 +16,9 @@ export const ButtonApp = styled.button`
     font-weight: 500;
     text-align: center;
 
+    &:disabled{
+        opacity: 0.9;
+    }
 
     @media screen and (max-width: 1024px) {
         width: 30vw;
