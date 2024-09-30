@@ -12,7 +12,7 @@ const criaRestauranteCorreto = {
     name: 'Davi Garutti Diniz',
     password: '123123@@gmail.com',
     phoneNumber: '24999117580',
-    url: "https://loremflickr.com/300/300",
+    photo: "https://loremflickr.com/300/300",
     restaurantAddress: {
         addressLabel: 'Casa',
         city: 'Resende',
@@ -34,7 +34,7 @@ describe('Testes na função que cria um Restaurante', () => {
                 name: 'Davi Garutti Diniz',
                 password: '123123@@gmail.com',
                 phoneNumber: '24999117580',
-                url: "https://loremflickr.com/300/300",
+                photo: "https://loremflickr.com/300/300",
                 restaurantAddress: {
                     addressLabel: 'Casa',
                     city: 'Resende',
