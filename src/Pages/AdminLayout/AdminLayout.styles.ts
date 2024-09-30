@@ -4,6 +4,7 @@ export const MainContainer = styled.div`
   height: 100vh;
   display: flex;
   overflow-y: hidden;
+  
   @media screen and (max-width: 1025px){
     overflow-y: auto;
   }
@@ -20,9 +21,9 @@ export const MainSection = styled.div`
   flex-direction: column;
 `;
 
-export const Content = styled.div`
+export const Content = styled.div<{isOrdersPage: boolean}>`
   background-color: ${({ theme }) => theme.background};
-  overflow-y: hidden;
+  overflow-y: ${({isOrdersPage}) => isOrdersPage ? "auto":"hidden"};;
   max-height: 1080px;
   overflow-x: hidden;
   margin: auto 0;

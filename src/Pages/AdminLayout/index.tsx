@@ -4,7 +4,7 @@ import { useContext, useEffect, useState } from "react";
 import { ThemeContext } from "../../context/themeContext";
 import HeaderMain from "../../components/layout/Header";
 import Sidebar from "../../components/layout/Sidebar";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import { Content, MainContainer, MainSection } from "./AdminLayout.styles";
 import Modal from "../../components/common/Modal";
 
@@ -16,6 +16,8 @@ const Layout = () => {
   const theme = useContext(ThemeContext)
   const [isSidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const [isMobile, setIsMobile] = useState<boolean>(window.innerWidth <= 650);
+  const location = useLocation()
+  const isOrdersPage = location.pathname.includes("/admin/pedidos")
 
   const toggleSidebar = () => setSidebarOpen(!isSidebarOpen);
 
@@ -25,12 +27,13 @@ const Layout = () => {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
+
   return (
     <MainContainer>
       <Sidebar isMobile={isMobile} toggleSidebar={toggleSidebar} isOpen={isSidebarOpen} />
       <MainSection>
         <HeaderMain toggleSidebar={toggleSidebar} />
-        <Content>
+        <Content isOrdersPage={isOrdersPage}>
           <Outlet />
         </Content>
         <Modal />
