@@ -7,7 +7,7 @@ import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
 import { FaHouse } from "react-icons/fa6";
 import { extrairNumeros, handleCepChange } from '../../../utils';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
 import { SignupContext, signupProps } from '../../../context/signupContext';
 import { signUpRestaurant } from '../../../services/signUp';
 import { toast } from 'react-toastify';
@@ -19,36 +19,24 @@ interface Props {
 
 const FormStepThree = ({ setvalue }: Props) => {
     const { user, setUser } = useContext(SignupContext) as signupProps
+    const [isReadyToSubmit, setIsReadyToSubmit] = useState(false)
+
+
     const {
         register,
         handleSubmit,
-        formState: { errors, touchedFields, isSubmitting },
+        formState: { errors, touchedFields, isSubmitting,  },
         setValue
+        
     } = useForm<FormDataSchemaStepThree>({
         resolver: zodResolver(schemaStepThree)
     })
 
     const onSubmit: SubmitHandler<FormDataSchemaStepThree> = async(data) => {
-        if (!user) return null
-        if (isSubmitting) return null
-        const addressArray = {
-            addressLabel: data["nicknameAddress"],
-            city: data["city"],
-            neighborhood: data["neighborhood"],
-            number: data["number"],
-            postalCode: extrairNumeros(data["cep"]),
-            state: data["state"],
-            street: data["road"]
-        }
+        if (!user || isSubmitting) return null;
 
         setUser({
-            cnpj: user.cnpj,
-            email: user.email,
-            password: user.password,
-            name: user.name,
-            phoneNumber: user.phoneNumber,
-            foodType: user.foodType,
-            photo: user.photo,
+            ...user,
             restaurantAddress: {
                 addressLabel: data.nicknameAddress,
                 city: data.city,
@@ -56,21 +44,30 @@ const FormStepThree = ({ setvalue }: Props) => {
                 number: data.number,
                 postalCode: extrairNumeros(data.cep),
                 state: data.state,
-                street: data.road
-            }    
-        })
+                street: data.road,
+            }
+        });
 
-
-        try {
-            console.log(user)
-            const data = await signUpRestaurant(user)
-            console.log(data)
-            setvalue(4)
-        } catch (error) {
-            setvalue(5)
-        }
-
+        setIsReadyToSubmit(true)
     };
+
+    useEffect(() => {
+        if (isReadyToSubmit && user) {
+            const submitToApi = async () => {
+                try {
+                    const response = await signUpRestaurant(user)
+                    console.log(response)
+                    setvalue(4)
+                } catch (error) {
+                    console.error(error)
+                    setvalue(5)
+                }
+            };
+
+            submitToApi()
+        }
+    }, [isReadyToSubmit, user, setvalue])
+
 
     return (
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-three'>

@@ -3,8 +3,12 @@ import { z } from "zod";
 export const schema = z.object({
     name: z.string().nonempty({ message: "Insira o nome do prato" }),
     description: z.string().nonempty({ message: "Insira a descrição do prato" }),
-    price: z.string().min(1, 'Insira o preço').regex(/^\d+(\.\d{1,2})?$/, { message: 'Preço inválido. Apenas números e até duas casas decimais são permitidos.' })
-        .nonempty({ message: "Input - Inválido" }),
+    price: z.string().min(1, "O preço deve estar no formato correto (R$ 0,00).").refine(
+        (value) => {
+            const numericValue = parseFloat(value.replace(/\./g, '').replace(',', '.').trim());
+            return numericValue <= 1000;
+        },
+        { message: "O preço deve ser no máximo R$ 1.000,00." }),
     typesOfFood: z.union([
         z.enum([
             "Brasileira",
