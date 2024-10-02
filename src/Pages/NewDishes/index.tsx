@@ -26,8 +26,8 @@ const NewDishes = () => {
     resolver: zodResolver(schema),
   });
 
-  const onSubmit: SubmitHandler<FormData> = async(data) => {
-    if(isSubmitting) return null
+  const onSubmit: SubmitHandler<FormData> = async (data) => {
+    if (isSubmitting) return null
     console.log(data);
     try {
       const imageUrl = await uploadImage(data.image)
@@ -37,7 +37,7 @@ const NewDishes = () => {
         dishName: data.name,
         foodType: data.typesOfFood.join(' '),
         photo: imageUrl,
-        price: data.price,
+        price: data.price.replace('.', '').replace(',', '.'),
         restaurant: {
           id: 2
         }
@@ -47,7 +47,7 @@ const NewDishes = () => {
           navigate(-1)
         }
       });
-      
+
     } catch (error) {
       toast.error("Ocorreu algum erro!", {
         onClose: () => {
@@ -56,7 +56,7 @@ const NewDishes = () => {
     }
 
 
-    
+
   };
 
   const handleImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -66,6 +66,20 @@ const NewDishes = () => {
       setImageUrl(imageUrl);
       setValue("image", file);
     }
+  };
+
+  const formatPrice = (value: string) => {
+    const numberString = value.replace(/\D/g, '');
+    if (!numberString) return '';
+    const number = parseFloat(numberString) / 100;
+    if (number > 1000) return '1000,00'
+    return `${number.toLocaleString('pt-BR', { minimumFractionDigits: 2 })}`;
+  };
+  
+  const handlePriceChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const formattedValue = formatPrice(value);
+    setValue('price', formattedValue, { shouldValidate: false });
   };
 
   return (
@@ -104,9 +118,10 @@ const NewDishes = () => {
         </div>
         <OtherInputs>
           <Input id="input-name" placeholder="Nome" {...register("name")} error={errors.name} isTouched={touchedFields.name} />
-          <div style={{display: "flex", flexDirection: "column", gap: "15px"}}>
+          <div style={{ display: "flex", flexDirection: "column", gap: "15px" }}>
             <TextArea id="input-description" placeholder="Descrição" {...register("description")} error={errors.description} isTouched={touchedFields.description} />
-            <Input id="input-price" placeholder="Preço" {...register("price")} error={errors.price} isTouched={touchedFields.price} />
+            <Input id="input-price" placeholder="Preço" {...register("price")} error={errors.price} isTouched={touchedFields.price}
+              onChange={(e) => handlePriceChange(e)} />
           </div>
           <Select
             id="select-typesOfFood"
