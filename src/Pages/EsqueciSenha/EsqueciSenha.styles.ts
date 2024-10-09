@@ -36,6 +36,7 @@ export const NoticeVerified = styled.span`
   max-width: 500px;
   width: 100%;
   color: #A2A2A2;
+  text-align: center;
 `
 
 export const SpacingContents = styled.div`

@@ -6,8 +6,10 @@ export const MainContainer = styled.div`
     flex-direction: column;
     align-items: center;
     overflow-x: hidden;
-    margin-right: 17.5rem;
     margin-bottom: 16rem;
+    @media (max-height: 1000px) {
+        margin-top: 20vh;
+    }
 `
 
 export const LogoContainer = styled.div`

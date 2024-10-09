@@ -8,12 +8,26 @@ import { IoMdCard } from 'react-icons/io';
 import { MdFastfood } from 'react-icons/md';
 import Select from '../../../components/common/Select';
 import { optionsSelect } from '../../../utils/optionsSelect';
-import { handlePhoneChange } from '../../../utils';
+import { formatCNPJ, handlePhoneChange, maskPhone } from '../../../utils';
 import { ErrorMessage, HiddenInput, ImageUploadContainer, LabelText, UploadIcon } from '../../NewDishes/newDishes.styles';
 import { CiImageOn } from 'react-icons/ci';
+import { IRestaurantGet } from '../../../services/restaurant/getRestaurant';
 
-const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => Promise<any>) | null> }) => {
+interface Props {
+  onSubmitRef: React.MutableRefObject<(() => Promise<any>) | null>
+  data: IRestaurantGet | null
+}
+
+export interface FormInfosPessoais {
+  image: string | File
+  phoneNumber: string
+  name: string
+  typesOfFood: Array<string>
+}
+
+const FormPersonInfos = ({ onSubmitRef, data }: Props) => {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
+  const [selectedFoodTypes, setSelectedFoodTypes] = useState<string[]>([]);
 
   const { register, handleSubmit, formState: { errors, touchedFields }, setValue } = useForm<FormDataSchemaPersonInfos>({
     resolver: zodResolver(schemaPersonInfos),
@@ -24,6 +38,17 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
     console.log("FormPersonInfos Data Inside onSubmit:", data); // Log para verificar os dados do formulário
     return data;
   };
+
+  useEffect(() => {
+    if (data && data.photo) {
+      setValue("image", data.photo)
+      setImageUrl(data.photo)
+      setValue("telephone", maskPhone(data.phoneNumber))
+      setValue("name", data.name)
+      setSelectedFoodTypes(data.foodType.split(","));
+      setValue("typesOfFood", data.foodType.split(","))
+    }
+  }, [])
 
   useEffect(() => {
     onSubmitRef.current = async () => {
@@ -45,11 +70,14 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
     }
   };
 
+  if(!data) return null
+
   return (
-    <form style={{ margin: "auto auto 30px auto", display: "flex", flexDirection: "column", maxHeight: "540px"}}>
+    <form style={{ margin: "auto auto 30px auto", display: "flex", flexDirection: "column", maxHeight: "540px" }}>
       <div id="div-image" style={{ margin: "auto auto 20px auto", alignItems: "center", justifyContent: "center" }}>
         <label htmlFor="input-image" >
-          <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image} style={{ width: "230px", height: '200px' }}>
+          <ImageUploadContainer imageUrl={imageUrl} errorBorder={errors.image} style={{ width: "230px", height: '200px' }}>
+            {imageUrl && <img src={imageUrl} alt="Preview" style={{ width: '100%', height: '100%', borderRadius: '1.5rem' }} />}
             {!imageUrl && (
               <>
                 <UploadIcon>
@@ -76,14 +104,14 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
         id='email-input'
         icon={MdOutlineEmail}
         disabled={true}
-        placeholder='tiago.pereira@develcode.com'
+        placeholder={data?.email}
       />
 
       {/* CNPJ Input */}
       <Input
         id='cnpj-input'
         icon={IoMdCard}
-        placeholder='46.233.005/0001-65'
+        placeholder={formatCNPJ(data?.cnpj)}
         disabled={true}
       />
 
@@ -116,6 +144,7 @@ const FormPersonInfos = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<
         options={optionsSelect}
         onCustomChange={(selectedValues: string[]) => setValue('typesOfFood', selectedValues)}
         text="Tipos de comida"
+        value={selectedFoodTypes}
       />
     </form>
   );

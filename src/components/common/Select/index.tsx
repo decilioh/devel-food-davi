@@ -34,6 +34,14 @@ const Select = React.forwardRef<HTMLSelectElement, SelectProps>(({ icon: Icon, e
     };
   }, []);
 
+  useEffect(() => {
+    if (props.value && Array.isArray(props.value)) {
+      setSelectedValues(props.value); // Inicializar o Select com os valores passados
+      onCustomChange(props.value); // Garantir que o onCustomChange seja disparado
+    }
+  }, [props.value, onCustomChange]);
+
+  
   return (
     <div ref={wrapperRef}>
       {error && <ErrorAsterisk>*</ErrorAsterisk>}

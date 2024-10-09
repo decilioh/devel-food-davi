@@ -9,6 +9,9 @@ export const MainContainer = styled.section`
         margin-bottom: 80px; 
         margin-top: 56px;
         font-weight: 500;
+        display: flex;
+        flex-direction: column;
+        gap: 50px;
     } 
     overflow-y: auto;
 
@@ -26,6 +29,10 @@ export const MainContainer = styled.section`
         h2 {
             font-size: 1.5rem;
         }
+    }
+
+    @media (max-height: 1000px) {
+        margin-top: 20vh;
     }
 `;
 
@@ -59,8 +66,7 @@ export const TableColumn = styled.div<{ isFirst?: boolean }>`
     flex-direction: column;
     gap: 20px;
     padding: 1rem 10px;
-    max-width: 362.25px;
-    width: 100%;
+    width: 362.25px; /* Largura padrão para telas maiores */
     align-items: center;
     overflow-y: auto;
     min-height: 32vw;
@@ -69,20 +75,22 @@ export const TableColumn = styled.div<{ isFirst?: boolean }>`
     border-right: 2px solid #ccc;
 
     @media (max-width: 1024px) {
-        max-width: 100%;
+        width: 75%; /* Ajuste para telas médias */
         border-left: none;
         border-right: none;
-        ${({ isFirst }) => isFirst && `border-left: none;`} 
+        ${({ isFirst }) => isFirst && `border-left: none;`}
     }
 
     @media (max-width: 768px) {
-        max-width: 100%;
+        width: 100%; /* 100% da largura para telas menores */
     }
 
     @media (max-width: 480px) {
+        width: 100%; /* Largura total para telas pequenas */
         padding: 0 5px;
     }
 `;
+
 
 export const ColumnTitle = styled.h3`
     font-family: 'Roboto Condensed', sans-serif;
