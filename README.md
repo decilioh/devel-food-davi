@@ -2,6 +2,12 @@
 
 **Develfood** é uma plataforma de restaurante que permite aos usuários fazerem pedidos de delivery de forma prática e eficiente. O sistema é projetado para facilitar a interação entre clientes e restaurantes, oferecendo uma interface simples para o gerenciamento de pedidos, promoções e pratos.
 
+
+## Objetivo
+
+O principal objetivo do **Develfood** é proporcionar uma plataforma intuitiva e completa para restaurantes gerenciarem seus pedidos e ofertas, além de oferecer uma experiência simples para os usuários que desejam fazer pedidos de delivery.
+
+
 ## Funcionalidades
 
 ### 1. Tela de Login
@@ -41,9 +47,6 @@ Gerencia os pedidos recebidos, permitindo que eles sejam movidos pelas seguintes
 
 Cada pedido é representado por um card, que pode ser movido entre as diferentes etapas de acordo com o status do pedido.
 
-## Objetivo
-
-O principal objetivo do **Develfood** é proporcionar uma plataforma intuitiva e completa para restaurantes gerenciarem seus pedidos e ofertas, além de oferecer uma experiência simples para os usuários que desejam fazer pedidos de delivery.
 
 ## Tecnologias Utilizadas
 
@@ -54,6 +57,7 @@ O principal objetivo do **Develfood** é proporcionar uma plataforma intuitiva e
 - **Upload de Imagens**: Firebase Storage
 - **Testes**: Jest
 - **Gerenciamento de Estado e Navegação**: React Router, Context API
+- **Estilização**: Styled Components
 
 ## Como Rodar o Projeto
 
@@ -88,8 +92,3 @@ O principal objetivo do **Develfood** é proporcionar uma plataforma intuitiva e
     ```
     npm run dev
     ```
-
-
-## Contribuições
-
-Fique à vontade para abrir issues ou enviar pull requests para melhorias no projeto!
