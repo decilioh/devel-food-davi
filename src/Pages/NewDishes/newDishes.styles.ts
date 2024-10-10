@@ -91,7 +91,7 @@ export const FormContent = styled.form`
     }
 `
 
-export const ImageUploadContainer = styled.div<{ imageUrl?: string, errorBorder?: FieldError }>`
+export const ImageUploadContainer = styled.div<{ imageUrl: string | null; errorBorder?: FieldError }>`
   display: flex;
   flex-direction: column;
   align-items: center;

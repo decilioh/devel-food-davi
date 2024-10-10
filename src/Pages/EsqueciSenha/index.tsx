@@ -12,15 +12,16 @@ import { Helmet } from "react-helmet-async"
 
 const ForgotMyPassword = () => {
   const [value, setValue] = useState<number>(1)
+  const [email, setEmail] = useState<string>("")
 
   function checkStep(){
       switch (value) {
         case 1:
-          return <StepOne value={setValue}/>
+          return <StepOne value={setValue} setEmail={setEmail} />
         case 2: 
           return <StepTwo value={setValue} />
         case 3: 
-          return <StepThree value={setValue}/>
+          return <StepThree value={setValue} email={email} />
         default:
           break;
       }

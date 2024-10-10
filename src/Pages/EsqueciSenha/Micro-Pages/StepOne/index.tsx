@@ -8,15 +8,16 @@ import { useContext } from "react"
 
 interface Props{
     value: React.Dispatch<React.SetStateAction<number>>
+    setEmail:  React.Dispatch<React.SetStateAction<string>>
 }
 
-const StepOne = ({value}: Props) => {
+const StepOne = ({value, setEmail}: Props) => {
     const theme = useContext(ThemeContext)
 
     return (
         <>
             <ImageLogo src={theme?.theme === "light" ? ImgLogoWhite : ImgLogoBlack} id="image-logo"/>
-            <FormJustEmail value={value}/>
+            <FormJustEmail value={value} setEmail={setEmail}/>
         </>
     )
 }

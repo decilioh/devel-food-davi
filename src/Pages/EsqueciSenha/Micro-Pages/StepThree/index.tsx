@@ -9,15 +9,16 @@ import { ThemeContext } from '../../../../context/themeContext'
 
 interface Props {
   value: React.Dispatch<React.SetStateAction<number>>
+  email: string
 }
 
-const StepThree = ({ value }: Props) => {
+const StepThree = ({ value, email }: Props) => {
   const theme = useContext(ThemeContext)
 
   return (
     <>
       <ImageLogo src={theme?.theme === "light" ? ImgLogoWhite : ImgLogoBlack} id="image-logo" />
-      <FormValidation value={value} />
+      <FormValidation value={value} email={email}/>
     </>
   )
 }

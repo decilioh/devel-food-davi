@@ -6,7 +6,7 @@ import { ThemeContextProps } from "../../../context/themeContext"
 
 
 export interface LoaderProps{
-    theme: ThemeContextProps | undefined
+    theme?: ThemeContextProps | undefined
 }
 
 const Loader = ({theme}: LoaderProps) => {

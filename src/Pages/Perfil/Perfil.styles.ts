@@ -22,6 +22,10 @@ export const MainContainer = styled.main`
         margin-bottom: 3.8125rem;
         color: ${({ theme }) => theme.text};
     }
+
+    @media (max-height: 1000px) {
+        margin-top: 20vh;
+    }
 `;
 
 export const ContainerForm = styled.section`

@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { signUpRestaurant } from './signUp';
-import { createDish, IDish } from './createDish';
+import { createDish, IDish } from './dish/createDish';
 
 jest.mock('axios');
 const mockedAxios = axios as jest.Mocked<typeof axios>;

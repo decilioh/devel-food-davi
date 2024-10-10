@@ -5,9 +5,26 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { FormDivisionOne, FormStepOneStyled } from '../../Cadastro/components/Form.styles';
 import Input from '../../../components/common/Input';
 import { FaHouse } from 'react-icons/fa6';
-import { handleCepChange } from '../../../utils';
+import { handleCepChange, maskCEP } from '../../../utils';
+import { IRestaurantGet } from '../../../services/restaurant/getRestaurant';
 
-const FormAddress = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() => Promise<any>) | null> }) => {
+interface Props {
+    onSubmitRef: React.MutableRefObject<(() => Promise<any>) | null>
+    data: IRestaurantGet | null
+}
+
+export interface FormEndereco {
+    nicknameAddress: string,
+    cep: string,
+    road: string,
+    neighborhood: string,
+    city: string,
+    number:string,
+    state: string
+}
+
+
+const FormAddress = ({ onSubmitRef, data }: Props) => {
     const { register, handleSubmit, formState: { errors, touchedFields }, setValue } = useForm<FormDataSchemaAddress>({
         resolver: zodResolver(schemaAddress),
     });
@@ -16,6 +33,18 @@ const FormAddress = ({ onSubmitRef }: { onSubmitRef: React.MutableRefObject<(() 
         console.log("FormAddress Data Inside onSubmit:", data); // Log para verificar os dados do formulário
         return data;
     };
+
+    useEffect(() => {
+        if (data) {
+          setValue("cep", maskCEP(data.restaurantAddress.postalCode))
+          setValue("city", data.restaurantAddress.city)
+          setValue("neighborhood", data.restaurantAddress.neighborhood)
+          setValue("nicknameAddress", data.restaurantAddress.addressLabel)
+          setValue("number",data.restaurantAddress.number)
+          setValue("road", data.restaurantAddress.street)
+          setValue("state", data.restaurantAddress.state)
+        }
+      }, [])
     
     useEffect(() => {
         onSubmitRef.current = async () => {
