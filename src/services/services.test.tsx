@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { signUpRestaurant } from './signUp';
+import { signUpRestaurant } from './restaurant/signUp';
 import { createDish, IDish } from './dish/createDish';
 
 jest.mock('axios');
@@ -76,7 +76,7 @@ describe("createDish", () => {
         const mockResponse = { data: { success: true } };
         mockedAxios.post.mockResolvedValueOnce(mockResponse);
 
-        const result = await createDish(mockDish);
+        const result = await createDish(mockDish, "tokenDefault");
 
         expect(mockedAxios.post).toHaveBeenCalledWith(
             `${process.env.VITE_BASE_URL_BACKEND}/dish`,
@@ -90,6 +90,6 @@ describe("createDish", () => {
         mockedAxios.post.mockRejectedValue(new Error('Erro de validação'));
 
         // Espera-se que um erro seja lançado com a mensagem 'Erro de validação'
-        await expect(createDish(mockDish)).rejects.toThrow('Erro de validação');
+        await expect(createDish(mockDish, "tokenDefault")).rejects.toThrow('Erro de validação');
     });
 });

@@ -58,6 +58,7 @@ export const schemaStepTwo = z.object({
 
 export type FormDataSchemaStepTwo = z.infer<typeof schemaStepTwo>;
 
+ 
 
 export const schemaStepThree = z.object({
     nicknameAddress: z.string().nonempty({ message: "Campo obrigatório" }),
