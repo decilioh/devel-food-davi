@@ -1,56 +1,64 @@
 // Card.tsx
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDrag } from 'react-dnd';
 import { BoldText, CardBottom, CardContainer, CardData, FoodIcon, InfoRow, Separator, ToggleButton } from './card.styles';
+import { IOrder } from '../../../mocks/orders';
 
-interface Props{ 
-  data: string
-  preco: string
-  nome: string
-  observacao: string
-  qtd: number
-  id: number
-  status: string
+interface Props { 
+  order: IOrder; // Mudamos para receber um objeto IOrder
 }
 
-const Card = ({data, preco, nome, observacao, qtd, id, status}: Props) => {
+
+const Card = ({ order }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [dishNames, setDishNames] = useState<string[]>([]);
+  const [totalQuantity, setTotalQuantity] = useState(0);
+  const [streetAddress, setStreetAddress] = useState('');
+
+  useEffect(() => {
+    const names = order.products.map(product => product.dishName);
+    setDishNames(names);
+    const total = order.products.reduce((sum, product) => sum + product.quantity, 0);
+    setTotalQuantity(total);
+    if (order.customer && order.customer.addresses && order.customer.addresses.length > 0) {
+      const street = order.customer.addresses[0].street;
+      setStreetAddress(street);
+    }
+  }, [order]);
 
   const [{ isDragging }, drag] = useDrag(() => ({
     type: 'CARD',
-    item: {id: id, data_pedido: data,  nome_pedido: nome, obs_pedido: observacao, qtd_pedido: qtd, valor_pedido: preco, status_pedido: status},
+    item: { ...order },
     collect: (monitor) => ({
-      isDragging: !!monitor.isDragging(),
+      isDragging: monitor.isDragging(),
     }),
   }));
 
   const toggleCard = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   return (
     <CardContainer isOpen={isOpen} ref={drag} isDragging={isDragging}>
       <CardData>
-        <InfoRow><BoldText>Data do pedido:</BoldText> {data}</InfoRow>
-        <InfoRow><BoldText>Valor do prato:</BoldText> R$ {preco}</InfoRow>
+        <InfoRow><BoldText>Data do pedido:</BoldText> {new Date().toLocaleDateString()}</InfoRow>
+        <InfoRow><BoldText>Valor do prato:</BoldText> R$ {order.totalPrice.toFixed(2)}</InfoRow>
 
         {isOpen && (
           <>
-            <InfoRow><BoldText>Nome do prato:</BoldText> {nome}</InfoRow>
-            <InfoRow><BoldText>Observação:</BoldText> {observacao}</InfoRow>
-            <InfoRow><BoldText>Quantidade:</BoldText> {qtd}x</InfoRow>
+            <InfoRow><BoldText>Nome do prato:</BoldText> {dishNames.join(', ')}</InfoRow>
+            <InfoRow><BoldText>Endereço:</BoldText> {streetAddress}</InfoRow>
+            <InfoRow><BoldText>Quantidade:</BoldText> {totalQuantity}x</InfoRow>
           </>
         )}
       </CardData>
       <CardBottom>
-        <Separator isOpen={isOpen}/>
+        <Separator isOpen={isOpen} />
         <ToggleButton onClick={toggleCard}>
-            {isOpen ? 'Clique para ver menos' : 'Clique para ver mais'}
+          {isOpen ? 'Clique para ver menos' : 'Clique para ver mais'}
         </ToggleButton>
       </CardBottom>
-
-
-      <FoodIcon isOpen={isOpen}/>
+      <FoodIcon isOpen={isOpen} />
     </CardContainer>
   );
 };

@@ -12,6 +12,10 @@ export const MainContainer = styled.div`
     overflow-y: auto;
     overflow-x: hidden;
   }
+  @media screen and (max-height: 1000px){
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
   
 `;
 
@@ -39,6 +43,10 @@ export const Content = styled.div<{isOrdersPage: boolean}>`
     margin: auto 0 auto auto;
   }
   @media screen and (max-height: 766px){
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+  @media screen and (max-height: 1000px){
     overflow-y: auto;
     overflow-x: hidden;
   }

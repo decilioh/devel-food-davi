@@ -35,8 +35,10 @@ const Router = () => {
           <Route path="menu" element={<Menu />} />
           <Route path="perfil" element={<Profile />} />
           <Route path="menu/novo-prato" element={<NewDishes />} />
+          <Route path="menu/novo-prato/:id" element={<NewDishes />} />
           <Route path="promocoes" element={<Promotions />} />
           <Route path="promocoes/nova-promocao" element={<NewPromotion />} />
+          <Route path="promocoes/nova-promocao/:id" element={<NewPromotion />} />
           <Route path="pedidos" element={<DndProvider backend={HTML5Backend}><Orders /></DndProvider>} />
           <Route path="*" element={<Error404Loged />} />
         </Route>

@@ -36,7 +36,7 @@ const FormStepTwo = ({ setvalue }: Props) => {
     })
 
     const onSubmit: SubmitHandler<FormDataSchemaStepTwo> = async (data) => {
-        if(isSubmitting) return null
+        if (isSubmitting) return null
         try {
             const downloadUrl = await uploadImage(data.image)
             console.log(data)
@@ -79,7 +79,8 @@ const FormStepTwo = ({ setvalue }: Props) => {
         <FormStepOneStyled onSubmit={handleSubmit(onSubmit)} noValidate id='form-step-two'>
             <div id="div-image" style={{ margin: "auto auto 20px auto" }}>
                 <label htmlFor="input-image" >
-                    <ImageUploadContainer imageUrl={imageUrl ?? undefined} errorBorder={errors.image} style={{ width: "230px", height: '200px' }}>
+                    <ImageUploadContainer imageUrl={imageUrl} errorBorder={errors.image}>
+                        {imageUrl && <img src={imageUrl} alt="Preview" style={{ width: '100%', height: '100%', borderRadius: '1.5rem' }} />}
                         {!imageUrl && (
                             <>
                                 <UploadIcon>

@@ -12,10 +12,13 @@ import { AuthContext, IAuthContextFunctions } from '../../../context/authContext
 import { IUserContextFunctions, UserContext } from '../../../context/userContext';
 import { Bounce, toast } from 'react-toastify';
 import { useNavigate } from 'react-router-dom';
+import { authUser } from '../../../services/authUser';
+import { AxiosError } from 'axios';
 
 const Form = () => {
-    const {signInSetCookies} = useContext(AuthContext) as IAuthContextFunctions
-    const {setEmail, setPassword, setUser, email, password} = useContext(UserContext) as IUserContextFunctions
+    const { signInSetCookies } = useContext(AuthContext) as IAuthContextFunctions
+    const { setEmail, setPassword, setUser, email, password } = useContext(UserContext) as IUserContextFunctions
+
     const navigate = useNavigate()
     const {
         register,
@@ -25,25 +28,32 @@ const Form = () => {
         resolver: zodResolver(schema)
     })
 
-    const onSubmit: SubmitHandler<FormDataSchema> = (data) => {
-        if(data){
-            if(data.email === mockUser.email && data.password === mockUser.password){
-                signInSetCookies(mockUser.token)
-                setEmail(data.email)
-                setPassword(data.password)
-                setUser({email: email, password: password})
-                navigate('/admin/home')
-                return toast.success("Login realizado com sucesso!", {
-                    transition: Bounce
-                })
+    const onSubmit: SubmitHandler<FormDataSchema> = async (data) => {
+        if (data) {
+            try {
+                const user = { email: data.email, password: data.password }
+                const auth = await authUser(user)
+                if (auth) {
+                    signInSetCookies(auth)
+                    setPassword(data.password)
+                    setUser({ email: email, password: password })
+                    navigate('/admin/home')
+                    return toast.success("Login realizado com sucesso!", {
+                        transition: Bounce
+                    })
+                }
+            } catch (error) {
+                console.log(error)
+                if(error instanceof AxiosError){
+                    return toast.error(`${error.response?.data}`, {
+                        transition: Bounce
+                    })
+                }
             }
-            return toast.error("Email ou senha inválidos!", {
-                transition: Bounce,
-            })
         }
     };
 
-    
+
 
     return (
         <FormLogin onSubmit={handleSubmit(onSubmit)} noValidate id='form-login'>

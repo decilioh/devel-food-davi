@@ -3,21 +3,22 @@ import { ButtonApp } from "../../components/common/Button/button.styles";
 
 export const MainContainer = styled.main`
     max-width: 1279px;
+    width: 100%;
     margin: auto;
     height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
     align-items: start;
 
-    @media screen and (max-width: 1180px){
+    @media screen and (max-width: 1565px){
         margin: auto;
     }
 
 `
 
 export const HeaderMenu = styled.section`
-    max-width: 1279px;
     width: 100%;
+    max-width: 1279px;
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -33,12 +34,12 @@ export const HeaderMenu = styled.section`
         margin: 0;
 
         color: ${({ theme }) => theme.primary};
-        @media screen and (max-width: 1180px){
+        @media screen and (max-width: 1565px){
             text-align: center;
         }
     }
 
-    @media screen and (max-width: 1180px){
+    @media screen and (max-width: 1565px){
         flex-direction: column;
         align-items: center;
         gap: 1.88rem;
@@ -97,11 +98,13 @@ export const SectionMenuOptions = styled.section`
     flex: 1;
     display: flex;
     flex-wrap: wrap;
-    width: calc(100% + 30px);
+    width: 1279px;
     gap: 4.06rem;
+    justify-content: center;
     
-    @media screen and (max-width: 1180px){
-        justify-content: center;
+    @media screen and (max-width: 1565px){
+        width: auto;
+        margin: auto;
         gap: 1.88rem;
     }
 
@@ -134,7 +137,10 @@ export const ImageContainer = styled.div`
 
 export const ImageCard = styled.img`
   width: 271px;
-  height: auto;
+  height: 271px;
+  border-radius: 24px;
+  background-size: cover;
+  background-position: center;
 `;
 
 export const ButtonContainer = styled.div`
@@ -167,3 +173,16 @@ export const IconButton = styled.button`
     height: 1.88rem;
   }
 `;
+
+export const TextoDeNaoPossui = styled.p`
+    font-family: 'Roboto Condensed';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    max-width: 464px;
+    margin: auto 0;
+
+    color: #999090;
+`

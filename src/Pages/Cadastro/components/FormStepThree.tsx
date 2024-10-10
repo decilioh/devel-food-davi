@@ -6,11 +6,11 @@ import { FormDivisionOne, FormStepOneStyled, SpacingContents } from './Form.styl
 import Button from '../../../components/common/Button';
 import Input from '../../../components/common/Input';
 import { FaHouse } from "react-icons/fa6";
-import { extrairNumeros, handleCepChange } from '../../../utils';
+import { encryptPassword, extrairNumeros, handleCepChange } from '../../../utils';
 import { useContext, useEffect, useState } from 'react';
 import { SignupContext, signupProps } from '../../../context/signupContext';
-import { signUpRestaurant } from '../../../services/signUp';
 import { toast } from 'react-toastify';
+import { signUpRestaurant } from '../../../services/restaurant/signUp';
 
 interface Props {
     setvalue: React.Dispatch<React.SetStateAction<number>>
@@ -34,9 +34,11 @@ const FormStepThree = ({ setvalue }: Props) => {
 
     const onSubmit: SubmitHandler<FormDataSchemaStepThree> = async(data) => {
         if (!user || isSubmitting) return null;
+        const encryptedPass = await encryptPassword(user.password)
 
         setUser({
             ...user,
+            password: encryptedPass,
             restaurantAddress: {
                 addressLabel: data.nicknameAddress,
                 city: data.city,

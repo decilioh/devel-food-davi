@@ -1,5 +1,12 @@
 import { UseFormSetValue } from "react-hook-form";
 import { useCepAutoComplete } from "../hooks/cepAutoComplete";
+import bcrypt from 'bcryptjs';
+
+export const encryptPassword = async (password: string): Promise<string> => {
+  const saltRounds = 10; // Define o número de rounds para gerar o salt
+  const hashedPassword = await bcrypt.hash(password, saltRounds);
+  return hashedPassword;
+};
 
 export function validCnpj(cnpj: string): boolean {
     // Remove caracteres não numéricos
@@ -38,7 +45,7 @@ export function validCnpj(cnpj: string): boolean {
     return true;
 }
 
-export const formatCNPJ = (value: string) => {
+export const formatCNPJ = (value: string): string => {
     return value
         .replace(/\D/g, '') // Remove qualquer caractere que não seja número
         .replace(/(\d{2})(\d)/, '$1.$2') // Adiciona o primeiro ponto
@@ -76,7 +83,7 @@ export const handlePhoneChange = (e: React.ChangeEvent<HTMLInputElement>, setVal
     telephone: string;
     typesOfFood
     : ["brasileiro" | "picante" | "mexicana" | "japonesa", ...("brasileiro" | "picante" | "mexicana" | "japonesa")[]] | string[];
-    image: File
+    image: File | string
 }>) => {
     const maskedValue = maskPhone(e.target.value);
     setValue('telephone', maskedValue);
@@ -130,3 +137,11 @@ export const handleCepChange = (e: React.ChangeEvent<HTMLInputElement>, setValue
     }
 };
 
+export function convertDate(dateString: string): string {
+    // Divide a string de data em ano, mês e dia
+    const [year, month, day] = dateString.split('-');
+    
+    // Retorna a data formatada como dd/mm/yy
+    return `${day}/${month}/${year}`;
+  }
+  

@@ -3,21 +3,21 @@ import { ButtonApp } from "../../components/common/Button/button.styles";
 
 export const MainContainer = styled.main`
     max-width: 1426px;
+    width: 100%;
     margin: auto;
     height: calc(100vh - 150px);
     display: flex;
     flex-direction: column;
     align-items: start;
 
-    @media screen and (max-width: 1180px){
+    @media screen and (max-width: 1700px){
         margin: auto;
     }
 
 `
 
 export const HeaderMenu = styled.section`
-    max-width: 1426px;
-    width: 100%;
+    width: 1426px;
     display: flex;
     justify-content: space-between;
     align-items: end;
@@ -33,14 +33,16 @@ export const HeaderMenu = styled.section`
         margin: 0;
 
         color: ${({ theme }) => theme.primary};
-        @media screen and (max-width: 1180px){
+        @media screen and (max-width: 1700px){
             text-align: center;
         }
     }
 
-    @media screen and (max-width: 1180px){
+    @media screen and (max-width: 1700px){
+        width: 100%;
         flex-direction: column;
         align-items: center;
+        justify-content: center;
         gap: 1.88rem;
     }
 
@@ -94,21 +96,19 @@ export const SearchIcon = styled.img`
 `;
 
 export const SectionMenuOptions = styled.section`
-
     flex: 1;
     display: flex;
     flex-wrap: wrap;
     width: 1279px;
-    width: calc(100% + 50px);
     gap: 4.06rem;
-    height: auto;
     justify-content: center;
+    margin: auto;
     
-    @media screen and (max-width: 1180px){
-        justify-content: center;
+    @media screen and (max-width: 1700px){
+        width: auto;
+        margin: auto;
         gap: 1.88rem;
     }
-
 
 `
 
@@ -137,9 +137,10 @@ export const ImageContainer = styled.div`
 
 export const ImageCard = styled.img`
   width: 271px;
-  height: auto;
+  height: 271px;
   border-radius: 24px;
-
+  background-size: cover;
+  background-position: center;
 `;
 
 export const ButtonContainer = styled.div`

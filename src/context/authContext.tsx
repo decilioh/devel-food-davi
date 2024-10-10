@@ -43,9 +43,7 @@ export const AuthProvider = ({ children }: IAuthProvider) => {
 
     function signInSetCookies(token: string) {
         Cookies.set('userToken', token, {
-            expires: 7, // Expira em 7 dias
             secure: true, // Envia apenas em HTTPS
-            httpOnly: false, // Se fosse configurado no backend, seria true
         });
         setToken(token); // Atualiza o estado do token
     }

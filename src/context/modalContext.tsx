@@ -6,6 +6,7 @@ export interface ModalContextProps{
     closeModal: () => void
     setConfirmAction: (action?: () => void) => void; // Função para definir a ação de confirmação
     confirmAction?: () => void
+    setConfirmActionPromisse: (action?: () => Promise<void>) => void
 }
 
 interface ModalProviderProps {
@@ -39,8 +40,13 @@ export function ModalProvider({children}: ModalProviderProps){
         setOnConfirm(() => action); // Define a função de confirmação dinamicamente
     };
 
+    const setConfirmActionPromisse = (action?: () => Promise<void>) => {
+        setOnConfirm(() => action)
+    };
+
+
     return(
-        <ModalContext.Provider value={{isOpen, openModal, closeModal, setConfirmAction, confirmAction }}>
+        <ModalContext.Provider value={{isOpen, openModal, closeModal, setConfirmAction, confirmAction, setConfirmActionPromisse }}>
             {children}
         </ModalContext.Provider>
     )
