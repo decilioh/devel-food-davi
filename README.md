@@ -1,3 +1,4 @@
+
 # Develfood
 
 **Develfood** é uma plataforma de restaurante que permite aos usuários fazerem pedidos de delivery de forma prática e eficiente. O sistema é projetado para facilitar a interação entre clientes e restaurantes, oferecendo uma interface simples para o gerenciamento de pedidos, promoções e pratos.

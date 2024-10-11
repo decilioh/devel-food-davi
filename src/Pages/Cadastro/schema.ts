@@ -44,17 +44,21 @@ export const schemaStepTwo = z.object({
         .nonempty({ message: "Selecione pelo menos uma opção" }),
         z.array(z.string()).min(1)
     ]),
-    image: z
-        .any()
-        .refine((file) => file instanceof File, { message: 'Insira uma imagem' })
-        .refine((file) => file.size <= 5 * 1024 * 1024, { message: 'O tamanho da imagem deve ser menor que 5MB' })
-        .refine((file) => ['image/jpeg', 'image/png'].includes(file.type), {
-            message: 'Apenas arquivos PNG e JPEG são permitidos',
-        }),
+    image: z.union([
+        z
+            .any()
+            .refine((file) => file instanceof File, { message: 'A imagem é obrigatória' })
+            .refine((file) => file.size <= 5 * 1024 * 1024, { message: 'O tamanho da imagem deve ser menor que 5MB' })
+            .refine((file) => ['image/jpeg', 'image/png'].includes(file.type), {
+                message: 'Apenas arquivos PNG e JPEG são permitidos',
+            }),
+        z.string().url({ message: 'A URL da imagem deve ser válida.' })
+    ])
 })
 
 export type FormDataSchemaStepTwo = z.infer<typeof schemaStepTwo>;
 
+ 
 
 export const schemaStepThree = z.object({
     nicknameAddress: z.string().nonempty({ message: "Campo obrigatório" }),
